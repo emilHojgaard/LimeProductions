@@ -343,13 +343,14 @@ footer{background:none}
   box-sizing:border-box;width:fit-content;min-width:104px;height:50px;padding:0 12px;cursor:pointer;
   display:flex;flex-direction:column;justify-content:center;gap:3px;
   position:relative;border:2px solid transparent;background:var(--bg);color:var(--muted);
-  white-space:nowrap;text-align:left;transition:border-color .14s,color .14s}
+  white-space:nowrap;text-align:left;transition:border-color .26s ease,color .26s ease,background .26s ease}
 .vtab:hover{color:var(--ink)}
 /* the active bookmark keeps its fill; only the frame changes, and the
    modal's edge is erased where the two meet so they read as one surface */
 .vtab.on{border-color:var(--ink);color:var(--ink);z-index:7}
-.vtab.on::after{content:"";position:absolute;top:0;bottom:0;right:-6px;width:10px;
-  background:var(--bg);z-index:1}
+.vtab::after{content:"";position:absolute;top:0;bottom:0;right:-6px;width:10px;
+  background:var(--bg);z-index:1;opacity:0;transition:opacity .26s ease}
+.vtab.on::after{opacity:1}
 .vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.75;text-transform:none;min-height:11px}
 
 
@@ -388,22 +389,29 @@ footer{background:none}
 /* on narrow screens the flank has no room — tabs return above the modal */
 @media(max-width:1100px){
   .modal-top .vtabs{position:absolute;top:-44px;left:0;transform:none;flex-direction:row}
-  .vtab.on::after{top:auto;right:0;left:0;bottom:-6px;width:auto;height:10px}
+  .vtab::after{top:auto;right:0;left:0;bottom:-6px;width:auto;height:10px}
 }
 
-/* ===== MODAL PALETTE — drawn from the background photograph =====
-   The silk runs on #fd9a34 / #fd851c, so the modal sits in the same
-   hue family a few steps down in saturation, rather than reading as a
-   white box dropped onto an orange page. Scoped to the modal only. */
+/* ===== MODAL PALETTE — white paper with the photograph's yellow =====
+   The silk runs orange (#fd9a34); the modal takes the neighbouring
+   yellow and sits on warm white, with neutral near-black type — no
+   brown. Scoped to the modal only. */
 .modal-wrap{
-  --bg:#fbe6d2;          /* the modal ground — warm peach paper       */
-  --card:#fff2e4;
-  --ink:#3a1d0b;         /* deep warm brown, still 11:1 on the ground */
-  --muted:#8a5c3c;
-  --faint:#bd9877;
-  --border:#efd7be;
-  --sky:#f7d3b0;         /* caption bars and tags                     */
-  --sky2:#fae3cd;
-  --accent:#fc7f1e;      /* the photograph's own orange               */
-  --on-accent:#2a1305;
+  --bg:#fffdf4;          /* warm white ground                          */
+  --card:#ffffff;
+  --ink:#1d1c19;         /* neutral near-black, not brown              */
+  --muted:#5d5b53;
+  --faint:#a09d92;
+  --border:#f0e9cf;
+  --sky:#fbeaa8;         /* soft yellow for bars and tags              */
+  --sky2:#fef7d7;
+  --accent:#f2a90d;      /* golden yellow, a step off the photograph   */
+  --on-accent:#211a03;
 }
+
+/* ===== CLOSE — an outline only, with soft corners ===== */
+.overlay .close{background:transparent;border:1.5px solid color-mix(in srgb,var(--ink) 55%,transparent);
+  border-radius:12px;box-shadow:none;width:42px;height:42px;color:var(--ink);font-size:15px;
+  transition:background .18s ease,border-color .18s ease}
+.overlay .close:hover,.overlay .close:focus-visible{background:color-mix(in srgb,var(--bg) 65%,transparent);
+  border-color:var(--ink);outline:none}
