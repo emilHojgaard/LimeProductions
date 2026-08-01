@@ -333,17 +333,19 @@ footer{background:none}
 .card .shot img,.feat .shot img{object-fit:contain;object-position:center}
 
 /* ===== MODAL TOP — version tabs left, close far right ===== */
-.modal-top{position:absolute;top:-46px;left:0;right:0;display:flex;align-items:flex-end;gap:16px}
-/* the close sits at the very edge of the screen, clear of the modal */
-.modal-top .close{position:fixed;top:20px;right:20px;flex:none;z-index:60}
-.vtabs{display:flex;gap:6px;align-items:flex-end}
+.modal-top{position:static}
+/* both anchor to the page itself, not to the modal */
+.modal-top .close{position:fixed;top:18px;right:18px;flex:none;z-index:60}
+.modal-top .vtabs{position:fixed;top:18px;left:18px;z-index:60}
+.vtabs{display:flex;gap:6px;align-items:stretch}
 .vtab{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
-  padding:8px 16px 9px;cursor:pointer;border:1px solid var(--ink);border-bottom:none;
-  background:color-mix(in srgb,var(--bg) 55%,transparent);color:var(--muted);
-  border-radius:4px 4px 0 0;transition:background .14s,color .14s}
+  padding:9px 16px;cursor:pointer;border:1px solid var(--ink);
+  background:color-mix(in srgb,var(--bg) 72%,transparent);color:var(--muted);
+  transition:background .14s,color .14s}
 .vtab:hover{color:var(--ink)}
-.vtab.on{background:var(--bg);color:var(--ink);padding-bottom:12px;margin-bottom:-1px}
-.vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.65;text-transform:none;margin-top:1px}
+.vtab.on{background:var(--ink);color:var(--bg)}
+.vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.7;text-transform:none;margin-top:1px}
+.vtab small:empty{display:none}
 
 /* the prototype leaves a sliver of the write-up showing, so it reads as scrollable */
 .modal-wrap.proto-mode{max-width:min(92vw, calc(66vh * 1.6))}
@@ -368,3 +370,8 @@ footer{background:none}
 .modal.scrolled .scrollcue{opacity:0;transition:opacity .2s}
 @media (prefers-reduced-motion: reduce){.scrollcue{animation:none}}
 .proto-bar{align-items:center}
+
+/* ===== a mounted frame around the prototype ===== */
+.proto-stage{margin:16px 16px 0;border:1px solid var(--ink);
+  box-shadow:0 10px 26px color-mix(in srgb,var(--ink) 22%,transparent)}
+.proto-bar{padding-top:14px}

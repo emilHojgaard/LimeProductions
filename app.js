@@ -17,7 +17,7 @@ const projects = {
     points:["Full design and build","Two iterations shipped"],
     kv:[["Type","Client work"],["Status","Live"],["Stack","React · CSS"]],
     versions:[
-      {id:"v2",label:"Version 2",note:"Live today",flag:"Client work · Live",
+      {id:"v2",label:"Version 2",note:"Live",flag:"Client work · Live",
        desc:"The site as it stands today — a full rebuild with a new visual identity: acid green on black, the works index reduced to three cut-out figures.",
        links:[["Visit escarlethromopozo.com","https://escarlethromopozo.com"],["GitHub","https://github.com/emilHojgaard/PozoProductions2.0"]],
        proto:{start:"home",frames:{home:{src:"assets/shots/pozo-home.jpg",cap:"The landing page",hs:[{x:3.13,y:34.65,w:30,h:2.5,t:"about",l:"Bio"},{x:78.52,y:44.25,w:16.48,h:7.38,t:"works",l:"Works"},{x:79.45,y:53.25,w:15.55,h:7.38,t:"about",l:"About"},{x:74.32,y:63,w:20.68,h:6,t:"contact",l:"Contact"}]},
@@ -25,7 +25,7 @@ const projects = {
       work:{src:"assets/shots/pozo-work.jpg",cap:"A single work in detail",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
       about:{src:"assets/shots/pozo-about.jpg",cap:"About the artist",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
       contact:{src:"assets/shots/pozo-contact.jpg",cap:"The contact page",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"}]}}}},
-      {id:"v1",label:"Version 1",note:"Shattered Pieces",flag:"Client work · Retired",
+      {id:"v1",label:"Version 1",note:"",flag:"Client work · Retired",
        desc:"The first version, built under the title Shattered Pieces — full-bleed performance photography with a red display face laid over it, and the navigation tucked into the top-left corner.",
        links:[["GitHub","https://github.com/emilHojgaard/pozo-productions"]],
        proto:{start:"home",frames:{home:{src:"assets/shots/pozoA-home.jpg",cap:"The landing page",hs:[{x:4.46,y:18.63,w:4.71,h:2.63,t:"works",l:"Works"},{x:4.46,y:22.13,w:4.46,h:2.63,t:"about",l:"About"},{x:4.46,y:25.62,w:6.31,h:2.63,t:"contact",l:"Contact"}]},
