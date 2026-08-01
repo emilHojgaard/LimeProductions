@@ -415,3 +415,16 @@ footer{background:none}
   transition:background .18s ease,border-color .18s ease}
 .overlay .close:hover,.overlay .close:focus-visible{background:color-mix(in srgb,var(--bg) 65%,transparent);
   border-color:var(--ink);outline:none}
+
+/* ===== MODAL GROUND — the sea photograph behind the write-up =====
+   It lives on the wrapper, which does not scroll, so the picture covers
+   the modal evenly however far the reader scrolls. The veil rides on top
+   of it as a second background layer. */
+.modal-wrap{
+  background-image:linear-gradient(color-mix(in srgb,var(--bg) 86%,transparent),
+                                   color-mix(in srgb,var(--bg) 86%,transparent)),
+                   url(assets/bg-sea.jpg);
+  background-size:cover,cover;background-position:center,center;background-repeat:no-repeat,no-repeat}
+.modal{background:transparent}
+/* the bars let the sea through rather than covering it */
+.proto-bar,.demo-bar{background:transparent}
