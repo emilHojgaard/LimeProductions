@@ -352,8 +352,7 @@ footer{background:none}
 .vtab.on{color:var(--ink);z-index:7}
 .vtab:hover{color:color-mix(in srgb,var(--ink) 70%,var(--ground))}
 .vtab.on:hover{color:var(--ink)}
-.vtab::after{content:"";position:absolute;top:0;bottom:0;right:-4px;width:6px;
-  background-color:var(--ground);z-index:1}
+
 .vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.75;text-transform:none;min-height:11px}
 
 
@@ -394,7 +393,6 @@ footer{background:none}
 /* on narrow screens the flank has no room — tabs return above the modal */
 @media(max-width:1100px){
   .modal-top .vtabs{position:absolute;top:-44px;left:0;transform:none;flex-direction:row}
-  .vtab::after{top:auto;right:0;left:0;bottom:-4px;width:auto;height:6px}
 }
 
 /* ===== MODAL PALETTE — white paper with the photograph's yellow =====
@@ -433,7 +431,7 @@ footer{background:none}
 .modal-wrap{--veil:rgba(255,255,255,0);
             --pic:url(assets/bg-sea.jpg);
             --fade:color-mix(in srgb,var(--ground) 62%,transparent)}
-.modal-wrap,.vtab,.vtab::after{
+.modal-wrap,.vtab{
   background-color:var(--ground);
   background-image:linear-gradient(var(--veil),var(--veil)),var(--pic);
   background-size:cover,cover;background-position:center,center;
