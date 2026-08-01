@@ -16,7 +16,8 @@ Five pages, routed client-side by hash: Home, Projects, Journey, Skills & Certs,
 index.html        markup for all five pages
 styles.css        design tokens + all styling (light and dark themes)
 app.js            routing, modals, filters, nav behaviour
-assets/           background image
+assets/           background image, CV as PDF, certificate scan
+candidatePhotos/  source photos considered for the background
 ```
 
 No build step and no dependencies — open `index.html` in a browser, or serve the folder:
@@ -28,8 +29,8 @@ npx serve .
 ## Still to do
 
 - Real screenshots for the project cards
-- Course length and links for the three certificates
-- LinkedIn URL, portrait photo, CV as PDF
+- Portrait photo
+- Diploma scans for the three educational certificates
 - Review the drafted skill-level descriptions on the Skills page
 - Rebuild as a React + Vite app
 
