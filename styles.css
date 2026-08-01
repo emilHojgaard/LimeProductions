@@ -495,3 +495,63 @@ html.modal-open{background-color:#8f653a;
   scrollbar-color:color-mix(in srgb,var(--ink) 22%,transparent) transparent}
 html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
   background:color-mix(in srgb,var(--ink) 20%,transparent);background-clip:content-box}
+
+/* =====================================================================
+   ONE SYSTEM
+   The modal's ground is a photograph, not paper, so its palette is
+   rebuilt for light-on-dark: white carries everywhere, and the greys
+   that went unreadable become white at lowered strength instead.
+   The picture is deepened rather than washed — a dark scrim keeps the
+   sea blue while giving every piece of type a floor to stand on.
+   ===================================================================== */
+.modal-wrap{
+  --veil:rgba(4,34,48,.58);      /* deepens the sea, does not bleach it */
+  --ground:#0b5a75;              /* what it resolves to, for fallbacks  */
+  --ink:#ffffff;
+  --muted:rgba(255,255,255,.80);
+  --faint:rgba(255,255,255,.56);
+  --line:rgba(255,255,255,.30);  /* every rule in the modal, one value  */
+  --border:var(--line);
+  --bg:#08303f;
+  --card:rgba(255,255,255,.10);
+  --sky:rgba(255,255,255,.17);
+  --sky2:rgba(255,255,255,.10);
+  --accent:#ffd166;
+  --on-accent:#0b2530;
+}
+/* colour is inherited from <body>, which resolved the page's ink long
+   before these tokens apply — restate it so the whole modal turns white */
+.modal-wrap{color:var(--ink)}
+.modal .kv .row span:last-child,.modal h3,.modal .points,.modal li{color:var(--ink)}
+.modal .desc,.proto-cap,.demo-cap{color:var(--muted)}
+
+/* every line in the modal is the same line */
+.modal .kv .row,.modal .cert .meta,.proto-bar,.demo-bar{border-color:var(--line)}
+.proto-stage{border-color:var(--line)}
+.modal-wrap .close{border-color:var(--ink);color:var(--ink)}
+.modal-wrap .close:hover,.modal-wrap .close:focus-visible{
+  background:rgba(255,255,255,.16);border-color:var(--ink)}
+/* bookmarks: white throughout, the inactive one simply weaker */
+.vtab{color:var(--faint)}
+.vtab.on{color:var(--ink)}
+.vtab:hover{color:var(--muted)}
+.vtab.on:hover{color:var(--ink)}
+
+/* ---- one type scale, replacing twenty ad-hoc sizes ---- */
+:root{--t-xs:11px; --t-sm:13px; --t-md:15px; --t-lg:19px; --t-xl:26px;
+      --track:1.5px}
+/* labels and kickers */
+.seclabel,.flag,.jkind,.cert .prov,.twocol h4,.citem .k,.modal .kv .k,.lvl,
+.demo-step,.proto-hint,.scrollcue,.filters span,.cardtags span,.chips span,
+.cap .yr,.vtab,.visit,.edulink{
+  font-size:var(--t-xs);letter-spacing:var(--track)}
+.vtab small{font-size:9.5px;letter-spacing:.8px}
+/* meta and captions */
+.cap2,.jrow p,.cert p,.crow p,.edurow p,.langcard p,.tg p,.band span,
+.proto-cap,.demo-cap,.modal .kv .row span:last-child{font-size:var(--t-sm)}
+/* body copy */
+.pagesub,.secintro,.twocol p,.ex p,.feat p,.modal .desc,.modal .points,
+.skillcols li,.citem .v,.hero .sub{font-size:var(--t-md)}
+/* sub-headings */
+.cap h3,.jrow h3,.edurow h3,.langcard h3,.tg h3,.ex .go,.feat .go{font-size:var(--t-lg)}
+.cert h3,.modal h3{font-size:var(--t-xl)}
