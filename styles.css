@@ -336,20 +336,21 @@ footer{background:none}
 .modal-top{position:static}
 /* both anchor to the page itself, not to the modal */
 .modal-top .close{position:fixed;top:18px;right:18px;flex:none;z-index:60}
-.modal-top .vtabs{position:fixed;top:18px;left:18px;z-index:60}
-.vtabs{display:flex;gap:6px;align-items:stretch}
-.vtab{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
-  padding:9px 16px;cursor:pointer;border:1px solid var(--ink);
-  background:color-mix(in srgb,var(--bg) 72%,transparent);color:var(--muted);
-  transition:background .14s,color .14s}
+.modal-top .vtabs{position:absolute;top:46px;left:0;transform:translateX(-100%);
+  flex-direction:column;gap:4px;z-index:6}
+.vtabs{display:flex;gap:6px;align-items:stretch;text-align:left}
+.vtab{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;
+  padding:10px 14px;cursor:pointer;border:1px solid var(--ink);border-right:none;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);color:var(--muted);
+  white-space:nowrap;text-align:left;transition:background .14s,color .14s}
 .vtab:hover{color:var(--ink)}
 .vtab.on{background:var(--ink);color:var(--bg)}
 .vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.7;text-transform:none;margin-top:1px}
 .vtab small:empty{display:none}
 
 /* the prototype leaves a sliver of the write-up showing, so it reads as scrollable */
-.modal-wrap.proto-mode{max-width:min(92vw, calc(66vh * 1.6))}
-.modal-wrap.proto-mode .modal{max-height:84vh}
+.modal-wrap.proto-mode{max-width:min(92vw, calc(76vh * 1.6))}
+.modal-wrap.proto-mode .modal{max-height:94vh}
 /* pull the write-up up so its opening peeks below the prototype */
 .modal-wrap.proto-mode .modal .body{padding-top:20px}
 
@@ -372,6 +373,15 @@ footer{background:none}
 .proto-bar{align-items:center}
 
 /* ===== a mounted frame around the prototype ===== */
-.proto-stage{margin:16px 16px 0;border:1px solid var(--ink);
+.proto-stage{width:auto;margin:16px 16px 0;border:1px solid var(--ink);
   box-shadow:0 10px 26px color-mix(in srgb,var(--ink) 22%,transparent)}
 .proto-bar{padding-top:14px}
+
+/* nothing in the modal may scroll sideways */
+.modal{overflow-x:hidden}
+.proto,.demo{max-width:100%}
+/* on narrow screens the flank has no room — tabs return above the modal */
+@media(max-width:1100px){
+  .modal-top .vtabs{position:absolute;top:-44px;left:0;transform:none;flex-direction:row}
+  .vtab{border-right:1px solid var(--ink)}
+}
