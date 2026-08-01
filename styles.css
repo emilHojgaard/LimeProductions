@@ -456,7 +456,12 @@ footer{background:none}
 .overlay .close{border-color:color-mix(in srgb,var(--ink) 30%,transparent)}
 
 /* ===== SCROLLBARS — thin, and in the palette ===== */
-html{scrollbar-width:thin;
+/* The page's picture is painted by a layer inside <body>, which never
+   reaches the scrollbar's track — the track showed the browser's blank
+   canvas, i.e. white. Giving the canvas the photograph's own orange lets
+   the track sit in the page instead of cutting a white strip out of it. */
+html{background-color:#fd9a34;
+     scrollbar-width:thin;
      scrollbar-color:rgba(61,33,19,.45) transparent;                       /* fallback */
      scrollbar-color:color-mix(in srgb,var(--ink) 45%,transparent) transparent}
 /* any scrolling panel on the page, not just the document */
