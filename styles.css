@@ -258,3 +258,22 @@ nav{background:none;backdrop-filter:none}
 .feat .shot{background:none}
 .modal{background:var(--bg)}
 footer{background:none}
+
+/* ===== PROJECT DEMO — walk-through of the running application ===== */
+.demo{border-bottom:1px solid var(--ink)}
+.demo-stage{background:var(--sky2);display:grid;place-items:center;aspect-ratio:16/10;overflow:hidden}
+.demo-stage img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.demo-bar{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:12px 0 14px;flex-wrap:wrap}
+.demo-cap{font-size:13.5px;color:var(--muted);max-width:58ch;margin:0}
+.demo-nav{display:flex;align-items:center;gap:12px;margin-left:auto}
+.demo-step{font-family:var(--sans);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--faint);font-variant-numeric:tabular-nums}
+.demo-dots{display:flex;gap:7px}
+.demo-dots button{width:9px;height:9px;padding:0;border:1px solid var(--ink);background:none;cursor:pointer;border-radius:0}
+.demo-dots button.on{background:var(--ink)}
+.demo-dots button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.demo.single .demo-nav{display:none}
+
+/* real screenshots on the project cards */
+.card .shot,.feat .shot{overflow:hidden;padding:0}
+.card .shot img,.feat .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.feat .shot{min-height:0;aspect-ratio:16/10}

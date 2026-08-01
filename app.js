@@ -4,26 +4,31 @@ const projects = {
     desc:"A jailbreaking game where players try to break a RAG-based hospital-assistant chatbot. Built as my master's thesis in Human-Computer Interaction — graded 12.",
     points:["Custom chunking and embeddings with metadata","Combined semantic + full-text retrieval","Playable in the browser at hacc-man.com"],
     kv:[["Type","MSc thesis (HCI)"],["Status","Live · graded 12"],["Stack","React · JavaScript · CSS · Supabase (PostgreSQL) · Edge Functions"]],
-    links:[["Visit hacc-man.com","https://hacc-man.com"],["GitHub","https://github.com/emilHojgaard/HaccmanEA"]]},
+    shots:[["assets/shots/haccman-1.jpg","The arcade landing screen"],["assets/shots/haccman-2.jpg","Choosing an opponent — each has its own jailbreak challenge"],["assets/shots/haccman-3.jpg","The challenge briefing and chat interface"],["assets/shots/haccman-4.jpg","A jailbreak attempt, and the hospital bot refusing to leak patient data"]],
+    links:[["Visit hacc-man.com","https://hacc-man.com"],["GitHub","https://github.com/emilHojgaard/Haccman-EA"]]},
   hacky:{flag:"Own project · In progress",title:"Hacky",
     desc:"The successor to Haccman — a new visual theme on the same RAG backend, with planned extensions and modifications in progress.",
     points:["Rebuilt with a new visual identity","Same RAG database and retrieval methods","Headed for its own domain — potentially an app"],
     kv:[["Type","Own project"],["Status","In progress"],["Stack","React · RAG"]],
+    shots:[["assets/shots/hacky-1.jpg","The rebuilt landing screen"],["assets/shots/hacky-2.jpg","Same onboarding flow on the new theme"]],
     links:[["GitHub","https://github.com/emilHojgaard/haccman-2.0"]]},
   pozo:{flag:"Client work · Live",title:"Escarleth Romo Pozo",
     desc:"Portfolio website for a working artist, designed and rebuilt across two versions. Version 2 is the live site.",
     points:["Full design and build","Two iterations shipped"],
     kv:[["Type","Client work"],["Status","Live"],["Stack","React · CSS"]],
+    shots:[["assets/shots/pozo-1.jpg","The landing page"],["assets/shots/pozo-2.jpg","The works index"],["assets/shots/pozo-3.jpg","A work in detail"]],
     links:[["Visit escarlethromopozo.com","https://escarlethromopozo.com"],["GitHub (v2)","https://github.com/emilHojgaard/PozoProductions2.0"],["GitHub (v1)","https://github.com/emilHojgaard/pozo-productions"]]},
   safespace:{flag:"Course project",title:"Safe Space",
     desc:"A moderated chat platform for students facing mental health challenges.",
     points:["Moderation-first chat design","React frontend on a Back4App backend"],
     kv:[["Type","Course project"],["Stack","React · JavaScript · CSS · Back4App"]],
-    links:[["GitHub","https://github.com/emilHojgaard/safespace-react-2024"]]},
+    shots:[["assets/shots/safespace-1.jpg","The landing page, explaining diagnosis-based matchmaking"]],
+    links:[["GitHub","https://github.com/emilHojgaard/safe-space-react-2024"]]},
   hats:{flag:"Course project",title:"Hat Webshop",
     desc:"A webshop frontend in React/TypeScript with Tailwind CSS, backed by a RESTful API written in JavaScript.",
     points:["Typed React frontend","RESTful API backend"],
     kv:[["Type","Course project"],["Stack","TypeScript · React · Tailwind CSS · REST"]],
+    shots:[["assets/shots/hats-1.jpg","The storefront, served by the project's own REST API"],["assets/shots/hats-2.jpg","Browsing the shop"]],
     links:[["GitHub","https://github.com/antonskoumoller/hat-project-2"]]}
 };
 
@@ -41,13 +46,42 @@ show(location.hash.slice(1)||"home");
 
 const overlay=document.getElementById("overlay");
 let lastFocus=null;
+
+// ---- project demo: a walk-through of the running application ----
+let demoFrames=[], demoAt=0, demoTimer=null;
+function renderFrame(){
+  const [src,caption]=demoFrames[demoAt];
+  const img=document.getElementById("m-demo-img");
+  img.src=src;
+  img.alt=caption;
+  document.getElementById("m-demo-cap").textContent=caption;
+  document.getElementById("m-demo-step").textContent=(demoAt+1)+" / "+demoFrames.length;
+  document.querySelectorAll("#m-demo-dots button").forEach((d,i)=>d.classList.toggle("on",i===demoAt));
+}
+function goFrame(i){
+  demoAt=(i+demoFrames.length)%demoFrames.length;
+  renderFrame();
+}
+function buildDemo(p){
+  clearInterval(demoTimer);
+  const wrap=document.getElementById("m-demo");
+  demoFrames=p.shots||[];
+  if(!demoFrames.length){ wrap.style.display="none"; return; }
+  wrap.style.display="";
+  document.getElementById("m-demo-dots").innerHTML=
+    demoFrames.map((_,i)=>'<button type="button" aria-label="Frame '+(i+1)+'"></button>').join("");
+  document.querySelectorAll("#m-demo-dots button").forEach((d,i)=>d.addEventListener("click",()=>{clearInterval(demoTimer);goFrame(i);}));
+  demoAt=0; renderFrame();
+  wrap.classList.toggle("single",demoFrames.length===1);
+  if(demoFrames.length>1) demoTimer=setInterval(()=>goFrame(demoAt+1),3800);
+}
 function openProject(id){
   const p=projects[id]; if(!p) return;
   lastFocus=document.activeElement;
   document.getElementById("m-flag").textContent=p.flag;
   document.getElementById("m-title").textContent=p.title;
   document.getElementById("m-desc").textContent=p.desc;
-  document.getElementById("m-shot").textContent=p.title.toUpperCase()+" — SCREENSHOT / DEMO";
+  buildDemo(p);
   document.getElementById("m-points").innerHTML=p.points.map(x=>"<li>"+x+"</li>").join("");
   document.getElementById("m-kv").innerHTML=p.kv.map(([k,v])=>'<div class="row"><span class="k">'+k+'</span><span>'+v+"</span></div>").join("");
   const linkIcon='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>';
@@ -56,6 +90,7 @@ function openProject(id){
   document.getElementById("m-close").focus();
 }
 function closeProject(){
+  clearInterval(demoTimer);
   overlay.classList.remove("on"); overlay.setAttribute("aria-hidden","true");
   if(lastFocus) lastFocus.focus();
 }
@@ -65,7 +100,12 @@ document.querySelectorAll("[data-open]").forEach(el=>{
 });
 document.getElementById("m-close").addEventListener("click",closeProject);
 overlay.addEventListener("click",e=>{if(e.target===overlay)closeProject();});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProject();});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closeProject();
+  if(!overlay.classList.contains("on")||demoFrames.length<2)return;
+  if(e.key==="ArrowRight"){clearInterval(demoTimer);goFrame(demoAt+1);}
+  if(e.key==="ArrowLeft"){clearInterval(demoTimer);goFrame(demoAt-1);}
+});
 
 function setupFilter(filterId,itemSelector){
   const box=document.getElementById(filterId); if(!box) return;

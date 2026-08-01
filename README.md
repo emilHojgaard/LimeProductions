@@ -8,7 +8,9 @@ Personal portfolio site. MSc in Software Design, IT University of Copenhagen —
 
 Broadsheet-editorial layout: sharp corners, flat surfaces, bold Georgia serif headlines with uppercase sans kickers, and one full-width double rule opening each major section. The background is a raw ember-silk photograph with no veil, and the palette is drawn from it — dark brown ink, peach tints, burnt-orange accent.
 
-Five pages, routed client-side by hash: Home, Projects, Journey, Skills & Certs, Contact. Project cards open detail modals. The tag rows on Projects and Skills actually filter, and skill chips reveal a line about proficiency when tapped. The nav hides on scroll down and returns on scroll up.
+Five pages, routed client-side by hash: Home, Projects, Journey, Skills & Certs, Contact. Project cards open detail modals containing a captioned walk-through of the running application — advancing on its own, or by clicking the dots and pressing the arrow keys. The tag rows on Projects and Skills actually filter, and skill chips reveal a line about proficiency when tapped. The nav hides on scroll down and returns on scroll up.
+
+Screenshots were captured from the applications themselves: the two live sites directly, and the other three by cloning each repository, seeding its database where it had one, and running it locally.
 
 ## Structure
 
@@ -17,6 +19,7 @@ index.html        markup for all five pages
 styles.css        design tokens + all styling (light and dark themes)
 app.js            routing, modals, filters, nav behaviour
 assets/           background image, CV as PDF, certificate scan
+assets/shots/     project screenshots used by the cards and demos
 candidatePhotos/  source photos considered for the background
 ```
 
@@ -28,7 +31,6 @@ npx serve .
 
 ## Still to do
 
-- Real screenshots for the project cards
 - Portrait photo
 - Diploma scans for the three educational certificates
 - Review the drafted skill-level descriptions on the Skills page
