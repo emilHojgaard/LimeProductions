@@ -16,12 +16,25 @@ const projects = {
     desc:"Portfolio website for a working artist, designed and rebuilt across two versions. Version 2 is the live site.",
     points:["Full design and build","Two iterations shipped"],
     kv:[["Type","Client work"],["Status","Live"],["Stack","React · CSS"]],
-    proto:{start:"home",frames:{home:{src:"assets/shots/pozo-home.jpg",cap:"The landing page",hs:[{x:3.13,y:34.65,w:30,h:2.5,t:"about",l:"Bio"},{x:78.52,y:44.25,w:16.48,h:7.38,t:"works",l:"Works"},{x:79.45,y:53.25,w:15.55,h:7.38,t:"about",l:"About"},{x:74.32,y:63,w:20.68,h:6,t:"contact",l:"Contact"}]},
+    versions:[
+      {id:"v2",label:"Version 2",note:"Live today",flag:"Client work · Live",
+       desc:"The site as it stands today — a full rebuild with a new visual identity: acid green on black, the works index reduced to three cut-out figures.",
+       links:[["Visit escarlethromopozo.com","https://escarlethromopozo.com"],["GitHub","https://github.com/emilHojgaard/PozoProductions2.0"]],
+       proto:{start:"home",frames:{home:{src:"assets/shots/pozo-home.jpg",cap:"The landing page",hs:[{x:3.13,y:34.65,w:30,h:2.5,t:"about",l:"Bio"},{x:78.52,y:44.25,w:16.48,h:7.38,t:"works",l:"Works"},{x:79.45,y:53.25,w:15.55,h:7.38,t:"about",l:"About"},{x:74.32,y:63,w:20.68,h:6,t:"contact",l:"Contact"}]},
       works:{src:"assets/shots/pozo-works.jpg",cap:"The works index — open any piece",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"},{x:2.5,y:29.5,w:30,h:32,t:"work",l:"La mala"},{x:35,y:29.5,w:30,h:32,t:"work",l:"Yielding"},{x:67.5,y:29.5,w:30,h:32,t:"work",l:"Tender points"}]},
       work:{src:"assets/shots/pozo-work.jpg",cap:"A single work in detail",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
       about:{src:"assets/shots/pozo-about.jpg",cap:"About the artist",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
-      contact:{src:"assets/shots/pozo-contact.jpg",cap:"The contact page",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"}]}}},
-    links:[["Visit escarlethromopozo.com","https://escarlethromopozo.com"],["GitHub (v2)","https://github.com/emilHojgaard/PozoProductions2.0"],["GitHub (v1)","https://github.com/emilHojgaard/pozo-productions"]]},
+      contact:{src:"assets/shots/pozo-contact.jpg",cap:"The contact page",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"}]}}}},
+      {id:"v1",label:"Version 1",note:"Shattered Pieces",flag:"Client work · Retired",
+       desc:"The first version, built under the title Shattered Pieces — full-bleed performance photography with a red display face laid over it, and the navigation tucked into the top-left corner.",
+       links:[["GitHub","https://github.com/emilHojgaard/pozo-productions"]],
+       proto:{start:"home",frames:{home:{src:"assets/shots/pozoA-home.jpg",cap:"The landing page",hs:[{x:4.46,y:18.63,w:4.71,h:2.63,t:"works",l:"Works"},{x:4.46,y:22.13,w:4.46,h:2.63,t:"about",l:"About"},{x:4.46,y:25.62,w:6.31,h:2.63,t:"contact",l:"Contact"}]},
+        works:{src:"assets/shots/pozoA-works.jpg",cap:"The works index — open any piece",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:82.87,y:4.44,w:3.47,h:2,t:"about",l:"About"},{x:88.84,y:4.44,w:4.91,h:2,t:"contact",l:"Contact"},{x:1.88,y:23.25,w:30.42,h:36.5,t:"work",l:"La mala"},{x:34.79,y:23.25,w:30.42,h:36.5,t:"work",l:"Yielding"},{x:67.71,y:23.25,w:30.42,h:36.5,t:"work",l:"Tender points"}]},
+        work:{src:"assets/shots/pozoA-work.jpg",cap:"A single work in detail",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:76.71,y:4.44,w:3.66,h:2,t:"works",l:"Works"},{x:82.87,y:4.44,w:3.47,h:2,t:"about",l:"About"},{x:88.84,y:4.44,w:4.91,h:2,t:"contact",l:"Contact"}]},
+        about:{src:"assets/shots/pozoA-about.jpg",cap:"About the artist",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:76.71,y:4.44,w:3.66,h:2,t:"works",l:"Works"},{x:88.84,y:4.44,w:4.91,h:2,t:"contact",l:"Contact"}]},
+        contact:{src:"assets/shots/pozoA-contact.jpg",cap:"The contact page",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:76.71,y:4.44,w:3.66,h:2,t:"works",l:"Works"},{x:82.87,y:4.44,w:3.47,h:2,t:"about",l:"About"}]}}}}
+    ],
+    links:[]},
   safespace:{flag:"Course project",title:"Safe Space",
     desc:"A moderated chat platform for students facing mental health challenges.",
     points:["Moderation-first chat design","React frontend on a Back4App backend"],
@@ -108,7 +121,7 @@ function showProtoFrame(id){
     b.addEventListener("click",()=>showProtoFrame(b.dataset.t)));
   const stage=document.querySelector(".proto-stage");
   stage.classList.remove("hint"); void stage.offsetWidth; stage.classList.add("hint");
-  document.querySelector(".modal").scrollTop=0;
+  const mo=document.querySelector(".modal"); mo.scrollTop=0; mo.classList.remove("scrolled");
 }
 
 function openProject(id){
@@ -116,15 +129,43 @@ function openProject(id){
   lastFocus=document.activeElement;
   document.getElementById("m-flag").textContent=p.flag;
   document.getElementById("m-title").textContent=p.title;
-  document.getElementById("m-desc").textContent=p.desc;
-  buildDemo(p);
   document.getElementById("m-points").innerHTML=p.points.map(x=>"<li>"+x+"</li>").join("");
   document.getElementById("m-kv").innerHTML=p.kv.map(([k,v])=>'<div class="row"><span class="k">'+k+'</span><span>'+v+"</span></div>").join("");
-  const linkIcon='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>';
-  document.getElementById("m-links").innerHTML=p.links.map(([t,h],i)=>'<a class="alink'+(i===0?"":" dim")+'" href="'+h+'" target="_blank" rel="noopener">'+t+linkIcon+"</a>").join("");
+
+  const tabs=document.getElementById("m-vtabs");
+  if(p.versions&&p.versions.length>1){
+    tabs.innerHTML=p.versions.map((v,i)=>
+      '<button type="button" class="vtab'+(i===0?" on":"")+'" data-v="'+i+'">'+v.label+'<small>'+v.note+'</small></button>').join("");
+    tabs.querySelectorAll(".vtab").forEach(b=>b.addEventListener("click",()=>{
+      tabs.querySelectorAll(".vtab").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on");
+      showVersion(p,+b.dataset.v);
+    }));
+    showVersion(p,0);
+  }else{
+    tabs.innerHTML="";
+    showVersion(p,null);
+  }
   overlay.classList.add("on"); overlay.setAttribute("aria-hidden","false");
   document.getElementById("m-close").focus();
 }
+
+// a project may ship several versions; each carries its own text, links and prototype
+function showVersion(p,i){
+  const v=(i===null)?p:p.versions[i];
+  document.getElementById("m-flag").textContent=v.flag||p.flag;
+  document.getElementById("m-desc").textContent=v.desc||p.desc;
+  const links=(v.links&&v.links.length)?v.links:(p.links||[]);
+  const visit=document.getElementById("m-visit");
+  const primary=links.find(([t])=>/^visit/i.test(t));
+  const icon='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>';
+  if(primary){ visit.href=primary[1]; visit.innerHTML=primary[0]+icon; }
+  else { visit.removeAttribute("href"); visit.innerHTML=""; }
+  document.getElementById("m-links").innerHTML=links.filter(l=>l!==primary)
+    .map(([t,h],n)=>'<a class="alink'+(n===0&&!primary?"":" dim")+'" href="'+h+'" target="_blank" rel="noopener">'+t+icon+"</a>").join("");
+  buildDemo(v.proto?v:p);
+}
+
 function closeProject(){
   clearInterval(demoTimer);
   overlay.classList.remove("on"); overlay.setAttribute("aria-hidden","true");
@@ -134,6 +175,9 @@ document.querySelectorAll("[data-open]").forEach(el=>{
   el.addEventListener("click",()=>openProject(el.dataset.open));
   el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openProject(el.dataset.open);}});
 });
+document.querySelector(".modal").addEventListener("scroll",function(){
+  this.classList.toggle("scrolled",this.scrollTop>12);
+},{passive:true});
 document.getElementById("m-close").addEventListener("click",closeProject);
 overlay.addEventListener("click",e=>{if(e.target===overlay)closeProject();});
 document.addEventListener("keydown",e=>{

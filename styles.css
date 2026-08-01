@@ -301,12 +301,10 @@ footer{background:none}
 /* ===== PROTOTYPE MODAL — the screenshot fills the whole modal ===== */
 .modal-wrap{position:relative;width:100%;max-width:820px}
 .modal-wrap .modal{max-width:none;width:100%}
-.modal-wrap .close{position:absolute;top:-52px;right:0;z-index:4}
-@media(max-width:900px){.modal-wrap .close{top:-46px;right:0}}
+
 /* in prototype mode the modal takes the screenshot's own proportions,
    so frame 1 fills the viewport exactly and scrolling reveals the text */
-.modal-wrap.proto-mode{max-width:min(92vw, calc(84vh * 1.6))}
-.modal-wrap.proto-mode .modal{max-height:84vh}
+
 .proto-stage{aspect-ratio:16/10;width:100%}
 
 /* ===== HOTSPOTS — invisible until you need them ===== */
@@ -333,3 +331,40 @@ footer{background:none}
 /* ===== PROJECT CARDS — show the whole front page, never cropped ===== */
 .card .shot{aspect-ratio:16/10}
 .card .shot img,.feat .shot img{object-fit:contain;object-position:center}
+
+/* ===== MODAL TOP — version tabs left, close far right ===== */
+.modal-top{position:absolute;top:-46px;left:0;right:0;display:flex;align-items:flex-end;gap:16px}
+/* the close sits at the very edge of the screen, clear of the modal */
+.modal-top .close{position:fixed;top:20px;right:20px;flex:none;z-index:60}
+.vtabs{display:flex;gap:6px;align-items:flex-end}
+.vtab{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+  padding:8px 16px 9px;cursor:pointer;border:1px solid var(--ink);border-bottom:none;
+  background:color-mix(in srgb,var(--bg) 55%,transparent);color:var(--muted);
+  border-radius:4px 4px 0 0;transition:background .14s,color .14s}
+.vtab:hover{color:var(--ink)}
+.vtab.on{background:var(--bg);color:var(--ink);padding-bottom:12px;margin-bottom:-1px}
+.vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.65;text-transform:none;margin-top:1px}
+
+/* the prototype leaves a sliver of the write-up showing, so it reads as scrollable */
+.modal-wrap.proto-mode{max-width:min(92vw, calc(66vh * 1.6))}
+.modal-wrap.proto-mode .modal{max-height:84vh}
+/* pull the write-up up so its opening peeks below the prototype */
+.modal-wrap.proto-mode .modal .body{padding-top:20px}
+
+/* ===== TITLE ROW — the live site sits beside the title ===== */
+.titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:8px}
+.visit{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  text-decoration:none;color:var(--bg);background:var(--ink);padding:9px 18px;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:8px;transition:background .14s}
+.visit:hover{background:var(--accent);color:var(--on-accent)}
+.visit:empty{display:none}
+
+/* ===== SCROLL CUE ===== */
+.scrollcue{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:10.5px;
+  font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);
+  animation:cueNudge 2.4s ease-in-out infinite}
+.scrollcue svg{flex:none}
+@keyframes cueNudge{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+.modal.scrolled .scrollcue{opacity:0;transition:opacity .2s}
+@media (prefers-reduced-motion: reduce){.scrollcue{animation:none}}
+.proto-bar{align-items:center}

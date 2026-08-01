@@ -226,7 +226,10 @@
 <!-- ================= PROJECT MODAL ================= -->
 <div class="overlay" id="overlay" aria-hidden="true">
   <div class="modal-wrap">
-    <button class="close" id="m-close" aria-label="Close project">✕</button>
+    <div class="modal-top">
+      <div class="vtabs" id="m-vtabs"></div>
+      <button class="close" id="m-close" aria-label="Close project">✕</button>
+    </div>
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
 
     <div class="proto" id="m-proto" style="display:none">
@@ -237,6 +240,7 @@
       <div class="proto-bar">
         <p class="proto-cap" id="m-proto-cap"></p>
         <span class="proto-hint">Click the marked areas to move around</span>
+        <span class="scrollcue" id="m-scrollcue">Scroll for the write-up<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg></span>
       </div>
     </div>
     <div class="demo" id="m-demo">
@@ -248,7 +252,7 @@
     </div>
     <div class="body">
       <span class="flag" id="m-flag"></span>
-      <h3 id="m-title"></h3>
+      <div class="titlerow"><h3 id="m-title"></h3><a class="visit" id="m-visit" target="_blank" rel="noopener"></a></div>
       <p class="desc" id="m-desc"></p>
       <ul class="points" id="m-points"></ul>
       <div class="kv" id="m-kv"></div>
