@@ -1,20 +1,25 @@
 
 const projects = {
   haccman:{flag:"MSc thesis · Top marks",title:"Haccman",
-    desc:"A jailbreaking game where players try to break a RAG-based hospital-assistant chatbot. Built as my master's thesis in Human-Computer Interaction — graded 12.",
+    desc:"A jailbreaking game where players try to break a RAG-based hospital-assistant chatbot, built as my master's thesis in Human-Computer Interaction — graded 12. Version 2 rebuilds it on the same retrieval core with a new identity.",
     points:["Custom chunking and embeddings with metadata","Combined semantic + full-text retrieval","Playable in the browser at hacc-man.com"],
     kv:[["Type","MSc thesis (HCI)"],["Status","Live · graded 12"],["Stack","React · JavaScript · CSS · Supabase (PostgreSQL) · Edge Functions"]],
-    proto:{start:"home",frames:{home:{src:"assets/shots/haccman-home.jpg",cap:"The arcade landing screen",hs:[{x:39,y:54,w:22,h:8,t:"choose",l:"Start"}]},
-      choose:{src:"assets/shots/haccman-choose.jpg",cap:"Five opponents, each with its own jailbreak challenge",hs:[{x:3.52,y:23.29,w:29.69,h:4.63,t:"play",l:"Dr. Chatbot"},{x:37.89,y:23.29,w:29.69,h:4.63,t:"play",l:"A.I. Anderson"},{x:72.27,y:23.29,w:29.69,h:4.63,t:"play",l:"Haisenberg"},{x:3.52,y:78.79,w:29.69,h:4.63,t:"play",l:"Sky"},{x:37.89,y:78.79,w:29.69,h:4.63,t:"play",l:"Ancor Man"}]},
-      play:{src:"assets/shots/haccman-play.jpg",cap:"A jailbreak attempt, and the hospital bot refusing to leak patient data",hs:[{x:71.88,y:79.88,w:21.09,h:2,t:"choose",l:"Leave Fight (Esc)"}]}}},
-    links:[["Visit hacc-man.com","https://hacc-man.com"],["GitHub","https://github.com/emilHojgaard/Haccman-EA"]]},
-  hacky:{flag:"Own project · In progress",title:"Hacky",
-    desc:"The successor to Haccman — a new visual theme on the same RAG backend, with planned extensions and modifications in progress.",
-    points:["Rebuilt with a new visual identity","Same RAG database and retrieval methods","Headed for its own domain — potentially an app"],
-    kv:[["Type","Own project"],["Status","In progress"],["Stack","React · RAG"]],
-    proto:{start:"home",frames:{home:{src:"assets/shots/hacky-home.jpg",cap:"The landing screen",hs:[{x:43,y:25,w:14,h:5,t:"admin",l:"Admin"}]},
-      admin:{src:"assets/shots/hacky-admin.jpg",cap:"The data view behind the game",hs:[{x:38,y:13,w:24,h:4,t:"home",l:"Back"}]}}},
-    links:[["GitHub","https://github.com/emilHojgaard/haccman-2.0"]]},
+    versions:[
+      {id:"v1",label:"Version 1",note:"Live",flag:"MSc thesis · Top marks",
+       desc:"The thesis as it runs today: pick one of five bots, each guarding something it should not give up, and try to talk it into handing the secret over.",
+       links:[["Visit hacc-man.com","https://hacc-man.com"],["GitHub","https://github.com/emilHojgaard/Haccman-EA"]],
+       proto:{start:"home",frames:{home:{src:"assets/shots/haccman-home.jpg",cap:"The arcade landing screen",hs:[{x:39,y:54,w:22,h:8,t:"choose",l:"Start"}]},
+          choose:{src:"assets/shots/haccman-choose.jpg",cap:"Five opponents, each with its own jailbreak challenge",hs:[{x:3.52,y:23.29,w:29.69,h:4.63,t:"play",l:"Dr. Chatbot"},{x:37.89,y:23.29,w:29.69,h:4.63,t:"play",l:"A.I. Anderson"},{x:72.27,y:23.29,w:29.69,h:4.63,t:"play",l:"Haisenberg"},{x:3.52,y:78.79,w:29.69,h:4.63,t:"play",l:"Sky"},{x:37.89,y:78.79,w:29.69,h:4.63,t:"play",l:"Ancor Man"}]},
+          play:{src:"assets/shots/haccman-play.jpg",cap:"Inside a challenge, facing the hospital bot",hs:[{x:79.38,y:75.13,w:13.59,h:2.5,t:"info",l:"Systeminfo"},{x:71.88,y:82.75,w:21.09,h:2,t:"choose",l:"Leave Fight (Esc)"}]},
+          info:{src:"assets/shots/haccman-info.jpg",cap:"The bot's system prompt, opened from inside the game",hs:[{x:64.84,y:7.31,w:31.25,h:2.38,t:"play",l:"Dr. Chatbot"},{x:71.88,y:39.33,w:21.09,h:0.95,t:"choose",l:"Leave Fight (Esc)"}]}}}},
+      {id:"v2",label:"Version 2",note:"",flag:"Own project · In progress",
+       desc:"The successor, on the same retrieval core with a new identity — bots now carry several missions at different difficulties, chosen from a panel rather than a single fixed challenge.",
+       links:[["GitHub","https://github.com/emilHojgaard/haccman-2.0"]],
+       proto:{start:"home",frames:{home:{src:"assets/shots/hacky-home.jpg",cap:"The rebuilt landing screen",hs:[{x:43,y:25,w:14,h:5,t:"choose",l:"Start"}]},
+          choose:{src:"assets/shots/hacky-choose.jpg",cap:"The same opponents on the new theme",hs:[{x:29.42,y:6.89,w:8.23,h:1.46,t:"play",l:"Dr. Chatbot"},{x:29.92,y:23.65,w:9.49,h:1.42,t:"play",l:"A.I. Anderson"},{x:29.92,y:37.3,w:7.3,h:1.42,t:"play",l:"Haisenberg"}]},
+          play:{src:"assets/shots/hacky-play.jpg",cap:"Inside a challenge",hs:[{x:28,y:19,w:45,h:4,t:"choose",l:"Close"}]}}}}
+    ],
+    links:[]},
   pozo:{flag:"Client work · Live",title:"Escarleth Romo Pozo",
     desc:"Portfolio website for a working artist, designed and rebuilt across two versions. Version 2 is the live site.",
     points:["Full design and build","Two iterations shipped"],
@@ -42,17 +47,18 @@ const projects = {
     desc:"A moderated chat platform for students facing mental health challenges.",
     points:["Moderation-first chat design","React frontend on a Back4App backend"],
     kv:[["Type","Course project"],["Stack","React · JavaScript · CSS · Back4App"]],
-    shots:[["assets/shots/safespace-1.jpg","The landing page, explaining diagnosis-based matchmaking"]],
+    proto:{start:"home",frames:{home:{src:"assets/shots/safespace-home.jpg",cap:"The landing page, explaining diagnosis-based matchmaking",hs:[{x:84.88,y:2.84,w:8.87,h:1.64,t:"login",l:"Log In"}]},
+          login:{src:"assets/shots/safespace-login.jpg",cap:"Signing in with a referral",hs:[{x:3,y:2,w:9,h:5,t:"home",l:"Home"}]}}},
     links:[["GitHub","https://github.com/emilHojgaard/safe-space-react-2024"]]},
   hats:{flag:"Course project",title:"Hat Webshop",
     desc:"A webshop frontend in React/TypeScript with Tailwind CSS, backed by a RESTful API written in JavaScript.",
     points:["Typed React frontend","RESTful API backend"],
     kv:[["Type","Course project"],["Stack","TypeScript · React · Tailwind CSS · REST"]],
     proto:{start:"home",frames:{home:{src:"assets/shots/hats-home.jpg",cap:"The storefront, served by the project's own REST API",hs:[{x:34.53,y:2.33,w:2.91,h:2.63,t:"shop",l:"Shop"},{x:68.14,y:2.33,w:3.7,h:2.63,t:"basket",l:"Basket"},{x:87.98,y:2.33,w:3.17,h:2.63,t:"login",l:"Login"},{x:18.91,y:58.31,w:13.13,h:5.25,t:"product",l:"Show Hat"}]},
-      shop:{src:"assets/shots/hats-shop.jpg",cap:"The full catalogue",hs:[{x:12.3,y:2.33,w:3.44,h:2.63,t:"home",l:"Home"},{x:68.14,y:2.33,w:3.7,h:2.63,t:"basket",l:"Basket"},{x:87.98,y:2.33,w:3.17,h:2.63,t:"login",l:"Login"},{x:18.44,y:75.68,w:13.36,h:5.25,t:"product",l:"Show Hat"}]},
-      product:{src:"assets/shots/hats-product.jpg",cap:"A single product",hs:[{x:12.3,y:1.08,w:6.09,h:5.25,t:"home",l:"Home"},{x:34.53,y:2.33,w:2.91,h:2.63,t:"shop",l:"Shop"},{x:68.14,y:2.33,w:3.7,h:2.63,t:"basket",l:"Basket"},{x:87.98,y:2.33,w:3.17,h:2.63,t:"login",l:"Login"}]},
-      basket:{src:"assets/shots/hats-basket.jpg",cap:"The basket",hs:[{x:12.3,y:2.33,w:3.44,h:2.63,t:"home",l:"Home"},{x:31.88,y:2.33,w:2.91,h:2.63,t:"shop",l:"Shop"},{x:87.98,y:2.33,w:3.17,h:2.63,t:"login",l:"Login"}]},
-      login:{src:"assets/shots/hats-login.jpg",cap:"Signing in",hs:[{x:12.3,y:2.33,w:3.44,h:2.63,t:"home",l:"Home"},{x:31.88,y:2.33,w:2.91,h:2.63,t:"shop",l:"Shop"},{x:65.48,y:2.33,w:3.7,h:2.63,t:"basket",l:"Basket"}]}}},
+          shop:{src:"assets/shots/hats-shop.jpg",cap:"The full catalogue",hs:[{x:12.3,y:0.7,w:3.44,h:0.79,t:"home",l:"Home"},{x:68.14,y:0.7,w:3.7,h:0.79,t:"basket",l:"Basket"},{x:87.98,y:0.7,w:3.17,h:0.79,t:"login",l:"Login"},{x:18.44,y:22.78,w:13.36,h:1.58,t:"product",l:"Show Hat"}]},
+          product:{src:"assets/shots/hats-product.jpg",cap:"A single product",hs:[{x:12.3,y:1.08,w:6.09,h:5.25,t:"home",l:"Home"},{x:34.53,y:2.33,w:2.91,h:2.63,t:"shop",l:"Shop"},{x:68.14,y:2.33,w:3.7,h:2.63,t:"basket",l:"Basket"},{x:87.98,y:2.33,w:3.17,h:2.63,t:"login",l:"Login"}]},
+          basket:{src:"assets/shots/hats-basket.jpg",cap:"The basket",hs:[{x:12.3,y:2.33,w:3.44,h:2.63,t:"home",l:"Home"},{x:31.88,y:2.33,w:2.91,h:2.63,t:"shop",l:"Shop"},{x:87.98,y:2.33,w:3.17,h:2.63,t:"login",l:"Login"}]},
+          login:{src:"assets/shots/hats-login.jpg",cap:"Signing in",hs:[{x:12.3,y:2.33,w:3.44,h:2.63,t:"home",l:"Home"},{x:31.88,y:2.33,w:2.91,h:2.63,t:"shop",l:"Shop"},{x:65.48,y:2.33,w:3.7,h:2.63,t:"basket",l:"Basket"}]}}},
     links:[["GitHub","https://github.com/antonskoumoller/hat-project-2"]]}
 };
 
@@ -188,7 +194,9 @@ document.querySelector(".modal").addEventListener("scroll",function(){
   this.classList.toggle("scrolled",this.scrollTop>12);
 },{passive:true});
 document.getElementById("m-close").addEventListener("click",closeProject);
-overlay.addEventListener("click",e=>{if(e.target===overlay)closeProject();});
+overlay.addEventListener("click",e=>{
+  if(e.target===overlay||e.target.classList.contains("modal-wrap"))closeProject();
+});
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape")closeProject();
   if(!overlay.classList.contains("on")||demoFrames.length<2)return;

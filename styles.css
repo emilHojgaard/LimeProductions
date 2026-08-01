@@ -281,7 +281,7 @@ footer{background:none}
 /* ===== PROJECT PROTOTYPE — navigate the screenshots like the real thing ===== */
 .proto{border-bottom:1px solid var(--ink)}
 .proto-stage{position:relative;background:transparent;aspect-ratio:16/10}
-.proto-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.proto-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:top center;display:block}
 .proto-spots{position:absolute;inset:0}
 
 
