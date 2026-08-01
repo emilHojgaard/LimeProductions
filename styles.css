@@ -485,3 +485,13 @@ html{background-color:#fd9a34;
   background-clip:content-box}
 .modal::-webkit-scrollbar-thumb:hover{background:color-mix(in srgb,var(--ink) 62%,transparent);
   background-clip:content-box}
+
+/* The overlay covers the viewport but not the scrollbar beside it, so the
+   page's scrollbar stayed bright while everything behind it dimmed. While
+   a project is open, the canvas and the thumb take the same knock-down as
+   the overlay gives the page. */
+html.modal-open{background-color:#8f653a;
+  scrollbar-color:rgba(61,33,19,.22) transparent;
+  scrollbar-color:color-mix(in srgb,var(--ink) 22%,transparent) transparent}
+html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
+  background:color-mix(in srgb,var(--ink) 20%,transparent);background-clip:content-box}

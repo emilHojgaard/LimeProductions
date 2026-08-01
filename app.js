@@ -147,6 +147,7 @@ function openProject(id){
     showVersion(p,null);
   }
   overlay.classList.add("on"); overlay.setAttribute("aria-hidden","false");
+  document.documentElement.classList.add("modal-open");
   document.getElementById("m-close").focus();
 }
 
@@ -169,6 +170,7 @@ function showVersion(p,i){
 function closeProject(){
   clearInterval(demoTimer);
   overlay.classList.remove("on"); overlay.setAttribute("aria-hidden","true");
+  document.documentElement.classList.remove("modal-open");
   if(lastFocus) lastFocus.focus();
 }
 document.querySelectorAll("[data-open]").forEach(el=>{
