@@ -429,7 +429,9 @@ footer{background:none}
    bookmarks. Every surface reads the same fixed frame AND the same
    colour underneath the veil, so they compose to exactly the same tone
    and meet without a seam. */
-.modal-wrap{--veil:color-mix(in srgb,var(--bg) 86%,transparent);
+/* The veil is a neutral white, not the page's warm one — tinting it warm
+   pushed the sea toward yellow-green and killed its blue. */
+.modal-wrap{--veil:rgba(255,255,255,.86);
             --pic:url(assets/bg-sea.jpg);
             --fade:color-mix(in srgb,var(--ground) 62%,transparent)}
 .modal-wrap,.vtab,.vtab::after{
@@ -451,7 +453,7 @@ footer{background:none}
 
 /* the flat colour the veiled sea resolves to, so the bookmarks sit on
    the same surface as the modal without carrying the picture themselves */
-.modal-wrap{--ground:#def1f0}
+.modal-wrap{--ground:#def3f9}   /* what the sea resolves to under a neutral veil */
 /* no frames on the modal either */
 .modal{border:none}
 .overlay .close{border-color:color-mix(in srgb,var(--ink) 30%,transparent)}
