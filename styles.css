@@ -505,8 +505,8 @@ html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
    sea blue while giving every piece of type a floor to stand on.
    ===================================================================== */
 .modal-wrap{
-  --veil:rgba(4,34,48,.58);      /* deepens the sea, does not bleach it */
-  --ground:#0b5a75;              /* what it resolves to, for fallbacks  */
+  --veil:rgba(255,255,255,0);    /* the photograph runs untouched       */
+  --ground:#16a7d5;              /* the sea itself, for fallbacks       */
   --ink:#ffffff;
   --muted:rgba(255,255,255,.80);
   --faint:rgba(255,255,255,.56);
@@ -555,3 +555,18 @@ html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
 /* sub-headings */
 .cap h3,.jrow h3,.edurow h3,.langcard h3,.tg h3,.ex .go,.feat .go{font-size:var(--t-lg)}
 .cert h3,.modal h3{font-size:var(--t-xl)}
+
+/* ---- the same system, applied to the page ---- */
+:root{
+  --line:color-mix(in srgb,var(--ink) 26%,transparent);  /* one hairline  */
+  --rule:var(--ink);                                     /* one full rule */
+}
+/* every hairline on the page draws from --line */
+.jrow,.cert .meta,.crow .meta,.edurow,.langcard,.tg,.cert,.citem,
+.twocol,.journey,.modal .kv .row{border-color:var(--line)}
+/* every major rule draws from --rule, at one weight */
+.display,.band,.seclabel,.sechead,.contact h1{border-color:var(--rule)}
+/* one label treatment everywhere */
+.seclabel,.flag,.jkind,.cert .prov,.twocol h4,.citem .k,.lvl,.filters span,
+.cardtags span,.chips span,.cap .yr,.edulink,.demo-step,.proto-hint,.scrollcue{
+  font-weight:700;text-transform:uppercase}
