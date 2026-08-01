@@ -357,7 +357,7 @@ footer{background:none}
 
 
 /* the prototype leaves a sliver of the write-up showing, so it reads as scrollable */
-.modal-wrap.proto-mode{max-width:min(92vw, calc(76vh * 1.6))}
+.modal-wrap.proto-mode{max-width:min(92vw, calc(76vh * 1.6));padding:9px 9px 0}
 .modal-wrap.proto-mode .modal{max-height:94vh}
 /* pull the write-up up so its opening peeks below the prototype */
 .modal-wrap.proto-mode .modal .body{padding-top:20px}
@@ -382,8 +382,10 @@ footer{background:none}
 
 /* ===== a mounted frame around the prototype ===== */
 /* the frame is a hairline only — a drop shadow here darkened the modal's
-   margins and broke the single-surface reading */
-.proto-stage{width:auto;margin:16px 16px 0;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);
+   margins and broke the single-surface reading. The gap around the
+   screenshot comes from the wrapper's padding instead of a margin here,
+   so the top edge stays put while the write-up scrolls underneath. */
+.proto-stage{width:auto;margin:0;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);
   box-shadow:none}
 .proto-bar{padding-top:14px}
 
