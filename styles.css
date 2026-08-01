@@ -390,3 +390,20 @@ footer{background:none}
   .modal-top .vtabs{position:absolute;top:-44px;left:0;transform:none;flex-direction:row}
   .vtab.on::after{top:auto;right:0;left:0;bottom:-6px;width:auto;height:10px}
 }
+
+/* ===== MODAL PALETTE — drawn from the background photograph =====
+   The silk runs on #fd9a34 / #fd851c, so the modal sits in the same
+   hue family a few steps down in saturation, rather than reading as a
+   white box dropped onto an orange page. Scoped to the modal only. */
+.modal-wrap{
+  --bg:#fbe6d2;          /* the modal ground — warm peach paper       */
+  --card:#fff2e4;
+  --ink:#3a1d0b;         /* deep warm brown, still 11:1 on the ground */
+  --muted:#8a5c3c;
+  --faint:#bd9877;
+  --border:#efd7be;
+  --sky:#f7d3b0;         /* caption bars and tags                     */
+  --sky2:#fae3cd;
+  --accent:#fc7f1e;      /* the photograph's own orange               */
+  --on-accent:#2a1305;
+}
