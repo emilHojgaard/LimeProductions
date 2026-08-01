@@ -342,7 +342,7 @@ footer{background:none}
 .vtab{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;
   box-sizing:border-box;width:fit-content;min-width:104px;height:50px;padding:0 12px;cursor:pointer;
   display:flex;flex-direction:column;justify-content:center;gap:3px;
-  position:relative;border:none;background:var(--ground);
+  position:relative;border:none;background-color:var(--ground);
   color:color-mix(in srgb,var(--ink) 38%,var(--ground));
   white-space:nowrap;text-align:left;transition:color .26s ease}
 .vtab:hover{color:var(--ink)}
@@ -353,7 +353,7 @@ footer{background:none}
 .vtab:hover{color:color-mix(in srgb,var(--ink) 70%,var(--ground))}
 .vtab.on:hover{color:var(--ink)}
 .vtab::after{content:"";position:absolute;top:0;bottom:0;right:-4px;width:6px;
-  background:var(--ground);z-index:1}
+  background-color:var(--ground);z-index:1}
 .vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.75;text-transform:none;min-height:11px}
 
 
@@ -423,11 +423,15 @@ footer{background:none}
    It lives on the wrapper, which does not scroll, so the picture covers
    the modal evenly however far the reader scrolls. The veil rides on top
    of it as a second background layer. */
-.modal-wrap{
+/* One picture, locked to the window, shared by the modal and its
+   bookmarks. Because every surface reads the same fixed frame, they line
+   up as cut-outs of a single image — and it appears nowhere else. */
+.modal-wrap,.vtab,.vtab::after{
   background-image:linear-gradient(color-mix(in srgb,var(--bg) 86%,transparent),
                                    color-mix(in srgb,var(--bg) 86%,transparent)),
                    url(assets/bg-sea.jpg);
-  background-size:cover,cover;background-position:center,center;background-repeat:no-repeat,no-repeat}
+  background-size:cover,cover;background-position:center,center;
+  background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed}
 .modal{background:transparent}
 /* the bars let the sea through rather than covering it */
 .proto-bar,.demo-bar{background:transparent}
