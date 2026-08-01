@@ -505,8 +505,8 @@ html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
    sea blue while giving every piece of type a floor to stand on.
    ===================================================================== */
 .modal-wrap{
-  --veil:rgba(255,255,255,0);    /* the photograph runs untouched       */
-  --ground:#16a7d5;              /* the sea itself, for fallbacks       */
+  --veil:rgba(4,34,48,.58);      /* deepens the sea, does not bleach it */
+  --ground:#0b5a75;              /* what it resolves to, for fallbacks  */
   --ink:#ffffff;
   --muted:rgba(255,255,255,.80);
   --faint:rgba(255,255,255,.56);
@@ -570,3 +570,29 @@ html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
 .seclabel,.flag,.jkind,.cert .prov,.twocol h4,.citem .k,.lvl,.filters span,
 .cardtags span,.chips span,.cap .yr,.edulink,.demo-step,.proto-hint,.scrollcue{
   font-weight:700;text-transform:uppercase}
+
+/* =====================================================================
+   THE PAGE, ON THE SAME SYSTEM
+   The page had its own browns and a separate grey family, which is what
+   made shades read differently here than in the modal. It now works the
+   way the modal does: one ink, and every softer tone is that same ink at
+   a lower strength — never a separate hue that only suits one ground.
+   ===================================================================== */
+:root{
+  --ink:#1a1712;                                        /* neutral, no brown */
+  --muted:color-mix(in srgb,var(--ink) 78%,transparent);
+  --faint:color-mix(in srgb,var(--ink) 65%,transparent);
+  --line:color-mix(in srgb,var(--ink) 26%,transparent);
+  --border:var(--line);
+  --rule:var(--ink);
+  --sky:rgba(255,255,255,.34);      /* tags and filters, as light glass   */
+  --sky2:rgba(255,255,255,.20);
+  --card:rgba(255,255,255,.86);
+  --accent:#0d5f7a;                 /* the sea, so page and modal rhyme   */
+  --on-accent:#ffffff;
+}
+/* the accent earns its keep: it marks what is active or interactive */
+.filters .on{background:var(--accent);color:var(--on-accent)}
+.chips span.active{background:var(--accent);color:var(--on-accent)}
+.card:focus-visible,.ex:focus-visible{outline-color:var(--accent)}
+.cert .meta a,.edulink{text-decoration-color:var(--accent)}
