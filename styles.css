@@ -342,15 +342,18 @@ footer{background:none}
 .vtab{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;
   box-sizing:border-box;width:fit-content;min-width:104px;height:50px;padding:0 12px;cursor:pointer;
   display:flex;flex-direction:column;justify-content:center;gap:3px;
-  position:relative;border:2px solid transparent;background:var(--bg);color:var(--muted);
-  white-space:nowrap;text-align:left;transition:border-color .26s ease,color .26s ease,background .26s ease}
+  position:relative;border:none;background:var(--ground);
+  color:color-mix(in srgb,var(--ink) 38%,var(--ground));
+  white-space:nowrap;text-align:left;transition:color .26s ease}
 .vtab:hover{color:var(--ink)}
-/* the active bookmark keeps its fill; only the frame changes, and the
-   modal's edge is erased where the two meet so they read as one surface */
-.vtab.on{border-color:var(--ink);color:var(--ink);z-index:7}
-.vtab::after{content:"";position:absolute;top:0;bottom:0;right:-6px;width:10px;
-  background:var(--bg);z-index:1;opacity:0;transition:opacity .26s ease}
-.vtab.on::after{opacity:1}
+/* the active bookmark comes forward; the others fade back.
+   The fade is in the ink, not the surface — dropping the whole tab's
+   opacity would let the orange page through and muddy it. */
+.vtab.on{color:var(--ink);z-index:7}
+.vtab:hover{color:color-mix(in srgb,var(--ink) 70%,var(--ground))}
+.vtab.on:hover{color:var(--ink)}
+.vtab::after{content:"";position:absolute;top:0;bottom:0;right:-4px;width:6px;
+  background:var(--ground);z-index:1}
 .vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.75;text-transform:none;min-height:11px}
 
 
@@ -389,7 +392,7 @@ footer{background:none}
 /* on narrow screens the flank has no room — tabs return above the modal */
 @media(max-width:1100px){
   .modal-top .vtabs{position:absolute;top:-44px;left:0;transform:none;flex-direction:row}
-  .vtab::after{top:auto;right:0;left:0;bottom:-6px;width:auto;height:10px}
+  .vtab::after{top:auto;right:0;left:0;bottom:-4px;width:auto;height:6px}
 }
 
 /* ===== MODAL PALETTE — white paper with the photograph's yellow =====
@@ -428,3 +431,10 @@ footer{background:none}
 .modal{background:transparent}
 /* the bars let the sea through rather than covering it */
 .proto-bar,.demo-bar{background:transparent}
+
+/* the flat colour the veiled sea resolves to, so the bookmarks sit on
+   the same surface as the modal without carrying the picture themselves */
+.modal-wrap{--ground:#def1f0}
+/* no frames on the modal either */
+.modal{border:none}
+.overlay .close{border-color:color-mix(in srgb,var(--ink) 30%,transparent)}
