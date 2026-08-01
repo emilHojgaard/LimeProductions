@@ -280,8 +280,8 @@ footer{background:none}
 
 /* ===== PROJECT PROTOTYPE — navigate the screenshots like the real thing ===== */
 .proto{border-bottom:1px solid var(--ink)}
-.proto-stage{position:relative;background:var(--sky2);aspect-ratio:16/10}
-.proto-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.proto-stage{position:relative;background:transparent;aspect-ratio:16/10}
+.proto-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .proto-spots{position:absolute;inset:0}
 
 
@@ -357,8 +357,8 @@ footer{background:none}
 
 
 /* the prototype leaves a sliver of the write-up showing, so it reads as scrollable */
-.modal-wrap.proto-mode{max-width:min(92vw, calc(76vh * 1.6));padding:9px 9px 0}
-.modal-wrap.proto-mode .modal{max-height:94vh}
+.modal-wrap.proto-mode{max-width:min(92vw, calc(76vh * 1.6));padding:9px 0 0 9px}
+.modal-wrap.proto-mode .modal{max-height:94vh;padding-right:9px}
 /* pull the write-up up so its opening peeks below the prototype */
 .modal-wrap.proto-mode .modal .body{padding-top:20px}
 
