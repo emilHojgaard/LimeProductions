@@ -17,9 +17,10 @@ const projects = {
     points:["Full design and build","Two iterations shipped"],
     kv:[["Type","Client work"],["Status","Live"],["Stack","React · CSS"]],
     proto:{start:"home",frames:{home:{src:"assets/shots/pozo-home.jpg",cap:"The landing page",hs:[{x:3.13,y:34.65,w:30,h:2.5,t:"about",l:"Bio"},{x:78.52,y:44.25,w:16.48,h:7.38,t:"works",l:"Works"},{x:79.45,y:53.25,w:15.55,h:7.38,t:"about",l:"About"},{x:74.32,y:63,w:20.68,h:6,t:"contact",l:"Contact"}]},
-      works:{src:"assets/shots/pozo-works.jpg",cap:"The works index",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth Romo Pozo"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
-      about:{src:"assets/shots/pozo-about.jpg",cap:"About the artist",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth Romo Pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
-      contact:{src:"assets/shots/pozo-contact.jpg",cap:"The contact page",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth Romo Pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"}]}}},
+      works:{src:"assets/shots/pozo-works.jpg",cap:"The works index — open any piece",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"},{x:2.5,y:29.5,w:30,h:32,t:"work",l:"La mala"},{x:35,y:29.5,w:30,h:32,t:"work",l:"Yielding"},{x:67.5,y:29.5,w:30,h:32,t:"work",l:"Tender points"}]},
+      work:{src:"assets/shots/pozo-work.jpg",cap:"A single work in detail",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
+      about:{src:"assets/shots/pozo-about.jpg",cap:"About the artist",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
+      contact:{src:"assets/shots/pozo-contact.jpg",cap:"The contact page",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"}]}}},
     links:[["Visit escarlethromopozo.com","https://escarlethromopozo.com"],["GitHub (v2)","https://github.com/emilHojgaard/PozoProductions2.0"],["GitHub (v1)","https://github.com/emilHojgaard/pozo-productions"]]},
   safespace:{flag:"Course project",title:"Safe Space",
     desc:"A moderated chat platform for students facing mental health challenges.",
@@ -71,12 +72,15 @@ function buildDemo(p){
   const proto=document.getElementById("m-proto");
   demoFrames=[]; protoFrames=null;
 
+  const shell=document.querySelector(".modal-wrap");
   if(p.proto){                       // ---- clickable prototype ----
     wrap.style.display="none"; proto.style.display="";
+    shell.classList.add("proto-mode");
     protoFrames=p.proto.frames;
     showProtoFrame(p.proto.start);
     return;
   }
+  shell.classList.remove("proto-mode");
   proto.style.display="none";
   demoFrames=p.shots||[];
   if(!demoFrames.length){ wrap.style.display="none"; return; }
@@ -102,6 +106,9 @@ function showProtoFrame(id){
     'data-t="'+h.t+'" aria-label="Go to '+h.l+'"><span>'+h.l+'</span></button>').join("");
   document.querySelectorAll("#m-proto-spots .spot").forEach(b=>
     b.addEventListener("click",()=>showProtoFrame(b.dataset.t)));
+  const stage=document.querySelector(".proto-stage");
+  stage.classList.remove("hint"); void stage.offsetWidth; stage.classList.add("hint");
+  document.querySelector(".modal").scrollTop=0;
 }
 
 function openProject(id){

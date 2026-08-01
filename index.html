@@ -79,7 +79,7 @@
     <div class="cards">
       <button class="card" data-open="haccman" data-tags="uni ai web"><div class="shot"><img src="assets/shots/haccman-2.jpg" alt="Haccman opponent selection screen" loading="lazy"></div><div class="cap"><h3>Haccman</h3><span class="yr">2026</span></div><p class="cap2">MSc thesis — RAG jailbreaking game · top marks</p><div class="cardtags"><span>Uni project</span><span>AI &amp; Agents</span><span>Web</span></div></button>
       <button class="card" data-open="hacky" data-tags="own ai web"><div class="shot"><img src="assets/shots/hacky-1.jpg" alt="Hacky landing screen" loading="lazy"></div><div class="cap"><h3>Hacky</h3><span class="yr">2026</span></div><p class="cap2">Successor to Haccman — in progress</p><div class="cardtags"><span>Own project</span><span>AI &amp; Agents</span><span>Web</span></div></button>
-      <button class="card" data-open="pozo" data-tags="client web"><div class="shot"><img src="assets/shots/pozo-1.jpg" alt="Escarleth Romo Pozo landing page" loading="lazy"></div><div class="cap"><h3>Escarleth Romo Pozo</h3><span class="yr">2025</span></div><p class="cap2">Artist portfolio — client work, live</p><div class="cardtags"><span>Client work</span><span>Web</span></div></button>
+      <button class="card" data-open="pozo" data-tags="client web"><div class="shot"><img src="assets/shots/pozo-home.jpg" alt="Escarleth Romo Pozo landing page" loading="lazy"></div><div class="cap"><h3>Escarleth Romo Pozo</h3><span class="yr">2025</span></div><p class="cap2">Artist portfolio — client work, live</p><div class="cardtags"><span>Client work</span><span>Web</span></div></button>
       <button class="card" data-open="safespace" data-tags="uni web"><div class="shot"><img src="assets/shots/safespace-1.jpg" alt="Safe Space landing page" loading="lazy"></div><div class="cap"><h3>Safe Space</h3><span class="yr">2024</span></div><p class="cap2">Moderated mental-health chat platform</p><div class="cardtags"><span>Uni project</span><span>Web</span></div></button>
       <button class="card" data-open="hats" data-tags="uni web"><div class="shot"><img src="assets/shots/hats-1.jpg" alt="Hat Webshop storefront" loading="lazy"></div><div class="cap"><h3>Hat Webshop</h3><span class="yr">2024</span></div><p class="cap2">React/TypeScript storefront on a REST API</p><div class="cardtags"><span>Uni project</span><span>Web</span></div></button>
     </div>
@@ -225,8 +225,10 @@
 
 <!-- ================= PROJECT MODAL ================= -->
 <div class="overlay" id="overlay" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
-    <div class="modal-head"><button class="close" id="m-close" aria-label="Close project">✕</button></div>
+  <div class="modal-wrap">
+    <button class="close" id="m-close" aria-label="Close project">✕</button>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+
     <div class="proto" id="m-proto" style="display:none">
       <div class="proto-stage">
         <img id="m-proto-img" src="" alt="">
@@ -251,6 +253,7 @@
       <ul class="points" id="m-points"></ul>
       <div class="kv" id="m-kv"></div>
       <div class="links" id="m-links"></div>
+    </div>
     </div>
   </div>
 </div>

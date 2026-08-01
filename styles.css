@@ -283,15 +283,10 @@ footer{background:none}
 .proto-stage{position:relative;background:var(--sky2);aspect-ratio:16/10}
 .proto-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
 .proto-spots{position:absolute;inset:0}
-.spot{position:absolute;padding:0;background:none;cursor:pointer;
-  border:1.5px dashed color-mix(in srgb,var(--accent) 70%,transparent);
-  border-radius:2px;transition:background .12s,border-color .12s}
-.spot span{position:absolute;left:0;top:100%;margin-top:3px;white-space:nowrap;
-  font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
-  background:var(--accent);color:#fff;padding:2px 6px;opacity:0;transition:opacity .12s;pointer-events:none}
-.spot:hover,.spot:focus-visible{background:color-mix(in srgb,var(--accent) 22%,transparent);
-  border-color:var(--accent);border-style:solid;outline:none}
-.spot:hover span,.spot:focus-visible span{opacity:1}
+
+
+
+
 .proto-bar{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:12px 0 14px;flex-wrap:wrap}
 .proto-cap{font-size:13.5px;color:var(--muted);margin:0}
 .proto-hint{font-family:var(--sans);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--faint)}
@@ -299,10 +294,42 @@ footer{background:none}
 /* the linear walk-through should show the whole frame too */
 .demo-stage img{object-fit:contain}
 
-/* keep the close button clear of the screenshot beneath it */
-.modal-head{position:sticky;top:0;z-index:3;display:flex;justify-content:flex-end;
-  padding:10px 12px;background:var(--bg);border-bottom:1px solid var(--ink)}
-.modal .close{position:static;box-shadow:none}
 /* the demo/prototype captions share the modal's own gutters */
 .proto-bar,.demo-bar{padding-left:40px;padding-right:40px}
 @media(max-width:640px){.proto-bar,.demo-bar{padding-left:24px;padding-right:24px}}
+
+/* ===== PROTOTYPE MODAL — the screenshot fills the whole modal ===== */
+.modal-wrap{position:relative;width:100%;max-width:820px}
+.modal-wrap .modal{max-width:none;width:100%}
+.modal-wrap .close{position:absolute;top:-52px;right:0;z-index:4}
+@media(max-width:900px){.modal-wrap .close{top:-46px;right:0}}
+/* in prototype mode the modal takes the screenshot's own proportions,
+   so frame 1 fills the viewport exactly and scrolling reveals the text */
+.modal-wrap.proto-mode{max-width:min(92vw, calc(84vh * 1.6))}
+.modal-wrap.proto-mode .modal{max-height:84vh}
+.proto-stage{aspect-ratio:16/10;width:100%}
+
+/* ===== HOTSPOTS — invisible until you need them ===== */
+.spot{position:absolute;padding:0;border:0;background:transparent;cursor:pointer;border-radius:3px;
+  transition:background .16s ease, box-shadow .16s ease}
+.spot:hover,.spot:focus-visible{outline:none;
+  background:color-mix(in srgb,var(--accent) 26%,transparent);
+  box-shadow:0 0 0 2px var(--accent), 0 0 18px color-mix(in srgb,var(--accent) 45%,transparent)}
+.spot span{position:absolute;left:50%;top:100%;transform:translate(-50%,6px);white-space:nowrap;
+  font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+  background:var(--ink);color:var(--bg);padding:3px 8px;opacity:0;transition:opacity .16s;pointer-events:none}
+.spot:hover span,.spot:focus-visible span{opacity:1}
+/* on arriving at a frame, the clickable areas announce themselves once */
+.proto-stage.hint .spot{animation:spotHint 1.5s ease-out 1}
+@keyframes spotHint{
+  0%{background:transparent;box-shadow:none}
+  30%{background:color-mix(in srgb,var(--accent) 30%,transparent);box-shadow:0 0 0 2px var(--accent)}
+  100%{background:transparent;box-shadow:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .proto-stage.hint .spot{animation:none;box-shadow:0 0 0 1.5px color-mix(in srgb,var(--accent) 60%,transparent)}
+}
+
+/* ===== PROJECT CARDS — show the whole front page, never cropped ===== */
+.card .shot{aspect-ratio:16/10}
+.card .shot img,.feat .shot img{object-fit:contain;object-position:center}
