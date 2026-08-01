@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emil Højgaard Nielsen — Software Designer</title>
+<meta name="description" content="Portfolio of Emil Højgaard Nielsen — MSc in Software Design, IT University of Copenhagen. Web apps, RAG-based AI systems, cybersecurity.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="name" data-nav="home" href="#home">Emil Højgaard Nielsen</a>
+    <a class="pl" data-nav="projects" href="#projects">Projects</a>
+    <a class="pl" data-nav="journey" href="#journey">Journey</a>
+    <a class="pl" data-nav="skills" href="#skills">Skills &amp; Certs</a>
+    <a class="pl" data-nav="contact" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<div class="page" id="page-home">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Software designer building web apps and <mark>AI systems you can trust</mark> — trained in cybersecurity, shaped by philosophy.</h1>
+      <p class="sub"><span>MSc Software Design, IT University of Copenhagen</span><span class="dot">·</span><span>Copenhagen</span><span class="dot">·</span><span>Open to work</span></p>
+      <div class="actions">
+        <a class="alink" href="#projects">View projects<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+        <a class="alink dim" href="#">Download CV<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="cell"><b>12</b><span>Thesis grade — top marks</span></div>
+      <div class="cell"><b>9.94</b><span>Weighted MSc average</span></div>
+      <div class="cell"><b>2</b><span>Products live in production</span></div>
+      <div class="cell"><b>3</b><span>Languages spoken</span></div>
+    </div>
+  </div>
+
+  <div class="explore">
+    <div class="wrap">
+      <p class="seclabel">Explore</p>
+      <div class="exgrid">
+        <a class="ex ex1" href="#projects"><h3>Projects</h3><p>Five shipped projects — from a thesis graded 12 to client work in production.</p><span class="go">Browse work →</span></a>
+        <a class="ex ex2" href="#journey"><h3>Journey</h3><p>Work, education and the detours between them — philosophy, Paris, and the sea.</p><span class="go">See timeline →</span></a>
+        <a class="ex ex3" href="#skills"><h3>Skills &amp; Certs</h3><p>Languages spoken and coded, certificates earned — and what each one taught me.</p><span class="go">See skills →</span></a>
+        <a class="ex ex4" href="#contact"><h3>Contact</h3><p>Open to full-time roles in web development and applied AI.</p><span class="go">Get in touch →</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured">
+    <div class="wrap">
+      <p class="seclabel">Featured project</p>
+      <div class="feat" data-open="haccman" tabindex="0" role="button" aria-label="Open Haccman project details">
+        <div class="shot">HACCMAN — SCREENSHOT / PLAYABLE DEMO</div>
+        <div class="body">
+          <span class="flag">MSc thesis · Top marks</span>
+          <h3>Haccman</h3>
+          <p>A jailbreaking game around a RAG-based hospital-assistant chatbot — custom chunking, semantic + full-text retrieval, live at hacc-man.com.</p>
+          <span class="go">Open project →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROJECTS ================= -->
+<div class="page" id="page-projects">
+  <div class="wrap">
+    <h1 class="display">Work</h1>
+    <p class="pagesub">Each card opens a project page with the full story, stack and links.</p>
+    <div class="filters" id="proj-filters">
+      <span class="on" data-f="all">All projects</span><span data-f="uni">Uni projects</span><span data-f="own">Own projects</span><span data-f="client">Client work</span><span data-f="ai">AI &amp; Agents</span><span data-f="web">Web</span>
+    </div>
+    <div class="cards">
+      <button class="card" data-open="haccman" data-tags="uni ai web"><div class="shot">SCREENSHOT</div><div class="cap"><h3>Haccman</h3><span class="yr">2026</span></div><p class="cap2">MSc thesis — RAG jailbreaking game · top marks</p><div class="cardtags"><span>Uni project</span><span>AI &amp; Agents</span><span>Web</span></div></button>
+      <button class="card" data-open="hacky" data-tags="own ai web"><div class="shot">SCREENSHOT</div><div class="cap"><h3>Hacky</h3><span class="yr">2026</span></div><p class="cap2">Successor to Haccman — in progress</p><div class="cardtags"><span>Own project</span><span>AI &amp; Agents</span><span>Web</span></div></button>
+      <button class="card" data-open="pozo" data-tags="client web"><div class="shot">SCREENSHOT</div><div class="cap"><h3>Escarleth Romo Pozo</h3><span class="yr">2025</span></div><p class="cap2">Artist portfolio — client work, live</p><div class="cardtags"><span>Client work</span><span>Web</span></div></button>
+      <button class="card" data-open="safespace" data-tags="uni web"><div class="shot">SCREENSHOT</div><div class="cap"><h3>Safe Space</h3><span class="yr">2024</span></div><p class="cap2">Moderated mental-health chat platform</p><div class="cardtags"><span>Uni project</span><span>Web</span></div></button>
+      <button class="card" data-open="hats" data-tags="uni web"><div class="shot">SCREENSHOT</div><div class="cap"><h3>Hat Webshop</h3><span class="yr">2024</span></div><p class="cap2">React/TypeScript storefront on a REST API</p><div class="cardtags"><span>Uni project</span><span>Web</span></div></button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= JOURNEY ================= -->
+<div class="page" id="page-journey">
+  <div class="wrap">
+    <h1 class="display">Journey</h1>
+    <p class="pagesub" style="padding-bottom:34px">Work and education on one timeline — including the detours that shaped how I think.</p>
+    <div class="journey">
+      <div class="jrow"><span class="jwhen">2023 – 2026</span><div><h3>MSc in Software Design — IT University of Copenhagen</h3><p>Cybersecurity &amp; web architecture. Weighted average 9.94; HCI thesis graded 12.</p></div><span class="jkind">Education</span></div>
+      <div class="jrow"><span class="jwhen">2021 – 2023</span><div><h3>Coordinator — GoTutor (Egmont)</h3></div><span class="jkind work">Work</span></div>
+      <div class="jrow"><span class="jwhen">2020 – 2021</span><div><h3>SIMAC &amp; Maersk — container vessel</h3><p>Six months at sea; South America &amp; Africa routes.</p></div><span class="jkind work">Work</span></div>
+      <div class="jrow"><span class="jwhen">2019</span><div><h3>Six months across Asia</h3><p>Vietnam, China, Taiwan — plus demolition work back home.</p></div><span class="jkind life">Life</span></div>
+      <div class="jrow"><span class="jwhen">2015 – 2020</span><div><h3>BA in Philosophy — University of Copenhagen</h3><p>Exchange year at Sorbonne University, Paris.</p></div><span class="jkind">Education</span></div>
+      <div class="jrow"><span class="jwhen">2014 – 2015</span><div><h3>Language studies &amp; café work — Paris</h3></div><span class="jkind life">Life</span></div>
+    </div>
+
+    <div class="twocol">
+      <div>
+        <h4>About</h4>
+        <p>Based in Copenhagen, I'm a recent MSc graduate in Software Design from the IT University of Copenhagen, specialized in <strong>cybersecurity</strong> and <strong>web architecture / interaction design</strong>. My thesis — a RAG-based chatbot combining custom chunking, semantic and full-text search, and generative AI — received top marks.</p>
+        <p>The route here was unusual: a BA in Philosophy, a year in Paris, six months at sea with Maersk, and six months across Asia. It shows in the work — an eye for the human side of systems, and calm under pressure.</p>
+      </div>
+      <div>
+        <h4>Beyond code</h4>
+        <p>Sailing, travel, philosophy of mind, and the occasional attempt to jailbreak my own chatbots before anyone else does. <em>(Write a few personal lines here.)</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SKILLS & CERTIFICATES ================= -->
+<div class="page" id="page-skills">
+  <div class="wrap">
+    <h1 class="display">Skills &amp; Certs</h1>
+    <p class="pagesub">What I speak, what I write code in, and the papers that prove it — with a few words on what each actually taught me.</p>
+    <div class="filters" id="skill-filters">
+      <span class="on" data-f="all">Everything</span><span data-f="lang">Spoken languages</span><span data-f="tech">Coding &amp; tech</span><span data-f="owncert">Own certificates</span><span data-f="edu">Educational certificates</span>
+    </div>
+
+    <section class="skillsec" data-tags="lang">
+      <h2 class="sechead"><span class="secnum">01</span>Spoken languages</h2>
+      <div class="langgrid">
+        <div class="langcard"><div class="lhead"><h3>Danish</h3><span class="lvl">Native</span></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><p>Mother tongue — and the language I think in.</p></div>
+        <div class="langcard"><div class="lhead"><h3>English</h3><span class="lvl">Fluent</span></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><p>Full working proficiency — my degree, thesis and codebases are all in English.</p></div>
+        <div class="langcard"><div class="lhead"><h3>French</h3><span class="lvl">B1</span></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><p>Learned in Paris — a year of language school, café work, and a Sorbonne exchange.</p></div>
+      </div>
+    </section>
+
+    <section class="skillsec" data-tags="tech">
+      <h2 class="sechead"><span class="secnum">02</span>Coding languages &amp; tech</h2>
+      <p class="secintro">Tap a skill to see where I stand with it.</p>
+      <div class="techgroups">
+        <div class="tg"><h3>AI &amp; machine learning</h3><p>Where my thesis lived — retrieval pipelines, embeddings, and agents.</p>
+          <div class="chips">
+            <span data-desc="Thesis-level depth — I designed and built a full retrieval pipeline, from custom chunking to combined semantic and full-text search.">RAG chatbots</span>
+            <span data-desc="Certified (DeepLearning.AI) — stateful agent workflows with memory and human-in-the-loop.">LangGraph</span>
+            <span data-desc="Comfortable — scripting, data work and my ML course work.">Python</span>
+          </div>
+          <p class="tgdetail" data-hint="Tap a skill above.">Tap a skill above.</p>
+        </div>
+        <div class="tg"><h3>Backend &amp; databases</h3><p>The infrastructure under my projects — two of them running in production.</p>
+          <div class="chips">
+            <span data-desc="Comfortable — APIs and edge functions for my own projects.">Node.js</span>
+            <span data-desc="Confident — schema design and full-text search running in production.">PostgreSQL</span>
+            <span data-desc="Confident — auth, database and edge functions in two live products.">Supabase</span>
+          </div>
+          <p class="tgdetail" data-hint="Tap a skill above.">Tap a skill above.</p>
+        </div>
+        <div class="tg"><h3>Frontend</h3><p>My daily drivers for everything users touch.</p>
+          <div class="chips">
+            <span data-desc="My main framework — every project on this site is built with it.">React</span>
+            <span data-desc="Daily driver — I prefer typed code for anything beyond a prototype.">TypeScript</span>
+            <span data-desc="Fluent — the language under everything I build.">JavaScript</span>
+            <span data-desc="Strong — comfortable building layouts and full design systems from scratch.">CSS</span>
+            <span data-desc="Solid — semantic, accessible markup as a habit.">HTML</span>
+          </div>
+          <p class="tgdetail" data-hint="Tap a skill above.">Tap a skill above.</p>
+        </div>
+        <div class="tg"><h3>Security</h3><p>MSc specialization — threat modeling and adversarial thinking, applied to LLM apps.</p>
+          <div class="chips">
+            <span data-desc="Thesis specialty — I designed jailbreak scenarios and the defenses against them.">LLM red-teaming</span>
+            <span data-desc="MSc specialization — threat modeling and secure web architecture.">Web security</span>
+            <span data-desc="Hands-on — I built a game around provoking it, and preventing it.">Prompt injection</span>
+          </div>
+          <p class="tgdetail" data-hint="Tap a skill above.">Tap a skill above.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="skillsec" data-tags="owncert">
+      <h2 class="sechead"><span class="secnum">03</span>Own certificates</h2>
+      <p class="secintro">Courses I chose and completed on my own initiative, alongside the degree.</p>
+      <div class="certgrid">
+        <div class="cert"><span class="prov">DeepLearning.AI</span><h3>Agentic AI</h3><p>Designing and evaluating autonomous agents — planning, tool use, reflection and multi-agent patterns, taught by Andrew Ng.</p><div class="meta"><span>Length: [course length]</span><a href="#">Course page ↗</a><a href="#">Verify certificate ↗</a></div></div>
+        <div class="cert"><span class="prov">DeepLearning.AI</span><h3>AI Agents in LangGraph</h3><p>Building controllable, stateful agent workflows as graphs — memory, human-in-the-loop and agentic search with LangGraph.</p><div class="meta"><span>Length: [course length]</span><a href="#">Course page ↗</a><a href="#">Verify certificate ↗</a></div></div>
+        <div class="cert"><span class="prov">Kaggle · June 2026</span><h3>Intro to Machine Learning</h3><p>The core ML workflow: data exploration, model building and validation with decision trees and random forests.</p><div class="meta"><span>Length: ~3 hours</span><a href="#">Course page ↗</a><a href="#">View certificate ↗</a></div></div>
+      </div>
+    </section>
+
+    <section class="skillsec" data-tags="edu">
+      <h2 class="sechead"><span class="secnum">04</span>Educational certificates</h2>
+      <div class="edulist">
+        <div class="edurow"><div class="eduwhen">2026</div><div><h3>MSc in Software Design</h3><p>IT University of Copenhagen — cybersecurity &amp; web architecture. Weighted average 9.94; thesis graded 12.</p></div><a class="edulink" href="#">Diploma ↗</a></div>
+        <div class="edurow"><div class="eduwhen">2020</div><div><h3>BA in Philosophy</h3><p>University of Copenhagen — including an exchange year at Sorbonne University, Paris (2017–18).</p></div><a class="edulink" href="#">Diploma ↗</a></div>
+        <div class="edurow"><div class="eduwhen">2014</div><div><h3>High school diploma (math/science)</h3><p>Aurehøj Gymnasium.</p></div><a class="edulink" href="#">Diploma ↗</a></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page contact" id="page-contact">
+  <div class="wrap">
+    <h1>Looking for someone who can build it <em>and</em> break it?<br>I'd love to <a href="mailto:emilhn94@gmail.com">connect</a>.</h1>
+    <div class="clist">
+      <a class="citem" href="mailto:emilhn94@gmail.com"><div class="k">Email</div><div class="v">emilhn94@gmail.com</div></a>
+      <a class="citem" href="tel:+4520818805"><div class="k">Phone</div><div class="v">+45 20 81 88 05</div></a>
+      <a class="citem" href="https://github.com/emilHojgaard"><div class="k">GitHub</div><div class="v">emilHojgaard</div></a>
+      <a class="citem" href="#"><div class="k">LinkedIn</div><div class="v">Add your link</div></a>
+      <a class="citem" href="#"><div class="k">CV</div><div class="v">Download PDF</div></a>
+      <div class="citem"><div class="k">Location</div><div class="v">Copenhagen, Denmark</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fcol">
+      <span class="n">Emil Højgaard Nielsen</span>
+      <span class="fine">© 2026</span>
+    </div>
+    <div class="flinks">
+      <a href="mailto:emilhn94@gmail.com">emilhn94@gmail.com</a>
+      <a href="https://github.com/emilHojgaard">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= PROJECT MODAL ================= -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="close" id="m-close" aria-label="Close project">✕</button>
+    <div class="shot" id="m-shot">SCREENSHOT / DEMO</div>
+    <div class="body">
+      <span class="flag" id="m-flag"></span>
+      <h3 id="m-title"></h3>
+      <p class="desc" id="m-desc"></p>
+      <ul class="points" id="m-points"></ul>
+      <div class="kv" id="m-kv"></div>
+      <div class="links" id="m-links"></div>
+    </div>
+  </div>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>
