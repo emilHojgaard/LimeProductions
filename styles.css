@@ -596,3 +596,10 @@ html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
 .chips span.active{background:var(--accent);color:var(--on-accent)}
 .card:focus-visible,.ex:focus-visible{outline-color:var(--accent)}
 .cert .meta a,.edulink{text-decoration-color:var(--accent)}
+
+/* the live link keeps its presence without a filled block behind it */
+.visit{background:transparent;color:var(--ink);
+  border:1.5px solid color-mix(in srgb,var(--ink) 70%,transparent);
+  transition:background .16s ease,border-color .16s ease,color .16s ease}
+.visit:hover,.visit:focus-visible{background:var(--ink);color:var(--bg);
+  border-color:var(--ink);outline:none}
