@@ -226,7 +226,17 @@
 <!-- ================= PROJECT MODAL ================= -->
 <div class="overlay" id="overlay" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
-    <button class="close" id="m-close" aria-label="Close project">✕</button>
+    <div class="modal-head"><button class="close" id="m-close" aria-label="Close project">✕</button></div>
+    <div class="proto" id="m-proto" style="display:none">
+      <div class="proto-stage">
+        <img id="m-proto-img" src="" alt="">
+        <div class="proto-spots" id="m-proto-spots"></div>
+      </div>
+      <div class="proto-bar">
+        <p class="proto-cap" id="m-proto-cap"></p>
+        <span class="proto-hint">Click the marked areas to move around</span>
+      </div>
+    </div>
     <div class="demo" id="m-demo">
       <div class="demo-stage"><img id="m-demo-img" src="" alt=""></div>
       <div class="demo-bar">

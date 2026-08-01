@@ -277,3 +277,32 @@ footer{background:none}
 .card .shot,.feat .shot{overflow:hidden;padding:0}
 .card .shot img,.feat .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .feat .shot{min-height:0;aspect-ratio:16/10}
+
+/* ===== PROJECT PROTOTYPE — navigate the screenshots like the real thing ===== */
+.proto{border-bottom:1px solid var(--ink)}
+.proto-stage{position:relative;background:var(--sky2);aspect-ratio:16/10}
+.proto-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.proto-spots{position:absolute;inset:0}
+.spot{position:absolute;padding:0;background:none;cursor:pointer;
+  border:1.5px dashed color-mix(in srgb,var(--accent) 70%,transparent);
+  border-radius:2px;transition:background .12s,border-color .12s}
+.spot span{position:absolute;left:0;top:100%;margin-top:3px;white-space:nowrap;
+  font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  background:var(--accent);color:#fff;padding:2px 6px;opacity:0;transition:opacity .12s;pointer-events:none}
+.spot:hover,.spot:focus-visible{background:color-mix(in srgb,var(--accent) 22%,transparent);
+  border-color:var(--accent);border-style:solid;outline:none}
+.spot:hover span,.spot:focus-visible span{opacity:1}
+.proto-bar{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:12px 0 14px;flex-wrap:wrap}
+.proto-cap{font-size:13.5px;color:var(--muted);margin:0}
+.proto-hint{font-family:var(--sans);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--faint)}
+
+/* the linear walk-through should show the whole frame too */
+.demo-stage img{object-fit:contain}
+
+/* keep the close button clear of the screenshot beneath it */
+.modal-head{position:sticky;top:0;z-index:3;display:flex;justify-content:flex-end;
+  padding:10px 12px;background:var(--bg);border-bottom:1px solid var(--ink)}
+.modal .close{position:static;box-shadow:none}
+/* the demo/prototype captions share the modal's own gutters */
+.proto-bar,.demo-bar{padding-left:40px;padding-right:40px}
+@media(max-width:640px){.proto-bar,.demo-bar{padding-left:24px;padding-right:24px}}
