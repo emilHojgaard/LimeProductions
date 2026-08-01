@@ -342,14 +342,14 @@ footer{background:none}
 .vtab{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;
   box-sizing:border-box;width:132px;height:56px;padding:0 14px;cursor:pointer;
   display:flex;flex-direction:column;justify-content:center;gap:3px;
-  border:2px solid var(--ink);background:color-mix(in srgb,var(--bg) 88%,transparent);color:var(--muted);
-  white-space:nowrap;text-align:left;
-  transition:background .14s,color .14s,transform .14s,box-shadow .14s}
+  position:relative;border:2px solid var(--faint);background:var(--bg);color:var(--muted);
+  white-space:nowrap;text-align:left;transition:border-color .14s,color .14s}
 .vtab:hover{color:var(--ink)}
-/* the active bookmark pushes into the modal, breaking its edge */
-.vtab.on{background:var(--ink);color:var(--bg);border-color:var(--accent);
-  transform:translateX(8px);position:relative;z-index:7;
-  box-shadow:-4px 0 14px color-mix(in srgb,var(--ink) 28%,transparent)}
+/* the active bookmark keeps its fill; only the frame changes, and the
+   modal's edge is erased where the two meet so they read as one surface */
+.vtab.on{border-color:var(--ink);color:var(--ink);z-index:7}
+.vtab.on::after{content:"";position:absolute;top:0;bottom:0;right:-3px;width:5px;
+  background:var(--bg);z-index:1}
 .vtab small{display:block;font-size:9px;letter-spacing:.8px;font-weight:600;opacity:.75;text-transform:none;min-height:11px}
 
 
@@ -388,5 +388,5 @@ footer{background:none}
 /* on narrow screens the flank has no room — tabs return above the modal */
 @media(max-width:1100px){
   .modal-top .vtabs{position:absolute;top:-44px;left:0;transform:none;flex-direction:row}
-  .vtab.on{transform:translateY(4px)}
+  .vtab.on::after{top:auto;right:0;left:0;bottom:-3px;width:auto;height:5px}
 }
