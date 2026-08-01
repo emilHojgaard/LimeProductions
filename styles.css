@@ -342,9 +342,9 @@ footer{background:none}
 .vtab{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;
   box-sizing:border-box;width:fit-content;min-width:104px;height:50px;padding:0 12px;cursor:pointer;
   display:flex;flex-direction:column;justify-content:center;gap:3px;
-  position:relative;border:none;background-color:var(--ground);
-  color:color-mix(in srgb,var(--ink) 38%,var(--ground));
-  white-space:nowrap;text-align:left;transition:color .26s ease}
+  position:relative;border:none;
+  color:color-mix(in srgb,var(--ink) 34%,var(--ground));
+  white-space:nowrap;text-align:left;transition:color .26s ease,background-color .26s ease}
 .vtab:hover{color:var(--ink)}
 /* the active bookmark comes forward; the others fade back.
    The fade is in the ink, not the surface — dropping the whole tab's
@@ -382,8 +382,10 @@ footer{background:none}
 .proto-bar{align-items:center}
 
 /* ===== a mounted frame around the prototype ===== */
-.proto-stage{width:auto;margin:16px 16px 0;border:1px solid var(--ink);
-  box-shadow:0 10px 26px color-mix(in srgb,var(--ink) 22%,transparent)}
+/* the frame is a hairline only — a drop shadow here darkened the modal's
+   margins and broke the single-surface reading */
+.proto-stage{width:auto;margin:16px 16px 0;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);
+  box-shadow:none}
 .proto-bar{padding-top:14px}
 
 /* nothing in the modal may scroll sideways */
@@ -424,14 +426,25 @@ footer{background:none}
    the modal evenly however far the reader scrolls. The veil rides on top
    of it as a second background layer. */
 /* One picture, locked to the window, shared by the modal and its
-   bookmarks. Because every surface reads the same fixed frame, they line
-   up as cut-outs of a single image — and it appears nowhere else. */
+   bookmarks. Every surface reads the same fixed frame AND the same
+   colour underneath the veil, so they compose to exactly the same tone
+   and meet without a seam. */
+.modal-wrap{--veil:color-mix(in srgb,var(--bg) 86%,transparent);
+            --pic:url(assets/bg-sea.jpg);
+            --fade:color-mix(in srgb,var(--ground) 62%,transparent)}
 .modal-wrap,.vtab,.vtab::after{
-  background-image:linear-gradient(color-mix(in srgb,var(--bg) 86%,transparent),
-                                   color-mix(in srgb,var(--bg) 86%,transparent)),
-                   url(assets/bg-sea.jpg);
+  background-color:var(--ground);
+  background-image:linear-gradient(var(--veil),var(--veil)),var(--pic);
   background-size:cover,cover;background-position:center,center;
   background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed}
+/* the inactive bookmark washes out — a flat layer over the same picture,
+   never transparency, which would let the orange page bleed through */
+.vtab:not(.on){
+  background-image:linear-gradient(var(--fade),var(--fade)),
+                   linear-gradient(var(--veil),var(--veil)),var(--pic);
+  background-size:cover,cover,cover;background-position:center,center,center;
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-attachment:fixed,fixed,fixed}
 .modal{background:transparent}
 /* the bars let the sea through rather than covering it */
 .proto-bar,.demo-bar{background:transparent}
