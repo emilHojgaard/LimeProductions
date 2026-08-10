@@ -12,6 +12,10 @@ Five pages, routed client-side by hash: Home, Projects, Journey, Skills & Certs,
 
 Screenshots were captured from the applications themselves: the two live sites directly, and the other three by cloning each repository, seeding its database where it had one, and running it locally. The screens that sit behind a login — the two games' admin and data pages, and a game session — were taken from a signed-in session.
 
+Every shot is laid on the same 1920×1080 canvas, scaled to fit and padded out in the application's own edge colour, so the reader looks at one screen that holds still while the pictures change inside it. One page is too long to letterbox into a screen — the webshop's product listing — and shows its first screenful instead.
+
+After changing any asset, run `node stamp.js`: it stamps every reference with the file's modification time, so a returning visitor is not shown last week's screenshots under this week's captions.
+
 ## Structure
 
 ```

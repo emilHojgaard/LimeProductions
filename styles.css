@@ -745,14 +745,18 @@ nav .name{
 .vtab{border-radius:26px 0 0 26px}
 @media (max-width:900px){.vtab{border-radius:20px 20px 0 0}}
 
-/* ===== the stage takes the shape of whatever it is showing =====
-   These are screens of real applications and they do not agree on a
-   proportion — a game at full HD, an admin table twice as wide as it is
-   tall, an opponent list that runs long. A fixed frame either crops one
-   of them or leaves a dead band of paper under another, so the stage
-   simply follows the picture: full width, nothing cut, no letterbox. */
-.demo-stage{aspect-ratio:auto;height:auto}
-.demo-stage img{width:100%;height:auto;object-fit:contain;object-position:center}
+/* ===== one frame, held still =====
+   The reader is looking at a single screen the whole way through a
+   project, so the frame must not move between pictures. Every shot is
+   laid on the same 1920x1080 canvas beforehand, padded out in the
+   application's own edge colour, which means the frame can be fixed
+   here without cropping anything or showing a band. */
+.demo-stage{aspect-ratio:16/9;height:auto}
+.demo-stage img{width:100%;height:100%;object-fit:cover;object-position:center}
+/* the cards on Projects hold the same shape, so the thumbnail a reader
+   clicks and the first picture they are shown are the same picture */
+.card .shot,.feat .shot{aspect-ratio:16/9}
+.card .shot img,.feat .shot img{object-fit:cover;object-position:center}
 
 /* stepping through the pictures */
 .demo-arrow{background:none;border:none;cursor:pointer;color:var(--muted);
