@@ -694,3 +694,15 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none}
   transition-duration:.62s,.62s,.42s,.42s;
   transition-timing-function:cubic-bezier(.62,0,.3,1),cubic-bezier(.18,0,.12,1),ease,ease}
 @media (prefers-reduced-motion: reduce){.navind{transition-duration:0s}}
+
+/* the name is set in the water itself */
+nav .name{
+  background-image:url(assets/bg-sea.jpg);
+  background-size:cover;background-position:center;
+  background-repeat:no-repeat;background-attachment:fixed;
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent}
+
+/* as a line the marker keeps a single edge, so it is the same three
+   pixels thick as the ring rather than a top and bottom stacked */
+.navind.line{border-width:0 0 3px 0}
