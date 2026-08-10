@@ -65,7 +65,7 @@ const projects = {
     links:[["GitHub","https://github.com/antonskoumoller/hat-project-2"]]}
 };
 
-const pages=["home","projects","journey","skills","contact"];
+const pages=["home","projects","skills","contact"];
 function show(p){
   if(!pages.includes(p)) p="home";
   pages.forEach(x=>{

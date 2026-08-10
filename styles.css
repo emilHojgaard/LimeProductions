@@ -38,10 +38,12 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 }
 
 .hero{background:var(--bg)}
-.hero .wrap{padding-top:110px;padding-bottom:100px}
+.hero .wrap{padding-top:96px;padding-bottom:56px}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,52px);line-height:1.28;letter-spacing:-.3px;max-width:20em;text-wrap:balance}
 .hero mark{background:none;color:inherit;font-style:italic}
-.hero .sub{margin-top:26px;color:var(--muted);font-size:15.5px;display:flex;gap:10px;flex-wrap:wrap}
+/* the sub-line is the page's first element now that the headline is gone,
+   so it carries no top margin of its own — the wrap's own padding places it */
+.hero .sub{margin-top:0;color:var(--muted);font-size:15.5px;display:flex;gap:10px;flex-wrap:wrap}
 .hero .dot{color:var(--faint)}
 .hero .actions{margin-top:38px;display:flex;gap:34px;flex-wrap:wrap}
 .alink{font-weight:600;font-size:16px;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
@@ -52,9 +54,8 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .alink.dim:hover{color:var(--ink)}
 @media (prefers-reduced-motion: reduce){.alink:hover svg{transform:none}}
 
-.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding-top:0;padding-bottom:10px}
-@media(max-width:720px){.band .wrap{grid-template-columns:1fr 1fr}}
-@media(max-width:440px){.band .wrap{grid-template-columns:1fr}}
+.band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-top:0;padding-bottom:10px}
+@media(max-width:600px){.band .wrap{grid-template-columns:1fr}}
 .band .cell{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:28px 26px}
 .band b{font-family:var(--serif);font-size:clamp(28px,3.6vw,40px);display:block;font-variant-numeric:tabular-nums}
 .band span{font-size:13px;color:var(--muted)}
@@ -87,6 +88,9 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .display{font-family:var(--serif);font-weight:400;font-size:clamp(52px,10.5vw,112px);line-height:1;letter-spacing:-2px;padding:66px 0 10px}
 .pagesub{color:var(--muted);font-size:15.5px;max-width:60ch;font-family:var(--serif);font-style:italic}
 .filters{display:flex;gap:12px;flex-wrap:wrap;padding:26px 0 36px;font-size:13.5px;color:var(--muted)}
+/* Projects and Skills open directly on their filter row now — no title
+   above it — so it needs the clearance a heading used to provide */
+.filters.top{padding-top:78px}
 .filters span{border-radius:99px;padding:5px 15px;background:var(--sky2);cursor:pointer;user-select:none}
 .filters span:hover{color:var(--ink)}
 .filters .on{color:var(--ink);font-weight:600;background:var(--sky)}
@@ -164,12 +168,12 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .edurow p{font-size:13.5px;color:var(--muted);margin-top:2px}
 .edulink{font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
 
-.contact .wrap{padding:110px 32px 120px}
-.contact h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.8vw,50px);line-height:1.32;max-width:19em}
-.contact h1 em{font-style:italic}
-.contact h1 a{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
-.contact h1 a:hover{color:var(--muted)}
-.clist{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:780px}
+.contact .wrap{padding:130px 32px 140px}
+.clist{margin-top:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:780px}
+/* the headline is gone, so the block of six is the whole page — centered
+   as a group; the text inside each card stays left-aligned, matching
+   every other card on the site */
+.clist.centered{margin:0 auto}
 .citem{background:var(--card);border-radius:20px;padding:22px 26px;text-decoration:none;box-shadow:var(--shadow);transition:transform .18s}
 .citem:hover{transform:translateY(-3px)}
 @media (prefers-reduced-motion: reduce){.citem:hover{transform:none}}
@@ -241,8 +245,6 @@ footer .fine{color:var(--faint)}
 .jrow{border-bottom:1px solid var(--sky)}
 .jrow:first-of-type{border-top:none}
 .skillsec{padding:30px 0 40px}
-.contact h1{border-bottom:4px double var(--ink);padding-bottom:26px;max-width:100%}
-.clist{margin-top:38px}
 /* ===== NAV AUTO-HIDE — slides away scrolling down, returns on slight scroll up ===== */
 nav{transition:transform .25s ease}
 nav.nav-hidden{transform:translateY(-100%)}
