@@ -60,7 +60,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .band .cell{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:28px 26px;text-align:center}
 /* sized against the rest of the page's type, not as a headline of its own —
    these sit right under a centered sub-line and shouldn't outweigh it */
-.band b{font-family:var(--serif);font-size:clamp(21px,2.2vw,26px);display:block;font-variant-numeric:tabular-nums}
+.band b{font-family:var(--serif);font-size:clamp(17px,1.6vw,20px);display:block;font-variant-numeric:tabular-nums}
 .band span{font-size:13px;color:var(--muted)}
 
 .explore{padding:80px 0 50px}
@@ -240,8 +240,10 @@ footer .fine{color:var(--faint)}
 .filters .on,.chips span.active{border:1.5px solid var(--ink);background:none;color:var(--ink)}
 /* ===== SPLIT A: MAJORS ONLY — one full-width double rule at each section start, nothing else ===== */
 .display{border-bottom:4px double var(--ink);padding-bottom:20px;margin-bottom:24px}
-.band{border-top:4px double var(--ink);border-bottom:none}
-.band .wrap{padding-top:26px}
+/* every other major-section rule runs the full width of the viewport —
+   this one sits on the front page between two centered blocks, so it
+   stays inside the same measure as the content instead */
+.band .wrap{border-top:4px double var(--ink);padding-top:26px}
 .seclabel{border-top:4px double var(--ink);padding-top:18px}
 .sechead{border-top:4px double var(--ink);padding-top:18px}
 .twocol{border-top:4px double var(--ink);padding-top:26px}
