@@ -652,3 +652,14 @@ html.modal-open{background-color:#7d8285}
 .vtab.on{color:#ffffff}
 .vtab:hover{color:rgba(255,255,255,.88)}
 .vtab.on:hover{color:#ffffff}
+
+/* Anything the site marks as active carries the water itself rather than
+   a flat swatch of it. All of them read the same frame locked to the
+   window, so a row of language markers reads as one strip of sea seen
+   through several openings. */
+.filters .on,.chips span.active,.meter i.on{
+  background-color:#16a7d5;
+  background-image:url(assets/bg-sea.jpg);
+  background-size:cover;background-position:center;
+  background-repeat:no-repeat;background-attachment:fixed;
+  color:#ffffff}
