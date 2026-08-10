@@ -706,3 +706,19 @@ nav .name{
 /* as a line the marker keeps a single edge, so it is the same three
    pixels thick as the ring rather than a top and bottom stacked */
 .navind.line{border-width:0 0 3px 0}
+
+/* ===== the travelling ring, reused by the filter rows ===== */
+.filters{position:relative}
+.filters span{border-radius:999px;padding:7px 16px;background:none;
+  border:2px solid color-mix(in srgb,var(--ink) 22%,transparent);color:var(--muted)}
+.filters span:hover{color:var(--ink)}
+/* the marker carries the state, so the active pill only darkens its type */
+.filters .on{background:none;border-color:transparent;color:var(--ink);font-weight:700}
+.filters .navind{border-width:3px}
+
+/* stepping through the pictures */
+.demo-arrow{background:none;border:none;cursor:pointer;color:var(--muted);
+  font-size:15px;line-height:1;padding:4px 8px;border-radius:99px}
+.demo-arrow:hover,.demo-arrow:focus-visible{color:var(--ink);
+  background:color-mix(in srgb,var(--ink) 10%,transparent);outline:none}
+.demo-nav{gap:8px}

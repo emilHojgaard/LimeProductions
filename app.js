@@ -70,11 +70,33 @@ function show(p){
     document.querySelectorAll('[data-nav="'+x+'"]').forEach(a=>a.classList.toggle("active",x===p));
   });
   window.scrollTo({top:0});
-  requestAnimationFrame(placeNavMarker);
+  requestAnimationFrame(()=>{placeNavMarker();placeFilterMarkers();});
 }
 // the marker is a line across the links until a section is chosen,
 // then a ring around it; it travels between the two
 const LEAD="cubic-bezier(.18,0,.12,1)", TRAIL="cubic-bezier(.62,0,.3,1)";
+
+// the same travelling ring the navigation uses, for any row of choices
+function placeMarker(row,activeSel){
+  if(!row) return;
+  let ind=row.querySelector(":scope > .navind");
+  if(!ind){ ind=document.createElement("span"); ind.className="navind";
+            ind.setAttribute("aria-hidden","true"); row.appendChild(ind); }
+  const on=row.querySelector(activeSel); if(!on) return;
+  const rb=row.getBoundingClientRect(), r=on.getBoundingClientRect();
+  const wasLeft=parseFloat(ind.style.left)||0, target=r.left-rb.left;
+  const right=target>=wasLeft;
+  ind.style.transitionTimingFunction=(right?TRAIL:LEAD)+","+(right?LEAD:TRAIL)+",ease,ease";
+  ind.style.left=target+"px";
+  ind.style.right=(rb.right-r.right)+"px";
+  ind.style.top=(r.top-rb.top)+"px";
+  ind.style.height=r.height+"px";
+  ind.classList.remove("line");
+}
+function placeFilterMarkers(){
+  placeMarker(document.getElementById("proj-filters"),"span.on");
+  placeMarker(document.getElementById("skill-filters"),"span.on");
+}
 function placeNavMarker(){
   const wrap=document.querySelector("nav .wrap"), ind=document.querySelector(".navind");
   if(!wrap||!ind) return;
@@ -104,7 +126,7 @@ function placeNavMarker(){
     ind.classList.add("line");
   }
 }
-window.addEventListener("resize",placeNavMarker,{passive:true});
+window.addEventListener("resize",()=>{placeNavMarker();placeFilterMarkers();},{passive:true});
 window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
 show(location.hash.slice(1)||"home");
 
@@ -133,16 +155,10 @@ function buildDemo(p){
   demoFrames=[]; protoFrames=null;
 
   const shell=document.querySelector(".modal-wrap");
-  if(p.proto){                       // ---- clickable prototype ----
-    wrap.style.display="none"; proto.style.display="";
-    shell.classList.add("proto-mode");
-    protoFrames=p.proto.frames;
-    showProtoFrame(p.proto.start);
-    return;
-  }
-  shell.classList.remove("proto-mode");
+  shell.classList.add("proto-mode");     // keeps the modal sized to a page
   proto.style.display="none";
-  demoFrames=p.shots||[];
+  // every project is a sequence of pictures to look through
+  demoFrames=p.proto ? Object.values(p.proto.frames).map(f=>[f.src,f.cap]) : (p.shots||[]);
   if(!demoFrames.length){ wrap.style.display="none"; return; }
   wrap.style.display="";
   document.getElementById("m-demo-dots").innerHTML=
@@ -150,7 +166,7 @@ function buildDemo(p){
   document.querySelectorAll("#m-demo-dots button").forEach((d,i)=>d.addEventListener("click",()=>{clearInterval(demoTimer);goFrame(i);}));
   demoAt=0; renderFrame();
   wrap.classList.toggle("single",demoFrames.length===1);
-  if(demoFrames.length>1) demoTimer=setInterval(()=>goFrame(demoAt+1),3800);
+  // no timer: the reader moves through them
 }
 
 // ---- prototype mode: navigate the screenshots like the real thing ----
@@ -227,6 +243,8 @@ document.querySelectorAll("[data-open]").forEach(el=>{
 document.querySelector(".modal").addEventListener("scroll",function(){
   this.classList.toggle("scrolled",this.scrollTop>12);
 },{passive:true});
+document.getElementById("m-prev").addEventListener("click",()=>goFrame(demoAt-1));
+document.getElementById("m-next").addEventListener("click",()=>goFrame(demoAt+1));
 document.getElementById("m-close").addEventListener("click",closeProject);
 overlay.addEventListener("click",e=>{
   if(e.target===overlay||e.target.classList.contains("modal-wrap"))closeProject();
@@ -244,6 +262,7 @@ function setupFilter(filterId,itemSelector){
     pill.addEventListener("click",()=>{
       box.querySelectorAll("span").forEach(s=>s.classList.remove("on"));
       pill.classList.add("on");
+      placeMarker(box,"span.on");
       const f=pill.dataset.f;
       document.querySelectorAll(itemSelector).forEach(el=>{
         el.style.display=(f==="all"||(el.dataset.tags||"").split(" ").includes(f))?"":"none";
@@ -259,7 +278,8 @@ let lastY=window.scrollY;
 window.addEventListener("scroll",()=>{
   const y=window.scrollY;
   if(y>lastY+8&&y>90){navEl.classList.add("nav-hidden");}
-  else if(y<lastY-8){navEl.classList.remove("nav-hidden");}
+  else if(y<=4){navEl.classList.remove("nav-hidden");}   // only at the very top,
+                                                         // so it never drops onto the reading
   if(Math.abs(y-lastY)>8)lastY=y;
 },{passive:true});
 

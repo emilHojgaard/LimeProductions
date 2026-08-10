@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emil Højgaard Nielsen — Software Designer</title>
 <meta name="description" content="Portfolio of Emil Højgaard Nielsen — MSc in Software Design, IT University of Copenhagen. Web apps, RAG-based AI systems, cybersecurity.">
-<link rel="stylesheet" href="styles.css?v=1786358285">
+<link rel="stylesheet" href="styles.css?v=1786358772">
 </head>
 <body>
 <nav>
@@ -247,7 +247,12 @@
       <div class="demo-stage"><img id="m-demo-img" src="" alt=""></div>
       <div class="demo-bar">
         <p class="demo-cap" id="m-demo-cap"></p>
-        <div class="demo-nav"><span class="demo-step" id="m-demo-step"></span><div class="demo-dots" id="m-demo-dots"></div></div>
+        <div class="demo-nav">
+          <button type="button" class="demo-arrow" id="m-prev" aria-label="Previous picture">&#8592;</button>
+          <span class="demo-step" id="m-demo-step"></span>
+          <button type="button" class="demo-arrow" id="m-next" aria-label="Next picture">&#8594;</button>
+          <div class="demo-dots" id="m-demo-dots"></div>
+        </div>
       </div>
     </div>
     <div class="body">
@@ -263,6 +268,6 @@
 </div>
 
 
-<script src="app.js?v=1786358285"></script>
+<script src="app.js?v=1786358772"></script>
 </body>
 </html>
