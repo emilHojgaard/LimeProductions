@@ -613,15 +613,15 @@ html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
   border-color:var(--ink);outline:none}
 
 /* =====================================================================
-   STONE
-   The page and the modal move onto grey-beige board with warm dark ink.
-   The bookmarks keep the sea, so they read as something belonging to the
-   project rather than to the paper around it — and the accent is drawn
-   from that same water, which gives the blue a reason to be there.
+   WHITE
+   The page and the modal move onto plain white, no photo underneath.
+   The bookmarks keep the sea, so they read as something belonging to
+   the project rather than to the page around it — and the accent is
+   still drawn from that same water, unchanged from Stone.
    ===================================================================== */
-body::before{background-image:url(assets/bg-stone.jpg)}
-html{background-color:#d9d5c9}
-html.modal-open{background-color:#7d8285}
+body::before{background-image:none;background-color:#ffffff}
+html{background-color:#ffffff}
+html.modal-open{background-color:#9198a0}   /* the overlay scrim, flattened over white */
 
 :root{
   --ink:#26241d;                                        /* warm, not black */
@@ -630,27 +630,27 @@ html.modal-open{background-color:#7d8285}
   --line:color-mix(in srgb,var(--ink) 26%,transparent);
   --border:var(--line);
   --rule:var(--ink);
-  --sky:rgba(0,0,0,.07);
-  --sky2:rgba(0,0,0,.04);
-  --card:rgba(255,255,255,.72);
+  --sky:rgba(0,0,0,.05);
+  --sky2:rgba(0,0,0,.03);
+  --card:#ffffff;
   --accent:#0d5f7a;                                     /* the sea */
   --on-accent:#ffffff;
 }
 
-/* the modal sits on the same board, so its type can simply be dark again */
+/* the modal sits on the same white, so its type can simply be dark again */
 .modal-wrap{
-  --pic:url(assets/bg-stone.jpg);
+  --pic:none;
   --veil:rgba(255,255,255,0);
-  --ground:#d9d5c9;
+  --ground:#ffffff;
   --ink:#26241d;
   --muted:rgba(38,36,29,.80);
   --faint:rgba(38,36,29,.56);
   --line:rgba(38,36,29,.26);
   --border:var(--line);
-  --bg:#d9d5c9;
-  --card:rgba(255,255,255,.70);
-  --sky:rgba(0,0,0,.07);
-  --sky2:rgba(0,0,0,.04);
+  --bg:#ffffff;
+  --card:#ffffff;
+  --sky:rgba(0,0,0,.05);
+  --sky2:rgba(0,0,0,.03);
   --accent:#0d5f7a;
   --on-accent:#ffffff;
 }
@@ -693,7 +693,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none}
 .navind{
   position:absolute;pointer-events:none;z-index:-1;
   border:3px solid transparent;border-radius:999px;
-  background-image:url(assets/bg-stone.jpg),url(assets/bg-sea.jpg);
+  background-image:linear-gradient(#fff,#fff),url(assets/bg-sea.jpg);
   background-clip:padding-box,border-box;
   background-origin:border-box,border-box;
   background-size:cover,cover;background-position:center,center;
@@ -729,7 +729,7 @@ nav .name{
 /* the marker carries the state, so the active word only darkens its type */
 .filters .on{background:none;border:3px solid transparent;color:var(--ink);font-weight:700}
 .filters .navind{border:3px solid transparent;border-radius:999px;padding:0;
-  background-image:url(assets/bg-stone.jpg),url(assets/bg-sea.jpg);
+  background-image:linear-gradient(#fff,#fff),url(assets/bg-sea.jpg);
   background-clip:padding-box,border-box;
   background-origin:border-box,border-box;
   background-size:cover,cover;background-position:center,center;
