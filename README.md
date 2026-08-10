@@ -10,7 +10,7 @@ Broadsheet-editorial layout: sharp corners, flat surfaces, bold Georgia serif he
 
 Five pages, routed client-side by hash: Home, Projects, Journey, Skills & Certs, Contact. Project cards open detail modals holding a captioned gallery of the running application, browsed with the arrows, the dots or the arrow keys; projects with two versions carry a bookmark for each. A single marker made of the sea photograph carries every state on the site — it lies as a line beneath the header on the front page, gathers into a ring around whichever section is open, and crawls along the row on each change, with the filter rows on Projects and Skills speaking the same language. The nav hides on scroll down and returns at the top of the page.
 
-Screenshots were captured from the applications themselves: the two live sites directly, and the other three by cloning each repository, seeding its database where it had one, and running it locally.
+Screenshots were captured from the applications themselves: the two live sites directly, and the other three by cloning each repository, seeding its database where it had one, and running it locally. The screens that sit behind a login — the two games' admin and data pages, and a game session — were taken from a signed-in session.
 
 ## Structure
 
