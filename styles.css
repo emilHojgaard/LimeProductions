@@ -170,6 +170,9 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .edurow h3{font-family:var(--serif);font-weight:400;font-size:19px}
 .edurow p{font-size:13.5px;color:var(--muted);margin-top:2px}
 .edulink{font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
+/* the BA row carries two downloads — the diploma and, under it, the
+   Sorbonne admission letter — stacked in the same right-hand column */
+.edulinks{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 
 .contact .wrap{padding:64px 32px 140px}
 /* a small kicker in place of the removed headline, with the water itself
@@ -182,7 +185,10 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .contact-kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
   background-image:url(assets/bg-sea.jpg);background-size:cover;background-position:center;
   background-repeat:no-repeat;background-attachment:fixed}
-.clist{margin-top:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:780px}
+/* four items now (CV and Location moved out) — a fixed two columns
+   reads as a deliberate 2x2 rather than three-then-one left over */
+.clist{margin-top:0;display:grid;grid-template-columns:repeat(2,minmax(200px,1fr));gap:20px;max-width:460px}
+@media(max-width:480px){.clist{grid-template-columns:1fr}}
 /* the whole block is centered as a group, and now the text inside each
    card is centered too, rather than left-aligned like the site's other cards */
 .clist.centered{margin:0 auto}
@@ -193,7 +199,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .citem .k{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--faint)}
 .citem .v{font-weight:600;font-size:15.5px;margin-top:4px;color:var(--ink)}
 
-footer{padding:50px 0;border-top:1px solid var(--border)}
+footer{padding:26px 0;border-top:1px solid var(--border)}
 footer .wrap{display:flex;gap:18px 28px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;font-size:14px;color:var(--muted)}
 footer .fcol{display:flex;flex-direction:column;gap:3px}
 footer .n{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink)}
