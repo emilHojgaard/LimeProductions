@@ -174,7 +174,10 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
    Sorbonne admission letter — stacked in the same right-hand column */
 .edulinks{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 
-.contact .wrap{padding:64px 32px 140px}
+/* the page is just a kicker and four items now — the old 140px of
+   bottom air was sized for a much taller page and pushed the footer
+   down far enough to force a scrollbar on shorter viewports */
+.contact .wrap{padding:64px 32px 56px}
 /* a small kicker in place of the removed headline, with the water itself
    under it — same picture as every ring and active mark on the site,
    here just standing still — running the full width of the words
