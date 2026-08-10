@@ -202,7 +202,10 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .citem .k{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--faint)}
 .citem .v{font-weight:600;font-size:15.5px;margin-top:4px;color:var(--ink)}
 
-footer{padding:26px 0;border-top:1px solid var(--border)}
+/* one shared element, rendered once, sitting after every .page — so
+   its height is already identical everywhere; the reduced line-height
+   here (down from the body's loose 1.65) is what actually shrinks it */
+footer{padding:16px 0;border-top:1px solid var(--border);line-height:1.3}
 footer .wrap{display:flex;gap:18px 28px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;font-size:14px;color:var(--muted)}
 footer .fcol{display:flex;flex-direction:column;gap:3px}
 footer .n{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink)}
