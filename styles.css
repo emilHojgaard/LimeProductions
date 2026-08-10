@@ -664,61 +664,33 @@ html.modal-open{background-color:#7d8285}
   background-repeat:no-repeat;background-attachment:fixed;
   color:#ffffff}
 
-/* the navigation underlines each link with a bar of the water. The bar is
-   faded until that page is the one you are on, the way the bookmarks are. */
-nav a.pl{position:relative;text-decoration:none;background:none}
-nav a.pl::after{content:"";position:absolute;left:0;right:0;bottom:3px;height:3px;
-  background-color:#16a7d5;
-  background-image:url(assets/bg-sea.jpg);
-  background-size:cover;background-position:center;
-  background-repeat:no-repeat;background-attachment:fixed;
-  opacity:.38;transition:opacity .2s ease}
-nav a.pl:hover::after,nav a.pl:focus-visible::after{opacity:.68}
-nav a.pl.active::after{opacity:1}
-nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none;background:none}
 /* the links sit flush so the four bars meet as one unbroken line */
 nav .wrap{gap:0}
 nav .name{margin-right:auto;padding-right:14px}
 .filters .on,.chips span.active{border-color:transparent}
 
 
-/* The line belongs to the four links. Every link reserves the ring's
-   thickness as a transparent border, so nothing shifts when the page
-   changes; the active one simply colours it in. Its bottom edge sits
-   exactly where the line runs, so the ring and the line are one stroke
-   rather than two under the same word. */
-nav a.pl{border:3px solid transparent;border-radius:999px;padding:13px 24px;isolation:isolate}
-nav a.pl::after{left:-3px;right:-3px;bottom:-3px;height:3px;opacity:1}
+@media (prefers-reduced-motion: reduce){nav a.pl::before{transition:none}}
 
-
-nav a.pl.active::after{opacity:1}   /* the line runs on through the ring's own edge */
-
-
-
-/* the name is set in the water itself, darkened so it stays readable */
-nav .name{
-  background-image:url(assets/bg-sea.jpg);
-  background-size:cover;background-position:center;
-  background-repeat:no-repeat;background-attachment:fixed;
-  -webkit-background-clip:text;background-clip:text;
-  color:transparent}
-
-/* The ring lives on its own layer so it can be drawn rather than simply
-   appear: it is clipped away to the left and unclipped when the page
-   becomes active, which reads as the circle closing around the word from
-   left to right. It sits behind the text on the link's own layer, so the
-   board it paints inside itself — the same fixed frame as the page —
-   vanishes into the background instead of covering the word. */
-nav a.pl::before{
-  content:"";position:absolute;inset:-3px;z-index:-1;
+/* ===== ONE TRAVELLING MARKER =====
+   A single element carries the navigation's state. On the front page it
+   lies as a line beneath the links; choose a section and it gathers into
+   a ring around that word, then travels along the row on every later
+   change. Its two edges move on different curves, so the leading one
+   pulls ahead and the trailing one catches up — the stretch and gather
+   of something crawling rather than a box sliding. */
+nav .wrap{position:relative}
+nav a.pl{border:3px solid transparent;border-radius:999px;padding:13px 24px;background:none}
+nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none}
+.navind{
+  position:absolute;pointer-events:none;z-index:-1;
   border:3px solid transparent;border-radius:999px;
   background-image:url(assets/bg-stone.jpg),url(assets/bg-sea.jpg);
   background-clip:padding-box,border-box;
   background-origin:border-box,border-box;
   background-size:cover,cover;background-position:center,center;
   background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed;
-  clip-path:inset(0 100% 0 0);
-  transition:clip-path .5s cubic-bezier(.5,0,.2,1)}
-nav a.pl.active::before{clip-path:inset(0 0 0 0)}
-nav a.pl.active{color:var(--ink)}
-@media (prefers-reduced-motion: reduce){nav a.pl::before{transition:none}}
+  transition-property:left,right,top,height;
+  transition-duration:.62s,.62s,.42s,.42s;
+  transition-timing-function:cubic-bezier(.62,0,.3,1),cubic-bezier(.18,0,.12,1),ease,ease}
+@media (prefers-reduced-motion: reduce){.navind{transition-duration:0s}}

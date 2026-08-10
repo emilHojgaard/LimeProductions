@@ -70,7 +70,31 @@ function show(p){
     document.querySelectorAll('[data-nav="'+x+'"]').forEach(a=>a.classList.toggle("active",x===p));
   });
   window.scrollTo({top:0});
+  requestAnimationFrame(placeNavMarker);
 }
+// the marker is a line across the links until a section is chosen,
+// then a ring around it; it travels between the two
+function placeNavMarker(){
+  const wrap=document.querySelector("nav .wrap"), ind=document.querySelector(".navind");
+  if(!wrap||!ind) return;
+  const links=[...wrap.querySelectorAll("a.pl")]; if(!links.length) return;
+  const wb=wrap.getBoundingClientRect();
+  const on=wrap.querySelector("a.pl.active");
+  if(on){
+    const r=on.getBoundingClientRect();
+    ind.style.left=(r.left-wb.left)+"px";
+    ind.style.right=(wb.right-r.right)+"px";
+    ind.style.top=(r.top-wb.top)+"px";
+    ind.style.height=r.height+"px";
+  }else{
+    const f=links[0].getBoundingClientRect(), l=links[links.length-1].getBoundingClientRect();
+    ind.style.left=(f.left-wb.left)+"px";
+    ind.style.right=(wb.right-l.right)+"px";
+    ind.style.top=(l.bottom-wb.top-3)+"px";
+    ind.style.height="3px";
+  }
+}
+window.addEventListener("resize",placeNavMarker,{passive:true});
 window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
 show(location.hash.slice(1)||"home");
 
