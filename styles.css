@@ -760,7 +760,7 @@ nav .name{
    on, and one shorter is padded above and below in the colour that
    dominates its own edges. Nothing is ever inset from the sides, so no
    picture sits in a frame of its own. */
-.demo-stage{aspect-ratio:16/10;height:auto}
+.demo-stage{aspect-ratio:var(--demo-ratio,8/5);height:auto}
 .demo-stage img{width:100%;height:100%;object-fit:cover;object-position:center}
 /* the cards on Projects hold the same shape, so the thumbnail a reader
    clicks and the first picture they are shown are the same picture */

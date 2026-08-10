@@ -15,11 +15,12 @@ const projects = {
       {id:"v2",label:"Version 2",note:"",flag:"Own project · In progress",
        desc:"The successor, on the same retrieval core with a new identity — bots now carry several missions at different difficulties, chosen from a panel rather than a single fixed challenge.",
        links:[["GitHub","https://github.com/emilHojgaard/haccman-2.0"]],
-       shots:[["assets/shots/hacky-home.jpg?v=1786375643104","The new attract screen, listing every bot and its difficulty"],
-          ["assets/shots/hacky-choose.jpg?v=1786375643057","The same opponents rebuilt: each now carries several missions"],
-          ["assets/shots/hacky-play.jpg?v=1786375643183","A challenge in progress — the brief, the bot, and how it works, all in view"],
-          ["assets/shots/hacky-admin.jpg?v=1786375643001","Admin: every session by player, with each turn tagged by the strategy it used"],
-          ["assets/shots/hacky-tests.jpg?v=1786375643255","Automated runs scored by strategy — 360 attempts, ranked by what actually worked"]]}
+       ratio:"16/9",
+       shots:[["assets/shots/hacky-home.jpg?v=1786376366521","The new attract screen, listing every bot and its difficulty"],
+          ["assets/shots/hacky-choose.jpg?v=1786376366614","The same opponents rebuilt: each now carries several missions"],
+          ["assets/shots/hacky-play.jpg?v=1786376366680","A challenge in progress — the brief, the bot, and how it works, all in view"],
+          ["assets/shots/hacky-admin.jpg?v=1786376366744","Admin: every session by player, with each turn tagged by the strategy it used"],
+          ["assets/shots/hacky-tests.jpg?v=1786376366809","Automated runs scored by strategy — 360 attempts, ranked by what actually worked"]]}
     ],
     links:[]},
   pozo:{flag:"Client work · Live",title:"Escarleth Romo Pozo",
@@ -163,6 +164,10 @@ function buildDemo(p){
   demoFrames=p.proto ? Object.values(p.proto.frames).map(f=>[f.src,f.cap]) : (p.shots||[]);
   if(!demoFrames.length){ wrap.style.display="none"; return; }
   wrap.style.display="";
+  // most galleries share the site's 16:10 frame; a project whose own
+  // screens run wider (or taller) carries its own ratio instead, so it
+  // isn't stretched to fit a shape none of its pictures were captured in
+  document.querySelector(".demo-stage").style.setProperty("--demo-ratio",p.ratio||"8/5");
   document.getElementById("m-demo-dots").innerHTML=
     demoFrames.map((_,i)=>'<button type="button" aria-label="Frame '+(i+1)+'"></button>').join("");
   document.querySelectorAll("#m-demo-dots button").forEach((d,i)=>d.addEventListener("click",()=>{clearInterval(demoTimer);goFrame(i);}));
