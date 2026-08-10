@@ -257,9 +257,6 @@ footer .fine{color:var(--faint)}
 .band b{font-weight:500}
 .seclabel{border-top:4px double var(--ink);padding-top:18px}
 .sechead{border-top:4px double var(--ink);padding-top:18px}
-/* the filter row sits right above the first section now — a rule there
-   would be a second divider back to back with the one under the row */
-.skillsec:first-of-type .sechead{border-top:none;padding-top:0}
 .twocol{border-top:4px double var(--ink);padding-top:26px}
 .jrow{border-bottom:1px solid var(--sky)}
 .jrow:first-of-type{border-top:none}
@@ -705,6 +702,11 @@ nav a.pl{border:3px solid transparent;border-radius:999px;padding:13px 24px;back
 nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none}
 .navind{
   position:absolute;pointer-events:none;z-index:-1;
+  /* forces its own compositing layer — without it, the two-layer
+     background-clip trick below intermittently fails to paint at all
+     (or paints solid instead of hollow) once more than a couple of
+     these exist on one page, e.g. one ring per skill-chip group */
+  transform:translateZ(0);
   border:3px solid transparent;border-radius:999px;
   background-image:linear-gradient(#fff,#fff),url(assets/bg-sea.jpg);
   background-clip:padding-box,border-box;
