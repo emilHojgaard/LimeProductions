@@ -663,3 +663,13 @@ html.modal-open{background-color:#7d8285}
   background-size:cover;background-position:center;
   background-repeat:no-repeat;background-attachment:fixed;
   color:#ffffff}
+
+/* the navigation marks its page the same way, and nothing that carries
+   the water needs an outline as well */
+nav a.pl.active{
+  background-color:#16a7d5;
+  background-image:url(assets/bg-sea.jpg);
+  background-size:cover;background-position:center;
+  background-repeat:no-repeat;background-attachment:fixed;
+  color:#ffffff;text-decoration:none;border:none}
+.filters .on,.chips span.active{border-color:transparent}
