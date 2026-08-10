@@ -73,19 +73,24 @@ function show(p){
     document.querySelectorAll('[data-nav="'+x+'"]').forEach(a=>a.classList.toggle("active",x===p));
   });
   window.scrollTo({top:0});
-  requestAnimationFrame(()=>{placeNavMarker();placeFilterMarkers();});
+  requestAnimationFrame(()=>{placeNavMarker();placeFilterMarkers();placeChipMarkers();});
 }
 // the marker is a line across the links until a section is chosen,
 // then a ring around it; it travels between the two
 const LEAD="cubic-bezier(.18,0,.12,1)", TRAIL="cubic-bezier(.62,0,.3,1)";
 
-// the same travelling ring the navigation uses, for any row of choices
+// the same travelling ring the navigation uses, for any row of choices.
+// A chip group may have nothing active (untapped, or tapped back off),
+// which the nav and filter rows never do — so a missing target hides
+// the ring rather than leaving it stuck over the last thing picked.
 function placeMarker(row,activeSel){
   if(!row) return;
   let ind=row.querySelector(":scope > .navind");
   if(!ind){ ind=document.createElement("span"); ind.className="navind";
             ind.setAttribute("aria-hidden","true"); row.appendChild(ind); }
-  const on=row.querySelector(activeSel); if(!on) return;
+  const on=row.querySelector(activeSel);
+  if(!on){ ind.style.opacity="0"; return; }
+  ind.style.opacity="1";
   const rb=row.getBoundingClientRect(), r=on.getBoundingClientRect();
   const wasLeft=parseFloat(ind.style.left)||0, target=r.left-rb.left;
   const right=target>=wasLeft;
@@ -99,6 +104,10 @@ function placeMarker(row,activeSel){
 function placeFilterMarkers(){
   placeMarker(document.getElementById("proj-filters"),"span.on");
   placeMarker(document.getElementById("skill-filters"),"span.on");
+}
+// each "coding & tech" group is its own radio row, with its own ring
+function placeChipMarkers(){
+  document.querySelectorAll(".tg .chips").forEach(row=>placeMarker(row,"span.active"));
 }
 function placeNavMarker(){
   const wrap=document.querySelector("nav .wrap"), ind=document.querySelector(".navind");
@@ -129,7 +138,7 @@ function placeNavMarker(){
     ind.classList.add("line");
   }
 }
-window.addEventListener("resize",()=>{placeNavMarker();placeFilterMarkers();},{passive:true});
+window.addEventListener("resize",()=>{placeNavMarker();placeFilterMarkers();placeChipMarkers();},{passive:true});
 window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
 show(location.hash.slice(1)||"home");
 
@@ -292,13 +301,15 @@ window.addEventListener("scroll",()=>{
 
 document.querySelectorAll(".tg").forEach(tg=>{
   const detail=tg.querySelector(".tgdetail");
+  const chipsRow=tg.querySelector(".chips");
   tg.querySelectorAll(".chips span").forEach(ch=>{
     ch.addEventListener("click",()=>{
       const wasActive=ch.classList.contains("active");
       tg.querySelectorAll(".chips span").forEach(s=>s.classList.remove("active"));
-      if(wasActive){detail.textContent=detail.dataset.hint;return;}
+      if(wasActive){detail.textContent=detail.dataset.hint;placeMarker(chipsRow,"span.active");return;}
       ch.classList.add("active");
       detail.textContent=ch.dataset.desc;
+      placeMarker(chipsRow,"span.active");
     });
   });
 });

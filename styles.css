@@ -93,7 +93,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .filters{display:flex;gap:12px;flex-wrap:wrap;padding:26px 0 36px;font-size:13.5px;color:var(--muted)}
 /* Projects and Skills open directly on their filter row now — no title
    above it — so it needs the clearance a heading used to provide */
-.filters.top{padding-top:78px}
+.filters.top{padding-top:56px;justify-content:center}
 .filters span{border-radius:99px;padding:5px 15px;background:var(--sky2);cursor:pointer;user-select:none}
 .filters span:hover{color:var(--ink)}
 .filters .on{color:var(--ink);font-weight:600;background:var(--sky)}
@@ -129,7 +129,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .twocol p strong{color:var(--ink);font-weight:600}
 
 .skillsec{padding:26px 0 46px}
-.sechead{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.2vw,32px);margin-bottom:28px;display:flex;align-items:baseline;gap:14px}
+.sechead{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.2vw,32px);margin-bottom:28px;display:flex;align-items:baseline;gap:14px;justify-content:center}
 .secnum{font-style:italic;font-size:16px;color:var(--faint)}
 .secintro{color:var(--muted);font-size:14.5px;margin:-16px 0 24px;font-style:italic;font-family:var(--serif)}
 .langgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
@@ -171,15 +171,17 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .edurow p{font-size:13.5px;color:var(--muted);margin-top:2px}
 .edulink{font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
 
-.contact .wrap{padding:96px 32px 140px}
-/* a small kicker in place of the removed headline, with a short blue
-   stroke under it — the same accent used for every active mark on the
-   site, here just standing still as a piece of type rather than a ring */
+.contact .wrap{padding:64px 32px 140px}
+/* a small kicker in place of the removed headline, with the water itself
+   under it — same picture as every ring and active mark on the site,
+   here just standing still — running the full width of the words
+   rather than a fixed short stroke */
 .contact-kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:2.5px;
-  font-size:12px;font-weight:700;color:var(--muted);text-align:center;
-  margin:0 0 30px;padding-bottom:16px;position:relative}
-.contact-kicker::after{content:"";position:absolute;left:50%;bottom:0;
-  transform:translateX(-50%);width:60px;height:3px;background:var(--accent)}
+  font-size:15px;font-weight:700;color:var(--muted);
+  display:table;margin:0 auto 34px;padding-bottom:16px;position:relative}
+.contact-kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background-image:url(assets/bg-sea.jpg);background-size:cover;background-position:center;
+  background-repeat:no-repeat;background-attachment:fixed}
 .clist{margin-top:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:780px}
 /* the whole block is centered as a group, and now the text inside each
    card is centered too, rather than left-aligned like the site's other cards */
@@ -255,6 +257,9 @@ footer .fine{color:var(--faint)}
 .band b{font-weight:500}
 .seclabel{border-top:4px double var(--ink);padding-top:18px}
 .sechead{border-top:4px double var(--ink);padding-top:18px}
+/* the filter row sits right above the first section now — a rule there
+   would be a second divider back to back with the one under the row */
+.skillsec:first-of-type .sechead{border-top:none;padding-top:0}
 .twocol{border-top:4px double var(--ink);padding-top:26px}
 .jrow{border-bottom:1px solid var(--sky)}
 .jrow:first-of-type{border-top:none}
@@ -706,9 +711,9 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none}
   background-origin:border-box,border-box;
   background-size:cover,cover;background-position:center,center;
   background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed;
-  transition-property:left,right,top,height;
-  transition-duration:.62s,.62s,.42s,.42s;
-  transition-timing-function:cubic-bezier(.62,0,.3,1),cubic-bezier(.18,0,.12,1),ease,ease}
+  transition-property:left,right,top,height,opacity;
+  transition-duration:.62s,.62s,.42s,.42s,.22s;
+  transition-timing-function:cubic-bezier(.62,0,.3,1),cubic-bezier(.18,0,.12,1),ease,ease,ease}
 @media (prefers-reduced-motion: reduce){.navind{transition-duration:0s}}
 
 /* the name is set in the water itself */
@@ -763,14 +768,23 @@ nav .name{
 /* ===== skill chips, in the same visual language as the nav/filter rows =====
    Same pill, same border that only appears once something is picked —
    these are radio groups (one active per group, click again to clear),
-   so they read as the same kind of choice as the links above them,
-   not as bordered tags like the ones on the project cards. Picking one
-   still carries the water, the way every other "active" mark on the
-   site does — only the box around it is gone. */
+   so they read as the same kind of choice as the links above them —
+   ring around the pick, dark type, no fill — not as bordered tags like
+   the ones on the project cards, and not as a filled sea-blue pill
+   either. Each group is its own row and carries its own ring, hidden
+   when nothing in that group is picked. */
+.chips{position:relative}
 .chips span{border:3px solid transparent;border-radius:999px;
   padding:9px 18px;background:none;color:var(--muted)}
 .chips span:hover{color:var(--ink)}
-.chips span.active{font-weight:700}
+.chips span.active{background:none;color:var(--ink);font-weight:700}
+.chips .navind{border:3px solid transparent;border-radius:999px;padding:0;
+  background-image:linear-gradient(#fff,#fff),url(assets/bg-sea.jpg);
+  background-clip:padding-box,border-box;
+  background-origin:border-box,border-box;
+  background-size:cover,cover;background-position:center,center;
+  background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed;
+  opacity:0}
 @media (max-width:900px){.vtab{border-radius:20px 20px 0 0}}
 
 /* the bookmarks sit closer to the modal: the fixed min-width left a
