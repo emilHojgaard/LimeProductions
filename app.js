@@ -8,16 +8,15 @@ const projects = {
       {id:"v1",label:"Version 1",note:"Live",flag:"MSc thesis · Top marks",
        desc:"The thesis as it runs today: pick one of five bots, each guarding something it should not give up, and try to talk it into handing the secret over.",
        links:[["Visit hacc-man.com","https://hacc-man.com"],["GitHub","https://github.com/emilHojgaard/Haccman-EA"]],
-       proto:{start:"home",frames:{home:{src:"assets/shots/haccman-home.jpg",cap:"The arcade landing screen",hs:[{x:39,y:54,w:22,h:8,t:"choose",l:"Start"}]},
-          choose:{src:"assets/shots/haccman-choose.jpg",cap:"Five opponents, each with its own jailbreak challenge",hs:[{x:3.52,y:23.29,w:29.69,h:4.63,t:"play",l:"Dr. Chatbot"},{x:37.89,y:23.29,w:29.69,h:4.63,t:"play",l:"A.I. Anderson"},{x:72.27,y:23.29,w:29.69,h:4.63,t:"play",l:"Haisenberg"},{x:3.52,y:78.79,w:29.69,h:4.63,t:"play",l:"Sky"},{x:37.89,y:78.79,w:29.69,h:4.63,t:"play",l:"Ancor Man"}]},
-          play:{src:"assets/shots/haccman-play.jpg",cap:"Inside a challenge, facing the hospital bot",hs:[{x:79.38,y:75.13,w:13.59,h:2.5,t:"info",l:"Systeminfo"},{x:71.88,y:82.75,w:21.09,h:2,t:"choose",l:"Leave Fight (Esc)"}]},
-          info:{src:"assets/shots/haccman-info.jpg",cap:"The bot's system prompt, opened from inside the game",hs:[{x:64.84,y:7.31,w:31.25,h:2.38,t:"play",l:"Dr. Chatbot"},{x:71.88,y:39.33,w:21.09,h:0.95,t:"choose",l:"Leave Fight (Esc)"}]}}}},
+       shots:[["assets/shots/haccman-home.jpg","The arcade landing screen"],
+          ["assets/shots/haccman-choose.jpg","Five opponents, each guarding something it should not give up"],
+          ["assets/shots/haccman-play.jpg","Inside a challenge, facing the hospital bot"]]},
       {id:"v2",label:"Version 2",note:"",flag:"Own project · In progress",
        desc:"The successor, on the same retrieval core with a new identity — bots now carry several missions at different difficulties, chosen from a panel rather than a single fixed challenge.",
        links:[["GitHub","https://github.com/emilHojgaard/haccman-2.0"]],
-       proto:{start:"home",frames:{home:{src:"assets/shots/hacky-home.jpg",cap:"The rebuilt landing screen",hs:[{x:43,y:25,w:14,h:5,t:"choose",l:"Start"}]},
-          choose:{src:"assets/shots/hacky-choose.jpg",cap:"The same opponents on the new theme",hs:[{x:29.42,y:6.89,w:8.23,h:1.46,t:"play",l:"Dr. Chatbot"},{x:29.92,y:23.65,w:9.49,h:1.42,t:"play",l:"A.I. Anderson"},{x:29.92,y:37.3,w:7.3,h:1.42,t:"play",l:"Haisenberg"}]},
-          play:{src:"assets/shots/hacky-play.jpg",cap:"Inside a challenge",hs:[{x:28,y:19,w:45,h:4,t:"choose",l:"Close"}]}}}}
+       shots:[["assets/shots/hacky-home.jpg","The new attract screen, listing every bot and its difficulty"],
+          ["assets/shots/hacky-choose.jpg","The same opponents rebuilt: each now carries several missions"],
+          ["assets/shots/hacky-admin.jpg","The admin gate — the data view behind the game sits past this login"]]}
     ],
     links:[]},
   pozo:{flag:"Client work · Live",title:"Escarleth Romo Pozo",
@@ -227,7 +226,7 @@ function showVersion(p,i){
   else { visit.removeAttribute("href"); visit.innerHTML=""; }
   document.getElementById("m-links").innerHTML=links.filter(l=>l!==primary)
     .map(([t,h],n)=>'<a class="alink'+(n===0&&!primary?"":" dim")+'" href="'+h+'" target="_blank" rel="noopener">'+t+icon+"</a>").join("");
-  buildDemo(v.proto?v:p);
+  buildDemo((v.proto||v.shots)?v:p);
 }
 
 function closeProject(){

@@ -8,7 +8,7 @@ Personal portfolio site. MSc in Software Design, IT University of Copenhagen —
 
 Broadsheet-editorial layout: sharp corners, flat surfaces, bold Georgia serif headlines with uppercase sans kickers, and one full-width double rule opening each major section. The background is a raw ember-silk photograph with no veil, and the palette is drawn from it — dark brown ink, peach tints, burnt-orange accent.
 
-Five pages, routed client-side by hash: Home, Projects, Journey, Skills & Certs, Contact. Project cards open detail modals containing a captioned walk-through of the running application — advancing on its own, or by clicking the dots and pressing the arrow keys. The tag rows on Projects and Skills actually filter, and skill chips reveal a line about proficiency when tapped. The nav hides on scroll down and returns on scroll up.
+Five pages, routed client-side by hash: Home, Projects, Journey, Skills & Certs, Contact. Project cards open detail modals holding a captioned gallery of the running application, browsed with the arrows, the dots or the arrow keys; projects with two versions carry a bookmark for each. A single marker made of the sea photograph carries every state on the site — it lies as a line beneath the header on the front page, gathers into a ring around whichever section is open, and crawls along the row on each change, with the filter rows on Projects and Skills speaking the same language. The nav hides on scroll down and returns at the top of the page.
 
 Screenshots were captured from the applications themselves: the two live sites directly, and the other three by cloning each repository, seeding its database where it had one, and running it locally.
 

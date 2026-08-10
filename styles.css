@@ -707,14 +707,43 @@ nav .name{
    pixels thick as the ring rather than a top and bottom stacked */
 .navind.line{border-width:0 0 3px 0}
 
-/* ===== the travelling ring, reused by the filter rows ===== */
-.filters{position:relative}
-.filters span{border-radius:999px;padding:7px 16px;background:none;
-  border:2px solid color-mix(in srgb,var(--ink) 22%,transparent);color:var(--muted)}
-.filters span:hover{color:var(--ink)}
-/* the marker carries the state, so the active pill only darkens its type */
-.filters .on{background:none;border-color:transparent;color:var(--ink);font-weight:700}
-.filters .navind{border-width:3px}
+/* ===== the travelling ring, reused by the filter rows =====
+   The rows are the navigation again at a smaller size: bare words, no
+   boxes, and one ring of water that crawls to whichever is current. An
+   inactive option is drawn by its type alone — a border around it would
+   compete with the only mark that means anything here. */
+.filters{position:relative;gap:2px}
+/* :not(.navind) throughout — the marker is a span in this row too, and
+   would otherwise be stripped of the very water it is made of */
+.filters span:not(.navind){border:3px solid transparent;border-radius:999px;
+  padding:9px 18px;background:none;color:var(--muted)}
+.filters span:not(.navind):hover{color:var(--ink)}
+/* the marker carries the state, so the active word only darkens its type */
+.filters .on{background:none;border:3px solid transparent;color:var(--ink);font-weight:700}
+.filters .navind{border:3px solid transparent;border-radius:999px;padding:0;
+  background-image:url(assets/bg-stone.jpg),url(assets/bg-sea.jpg);
+  background-clip:padding-box,border-box;
+  background-origin:border-box,border-box;
+  background-size:cover,cover;background-position:center,center;
+  background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed}
+
+/* The first option of each row is its home — everything, unfiltered. It
+   keeps a line of the same water beneath it, faded, the way the header
+   lies as a line before any section is chosen; and it gives way the
+   moment the ring closes around it, so the two never read at once. */
+.filters span[data-f="all"]{position:relative;color:var(--ink)}
+.filters span[data-f="all"]::after{
+  content:"";position:absolute;left:18px;right:18px;bottom:3px;height:3px;
+  background-image:url(assets/bg-sea.jpg);
+  background-size:cover;background-position:center;
+  background-repeat:no-repeat;background-attachment:fixed;
+  opacity:.45;transition:opacity .34s ease}
+.filters span[data-f="all"].on::after{opacity:0}
+
+/* the bookmarks pick up the ring's curve on their outer edge, and stay
+   square where they meet the modal so the join holds */
+.vtab{border-radius:26px 0 0 26px}
+@media (max-width:900px){.vtab{border-radius:20px 20px 0 0}}
 
 /* stepping through the pictures */
 .demo-arrow{background:none;border:none;cursor:pointer;color:var(--muted);
