@@ -603,3 +603,52 @@ html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
   transition:background .16s ease,border-color .16s ease,color .16s ease}
 .visit:hover,.visit:focus-visible{background:var(--ink);color:var(--bg);
   border-color:var(--ink);outline:none}
+
+/* =====================================================================
+   STONE
+   The page and the modal move onto grey-beige board with warm dark ink.
+   The bookmarks keep the sea, so they read as something belonging to the
+   project rather than to the paper around it — and the accent is drawn
+   from that same water, which gives the blue a reason to be there.
+   ===================================================================== */
+body::before{background-image:url(assets/bg-stone.jpg)}
+html{background-color:#d9d5c9}
+html.modal-open{background-color:#7d8285}
+
+:root{
+  --ink:#26241d;                                        /* warm, not black */
+  --muted:color-mix(in srgb,var(--ink) 78%,transparent);
+  --faint:color-mix(in srgb,var(--ink) 62%,transparent);
+  --line:color-mix(in srgb,var(--ink) 26%,transparent);
+  --border:var(--line);
+  --rule:var(--ink);
+  --sky:rgba(0,0,0,.07);
+  --sky2:rgba(0,0,0,.04);
+  --card:rgba(255,255,255,.72);
+  --accent:#0d5f7a;                                     /* the sea */
+  --on-accent:#ffffff;
+}
+
+/* the modal sits on the same board, so its type can simply be dark again */
+.modal-wrap{
+  --pic:url(assets/bg-stone.jpg);
+  --veil:rgba(255,255,255,0);
+  --ground:#d9d5c9;
+  --ink:#26241d;
+  --muted:rgba(38,36,29,.80);
+  --faint:rgba(38,36,29,.56);
+  --line:rgba(38,36,29,.26);
+  --border:var(--line);
+  --bg:#d9d5c9;
+  --card:rgba(255,255,255,.70);
+  --sky:rgba(0,0,0,.07);
+  --sky2:rgba(0,0,0,.04);
+  --accent:#0d5f7a;
+  --on-accent:#ffffff;
+}
+/* the bookmarks keep the water */
+.vtab{--pic:url(assets/bg-sea.jpg); --ground:#16a7d5;
+      color:rgba(255,255,255,.62)}
+.vtab.on{color:#ffffff}
+.vtab:hover{color:rgba(255,255,255,.88)}
+.vtab.on:hover{color:#ffffff}
