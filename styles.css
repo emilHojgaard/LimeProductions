@@ -38,14 +38,15 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 }
 
 .hero{background:var(--bg)}
-.hero .wrap{padding-top:96px;padding-bottom:56px}
+.hero .wrap{padding-top:96px;padding-bottom:56px;text-align:center}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,52px);line-height:1.28;letter-spacing:-.3px;max-width:20em;text-wrap:balance}
 .hero mark{background:none;color:inherit;font-style:italic}
 /* the sub-line is the page's first element now that the headline is gone,
-   so it carries no top margin of its own — the wrap's own padding places it */
-.hero .sub{margin-top:0;color:var(--muted);font-size:15.5px;display:flex;gap:10px;flex-wrap:wrap}
+   so it carries no top margin of its own — the wrap's own padding places it.
+   Centered, with nothing else on the row to anchor it left. */
+.hero .sub{margin-top:0;color:var(--muted);font-size:15.5px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .hero .dot{color:var(--faint)}
-.hero .actions{margin-top:38px;display:flex;gap:34px;flex-wrap:wrap}
+.hero .actions{margin-top:38px;display:flex;gap:34px;flex-wrap:wrap;justify-content:center}
 .alink{font-weight:600;font-size:16px;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
 .alink svg{flex-shrink:0;transition:transform .18s}
 .alink:hover,.alink:focus-visible{text-decoration:underline;text-underline-offset:5px;outline:none}
@@ -56,8 +57,10 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 
 .band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-top:0;padding-bottom:10px}
 @media(max-width:600px){.band .wrap{grid-template-columns:1fr}}
-.band .cell{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:28px 26px}
-.band b{font-family:var(--serif);font-size:clamp(28px,3.6vw,40px);display:block;font-variant-numeric:tabular-nums}
+.band .cell{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:28px 26px;text-align:center}
+/* sized against the rest of the page's type, not as a headline of its own —
+   these sit right under a centered sub-line and shouldn't outweigh it */
+.band b{font-family:var(--serif);font-size:clamp(21px,2.2vw,26px);display:block;font-variant-numeric:tabular-nums}
 .band span{font-size:13px;color:var(--muted)}
 
 .explore{padding:80px 0 50px}
