@@ -745,17 +745,26 @@ nav .name{
 .vtab{border-radius:26px 0 0 26px}
 @media (max-width:900px){.vtab{border-radius:20px 20px 0 0}}
 
+/* the bookmarks sit closer to the modal: the fixed min-width left a
+   pocket of empty tab after the last letter. The column stretches every
+   tab to the widest of them, so they stay the same size without it. */
+.vtab{min-width:0;padding:0 7px 0 15px}
+
 /* ===== one frame, held still =====
    The reader is looking at a single screen the whole way through a
    project, so the frame must not move between pictures. Every shot is
-   laid on the same 1920x1080 canvas beforehand, padded out in the
-   application's own edge colour, which means the frame can be fixed
-   here without cropping anything or showing a band. */
-.demo-stage{aspect-ratio:16/9;height:auto}
+   laid on the same 1920x1200 canvas beforehand — 16:10, the shape most
+   of them were captured at, so fourteen of them fill it exactly. Each
+   is drawn at full width and never scaled down to fit: a page taller
+   than the frame keeps its top, which is the screenful a visitor lands
+   on, and one shorter is padded above and below in the colour that
+   dominates its own edges. Nothing is ever inset from the sides, so no
+   picture sits in a frame of its own. */
+.demo-stage{aspect-ratio:16/10;height:auto}
 .demo-stage img{width:100%;height:100%;object-fit:cover;object-position:center}
 /* the cards on Projects hold the same shape, so the thumbnail a reader
    clicks and the first picture they are shown are the same picture */
-.card .shot,.feat .shot{aspect-ratio:16/9}
+.card .shot,.feat .shot{aspect-ratio:16/10}
 .card .shot img,.feat .shot img{object-fit:cover;object-position:center}
 
 /* stepping through the pictures */
