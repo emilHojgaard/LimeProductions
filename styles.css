@@ -55,12 +55,12 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .alink.dim:hover{color:var(--ink)}
 @media (prefers-reduced-motion: reduce){.alink:hover svg{transform:none}}
 
-.band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-top:0;padding-bottom:10px}
+.band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding-top:0;padding-bottom:10px}
 @media(max-width:600px){.band .wrap{grid-template-columns:1fr}}
 .band .cell{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:28px 26px;text-align:center}
-/* sized against the rest of the page's type, not as a headline of its own —
-   these sit right under a centered sub-line and shouldn't outweigh it */
-.band b{font-family:var(--serif);font-size:clamp(17px,1.6vw,20px);display:block;font-variant-numeric:tabular-nums}
+/* quiet on purpose — a small aside under the sub-line, not a second
+   headline: modest size, no bold, cells pulled in close together */
+.band b{font-family:var(--serif);font-size:clamp(14px,1.1vw,16px);display:block;font-variant-numeric:tabular-nums}
 .band span{font-size:13px;color:var(--muted)}
 
 .explore{padding:80px 0 50px}
@@ -240,12 +240,11 @@ footer .fine{color:var(--faint)}
 .filters .on,.chips span.active{border:1.5px solid var(--ink);background:none;color:var(--ink)}
 /* ===== SPLIT A: MAJORS ONLY — one full-width double rule at each section start, nothing else ===== */
 .display{border-bottom:4px double var(--ink);padding-bottom:20px;margin-bottom:24px}
-/* every other major-section rule runs the full width of the viewport —
-   this one sits on the front page between two centered blocks, so it's
-   a short centered stroke instead, not a rule spanning the content */
-.band{position:relative;padding-top:18px}
-.band::before{content:"";display:block;width:100px;margin:0 auto;border-top:4px double var(--ink)}
+/* no rule here — the stats sit directly under the sub-line with nothing
+   marking the join, quiet enough that the divider was competing with them */
+.band{padding-top:0}
 .band .wrap{padding-top:18px}
+.band b{font-weight:500}
 .seclabel{border-top:4px double var(--ink);padding-top:18px}
 .sechead{border-top:4px double var(--ink);padding-top:18px}
 .twocol{border-top:4px double var(--ink);padding-top:26px}
