@@ -46,7 +46,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
    Centered, with nothing else on the row to anchor it left. */
 .hero .sub{margin-top:0;color:var(--muted);font-size:15.5px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .hero .dot{color:var(--faint)}
-.hero .actions{margin-top:38px;display:flex;gap:34px;flex-wrap:wrap;justify-content:center}
+.hero .actions{margin-top:64px;display:flex;gap:34px;flex-wrap:wrap;justify-content:center}
 .alink{font-weight:600;font-size:16px;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
 .alink svg{flex-shrink:0;transition:transform .18s}
 .alink:hover,.alink:focus-visible{text-decoration:underline;text-underline-offset:5px;outline:none}
@@ -171,12 +171,20 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .edurow p{font-size:13.5px;color:var(--muted);margin-top:2px}
 .edulink{font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
 
-.contact .wrap{padding:130px 32px 140px}
+.contact .wrap{padding:96px 32px 140px}
+/* a small kicker in place of the removed headline, with a short blue
+   stroke under it — the same accent used for every active mark on the
+   site, here just standing still as a piece of type rather than a ring */
+.contact-kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:2.5px;
+  font-size:12px;font-weight:700;color:var(--muted);text-align:center;
+  margin:0 0 30px;padding-bottom:16px;position:relative}
+.contact-kicker::after{content:"";position:absolute;left:50%;bottom:0;
+  transform:translateX(-50%);width:60px;height:3px;background:var(--accent)}
 .clist{margin-top:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:780px}
-/* the headline is gone, so the block of six is the whole page — centered
-   as a group; the text inside each card stays left-aligned, matching
-   every other card on the site */
+/* the whole block is centered as a group, and now the text inside each
+   card is centered too, rather than left-aligned like the site's other cards */
 .clist.centered{margin:0 auto}
+.clist.centered .citem{text-align:center}
 .citem{background:var(--card);border-radius:20px;padding:22px 26px;text-decoration:none;box-shadow:var(--shadow);transition:transform .18s}
 .citem:hover{transform:translateY(-3px)}
 @media (prefers-reduced-motion: reduce){.citem:hover{transform:none}}
@@ -751,6 +759,18 @@ nav .name{
 /* the bookmarks pick up the ring's curve on their outer edge, and stay
    square where they meet the modal so the join holds */
 .vtab{border-radius:26px 0 0 26px}
+
+/* ===== skill chips, in the same visual language as the nav/filter rows =====
+   Same pill, same border that only appears once something is picked —
+   these are radio groups (one active per group, click again to clear),
+   so they read as the same kind of choice as the links above them,
+   not as bordered tags like the ones on the project cards. Picking one
+   still carries the water, the way every other "active" mark on the
+   site does — only the box around it is gone. */
+.chips span{border:3px solid transparent;border-radius:999px;
+  padding:9px 18px;background:none;color:var(--muted)}
+.chips span:hover{color:var(--ink)}
+.chips span.active{font-weight:700}
 @media (max-width:900px){.vtab{border-radius:20px 20px 0 0}}
 
 /* the bookmarks sit closer to the modal: the fixed min-width left a
