@@ -687,10 +687,33 @@ nav .name{margin-right:auto;padding-right:14px}
    changes; the active one simply colours it in. Its bottom edge sits
    exactly where the line runs, so the ring and the line are one stroke
    rather than two under the same word. */
-nav a.pl{border:3px solid transparent;border-radius:999px;padding:10px 18px}
+nav a.pl{border:3px solid transparent;border-radius:999px;padding:13px 24px}
 nav a.pl::after{left:-3px;right:-3px;bottom:-3px;height:3px;opacity:.38}
 nav a.pl:hover::after,nav a.pl:focus-visible::after{opacity:.62}
-nav a.pl.active{border-color:#2ba0c4;color:var(--ink)}
-nav a.pl.active::after{opacity:0}       /* the ring's underside is the line here */
-/* the name is written in the water's own deeper tone */
-nav .name{color:var(--accent)}
+
+nav a.pl.active::after{opacity:1}   /* the line runs on through the ring's own edge */
+
+
+/* The ring is the photograph, not a colour resembling it. Two background
+   layers do it: the water fills the whole box, and the board is painted
+   back over everything inside the border — both locked to the same frame,
+   so the inner one vanishes into the page and only the ring is left.
+   Its lower edge occupies the same three pixels as the line, showing the
+   same water, so the line runs through it without a break. */
+nav a.pl.active{
+  color:var(--ink);border-color:transparent;
+  background-image:url(assets/bg-stone.jpg),url(assets/bg-sea.jpg);
+  background-clip:padding-box,border-box;
+  background-origin:border-box,border-box;
+  background-size:cover,cover;
+  background-position:center,center;
+  background-repeat:no-repeat,no-repeat;
+  background-attachment:fixed,fixed}
+
+/* the name is set in the water itself, darkened so it stays readable */
+nav .name{
+  background-image:linear-gradient(rgba(2,26,36,.55),rgba(2,26,36,.55)),url(assets/bg-sea.jpg);
+  background-size:cover,cover;background-position:center,center;
+  background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed;
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent}
