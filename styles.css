@@ -664,12 +664,17 @@ html.modal-open{background-color:#7d8285}
   background-repeat:no-repeat;background-attachment:fixed;
   color:#ffffff}
 
-/* the navigation marks its page the same way, and nothing that carries
-   the water needs an outline as well */
-nav a.pl.active{
+/* the navigation underlines each link with a bar of the water. The bar is
+   faded until that page is the one you are on, the way the bookmarks are. */
+nav a.pl{position:relative;text-decoration:none;background:none}
+nav a.pl::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:3px;
   background-color:#16a7d5;
   background-image:url(assets/bg-sea.jpg);
   background-size:cover;background-position:center;
   background-repeat:no-repeat;background-attachment:fixed;
-  color:#ffffff;text-decoration:none;border:none}
+  opacity:.38;transition:opacity .2s ease}
+nav a.pl:hover::after,nav a.pl:focus-visible::after{opacity:.68}
+nav a.pl.active::after{opacity:1}
+nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none;background:none}
+@media(max-width:760px){nav a.pl::after{left:7px;right:7px}}
 .filters .on,.chips span.active{border-color:transparent}
