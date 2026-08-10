@@ -680,3 +680,18 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none;background
 nav .wrap{gap:0}
 nav .name{margin-right:auto;padding-right:14px}
 .filters .on,.chips span.active{border-color:transparent}
+
+/* the line runs the whole width of the navigation, from under the name to
+   the right edge; the links only brighten their own stretch of it */
+nav .wrap{position:relative}
+nav .wrap::after{content:"";position:absolute;left:0;right:0;bottom:16px;height:3px;pointer-events:none;
+  background-color:#16a7d5;
+  background-image:url(assets/bg-sea.jpg);
+  background-size:cover;background-position:center;
+  background-repeat:no-repeat;background-attachment:fixed;
+  opacity:.38}
+nav a.pl::after{opacity:0;z-index:1}
+nav a.pl:hover::after,nav a.pl:focus-visible::after{opacity:.62}
+nav a.pl.active::after{opacity:1}
+/* and the page you are on is ringed in the same water */
+nav a.pl.active{border:1.5px solid #2ba0c4;border-radius:99px}
