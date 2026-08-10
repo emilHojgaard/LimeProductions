@@ -38,7 +38,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 }
 
 .hero{background:var(--bg)}
-.hero .wrap{padding-top:96px;padding-bottom:56px;text-align:center}
+.hero .wrap{padding-top:96px;padding-bottom:34px;text-align:center}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,52px);line-height:1.28;letter-spacing:-.3px;max-width:20em;text-wrap:balance}
 .hero mark{background:none;color:inherit;font-style:italic}
 /* the sub-line is the page's first element now that the headline is gone,
@@ -241,9 +241,11 @@ footer .fine{color:var(--faint)}
 /* ===== SPLIT A: MAJORS ONLY — one full-width double rule at each section start, nothing else ===== */
 .display{border-bottom:4px double var(--ink);padding-bottom:20px;margin-bottom:24px}
 /* every other major-section rule runs the full width of the viewport —
-   this one sits on the front page between two centered blocks, so it
-   stays inside the same measure as the content instead */
-.band .wrap{border-top:4px double var(--ink);padding-top:26px}
+   this one sits on the front page between two centered blocks, so it's
+   a short centered stroke instead, not a rule spanning the content */
+.band{position:relative;padding-top:18px}
+.band::before{content:"";display:block;width:100px;margin:0 auto;border-top:4px double var(--ink)}
+.band .wrap{padding-top:18px}
 .seclabel{border-top:4px double var(--ink);padding-top:18px}
 .sechead{border-top:4px double var(--ink);padding-top:18px}
 .twocol{border-top:4px double var(--ink);padding-top:26px}
