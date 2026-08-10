@@ -745,6 +745,15 @@ nav .name{
 .vtab{border-radius:26px 0 0 26px}
 @media (max-width:900px){.vtab{border-radius:20px 20px 0 0}}
 
+/* ===== the stage takes the shape of whatever it is showing =====
+   These are screens of real applications and they do not agree on a
+   proportion — a game at full HD, an admin table twice as wide as it is
+   tall, an opponent list that runs long. A fixed frame either crops one
+   of them or leaves a dead band of paper under another, so the stage
+   simply follows the picture: full width, nothing cut, no letterbox. */
+.demo-stage{aspect-ratio:auto;height:auto}
+.demo-stage img{width:100%;height:auto;object-fit:contain;object-position:center}
+
 /* stepping through the pictures */
 .demo-arrow{background:none;border:none;cursor:pointer;color:var(--muted);
   font-size:15px;line-height:1;padding:4px 8px;border-radius:99px}

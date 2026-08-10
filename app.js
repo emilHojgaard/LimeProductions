@@ -10,13 +10,16 @@ const projects = {
        links:[["Visit hacc-man.com","https://hacc-man.com"],["GitHub","https://github.com/emilHojgaard/Haccman-EA"]],
        shots:[["assets/shots/haccman-home.jpg","The arcade landing screen"],
           ["assets/shots/haccman-choose.jpg","Five opponents, each guarding something it should not give up"],
-          ["assets/shots/haccman-play.jpg","Inside a challenge, facing the hospital bot"]]},
+          ["assets/shots/haccman-play.jpg","Inside a challenge, facing the hospital bot"],
+          ["assets/shots/haccman-data.jpg","The data page: every session logged, readable and exportable — the research half of the thesis"]]},
       {id:"v2",label:"Version 2",note:"",flag:"Own project · In progress",
        desc:"The successor, on the same retrieval core with a new identity — bots now carry several missions at different difficulties, chosen from a panel rather than a single fixed challenge.",
        links:[["GitHub","https://github.com/emilHojgaard/haccman-2.0"]],
        shots:[["assets/shots/hacky-home.jpg","The new attract screen, listing every bot and its difficulty"],
           ["assets/shots/hacky-choose.jpg","The same opponents rebuilt: each now carries several missions"],
-          ["assets/shots/hacky-admin.jpg","The admin gate — the data view behind the game sits past this login"]]}
+          ["assets/shots/hacky-play.jpg","A challenge in progress — the brief, the bot, and how it works, all in view"],
+          ["assets/shots/hacky-admin.jpg","Admin: every session by player, with each turn tagged by the strategy it used"],
+          ["assets/shots/hacky-tests.jpg","Automated runs scored by strategy — 360 attempts, ranked by what actually worked"]]}
     ],
     links:[]},
   pozo:{flag:"Client work · Live",title:"Escarleth Romo Pozo",
