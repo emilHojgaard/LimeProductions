@@ -242,8 +242,12 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .citem{background:var(--card);border-radius:20px;padding:22px 26px;text-decoration:none;box-shadow:var(--shadow);transition:transform .18s}
 .citem:hover{transform:translateY(-3px)}
 @media (prefers-reduced-motion: reduce){.citem:hover{transform:none}}
-.citem .k{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--faint)}
-.citem .v{font-weight:600;font-size:15.5px;margin-top:4px;color:var(--ink)}
+/* no label above it any more — the value is the whole card, so it
+   carries its own underline rather than relying on a caption to say
+   what kind of link it is */
+.citem .v{font-weight:600;font-size:15.5px;color:var(--ink);
+  text-decoration:underline;text-decoration-color:var(--accent);
+  text-underline-offset:4px;text-decoration-thickness:1.5px}
 
 /* one shared element, rendered once, sitting after every .page — so
    its height is already identical everywhere; the reduced line-height
