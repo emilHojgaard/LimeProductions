@@ -209,14 +209,20 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .edurow p{font-size:13.5px;color:var(--muted);margin-top:2px}
 .edulink{font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
 /* the BA row carries two downloads — the diploma and, under it, the
-   Sorbonne admission letter — stacked in the same right-hand column */
-/* each .edurow's third grid column ends flush with the row's own right
-   edge regardless of how wide that column's content makes it — so a
-   single link on any other row always sits right-flush. Right-aligning
-   these two against each other is what actually lines "View diploma"
+   Sorbonne admission letter — stacked in the same right-hand column.
+   Each .edurow's third grid column ends flush with the row's own right
+   edge regardless of how wide that column's content makes it, so a
+   single link on any other row always sits right-flush there — right-
+   aligning these two against each other is what lines "View diploma"
    up with that same edge; left would line it up with nothing but the
    other link below it. */
 .edulinks{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+@media(max-width:640px){
+  /* the row collapses to one column here, so there's no shared right
+     edge across rows to line up with any more — it reads as a plain
+     list instead, and should sit left like every other link in it */
+  .edulinks{align-items:flex-start}
+}
 
 /* the page is just a kicker and four items now — the old 140px of
    bottom air was sized for a much taller page and pushed the footer
