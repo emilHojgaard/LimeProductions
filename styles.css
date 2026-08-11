@@ -228,7 +228,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
    rather than a fixed short stroke */
 .contact-kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:2.5px;
   font-size:15px;font-weight:700;color:var(--muted);
-  display:table;margin:0 auto 34px;padding-bottom:16px;position:relative}
+  display:table;margin:0 auto 58px;padding-bottom:16px;position:relative}
 .contact-kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
   background-image:url(assets/bg-sea.jpg);background-size:cover;background-position:center;
   background-repeat:no-repeat;background-attachment:fixed}
