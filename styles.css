@@ -53,13 +53,21 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
   nav.menu-open .burger span:nth-child(2){opacity:0}
   nav.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-  /* the crawling ring is a horizontal-row idea; a stacked dropdown gets
-     a plain left bar on whichever link is current instead */
-  .navlinks{display:none;flex-direction:column;width:100%;gap:2px;padding:8px 0 18px}
+  /* the crawling animation is a horizontal-row idea, but the ring itself
+     — the same water, full circle — still belongs on whichever link is
+     current in the stacked list. Drawn directly on the link rather than
+     via the travelling .navind element, since nothing here needs to move. */
+  .navlinks{display:none;flex-direction:column;width:100%;gap:4px;padding:8px 0 18px}
   nav.menu-open .navlinks{display:flex}
   .navlinks .navind{display:none}
-  nav a.pl{padding:13px 6px 13px 14px;border-left:3px solid transparent;font-size:16px}
-  nav a.pl.active{border-left-color:var(--accent);text-decoration:none}
+  nav a.pl{padding:13px 20px;font-size:16px;border:3px solid transparent;border-radius:999px}
+  nav a.pl.active{
+    text-decoration:none;color:var(--ink);font-weight:700;
+    background-image:linear-gradient(#fff,#fff),url(assets/bg-sea.jpg);
+    background-clip:padding-box,border-box;
+    background-origin:border-box,border-box;
+    background-size:cover,cover;background-position:center,center;
+    background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed}
 }
 
 .hero{background:var(--bg)}
