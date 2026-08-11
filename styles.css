@@ -210,7 +210,13 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .edulink{font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
 /* the BA row carries two downloads — the diploma and, under it, the
    Sorbonne admission letter — stacked in the same right-hand column */
-.edulinks{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+/* each .edurow's third grid column ends flush with the row's own right
+   edge regardless of how wide that column's content makes it — so a
+   single link on any other row always sits right-flush. Right-aligning
+   these two against each other is what actually lines "View diploma"
+   up with that same edge; left would line it up with nothing but the
+   other link below it. */
+.edulinks{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 
 /* the page is just a kicker and four items now — the old 140px of
    bottom air was sized for a much taller page and pushed the footer
@@ -226,10 +232,9 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .contact-kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
   background-image:url(assets/bg-sea.jpg);background-size:cover;background-position:center;
   background-repeat:no-repeat;background-attachment:fixed}
-/* four items now (CV and Location moved out) — a fixed two columns
-   reads as a deliberate 2x2 rather than three-then-one left over */
-.clist{margin-top:0;display:grid;grid-template-columns:repeat(2,minmax(200px,1fr));gap:20px;max-width:460px}
-@media(max-width:480px){.clist{grid-template-columns:1fr}}
+/* three items now (Phone dropped) — one row */
+.clist{margin-top:0;display:grid;grid-template-columns:repeat(3,minmax(180px,1fr));gap:20px;max-width:700px}
+@media(max-width:640px){.clist{grid-template-columns:1fr;max-width:280px}}
 /* the whole block is centered as a group, and now the text inside each
    card is centered too, rather than left-aligned like the site's other cards */
 .clist.centered{margin:0 auto}
