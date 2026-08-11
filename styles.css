@@ -280,7 +280,6 @@ footer .fine{color:var(--faint)}
 .modal .body{padding:36px 42px 46px}
 .modal h3{font-family:var(--serif);font-weight:400;font-size:36px;margin-top:8px}
 .modal .desc{color:var(--muted);font-size:15.5px;margin-top:14px;max-width:60ch}
-.modal ul.points{margin-top:16px;padding-left:18px;color:var(--muted);font-size:14.5px;display:flex;flex-direction:column;gap:6px}
 .modal .kv{margin-top:24px;font-size:13.5px}
 .modal .kv .row{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:9px 0;border-top:1px solid var(--border)}
 .modal .kv .k{color:var(--faint);font-family:var(--serif);font-style:italic;font-size:14px}
@@ -351,7 +350,7 @@ footer{background:none}
 /* ===== PROJECT DEMO — walk-through of the running application ===== */
 .demo{border-bottom:1px solid var(--ink)}
 .demo-stage{background:var(--sky2);display:grid;place-items:center;aspect-ratio:16/10;overflow:hidden}
-.demo-stage img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.demo-stage img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;cursor:pointer}
 .demo-bar{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:12px 0 14px;flex-wrap:wrap}
 .demo-cap{font-size:13.5px;color:var(--muted);max-width:58ch;margin:0}
 .demo-nav{display:flex;align-items:center;gap:12px;margin-left:auto}
@@ -451,13 +450,10 @@ footer{background:none}
 /* pull the write-up up so its opening peeks below the prototype */
 .modal-wrap.proto-mode .modal .body{padding-top:20px}
 
-/* ===== TITLE ROW — the live site sits beside the title ===== */
+/* ===== TITLE ROW — the live site sits beside the title, styled like
+   every other link on the page now (underline + arrow), not a button ===== */
 .titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:8px}
-.visit{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
-  text-decoration:none;color:var(--bg);background:var(--ink);padding:9px 18px;white-space:nowrap;
-  display:inline-flex;align-items:center;gap:8px;transition:background .14s}
-.visit:hover{background:var(--accent);color:var(--on-accent)}
-.visit:empty{display:none}
+#m-visit:empty{display:none}
 
 /* ===== SCROLL CUE ===== */
 .scrollcue{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:10.5px;
@@ -685,13 +681,6 @@ html.modal-open::-webkit-scrollbar-thumb{background:rgba(61,33,19,.2);
 .chips span.active{background:var(--accent);color:var(--on-accent)}
 .card:focus-visible,.ex:focus-visible{outline-color:var(--accent)}
 .cert .meta a,.edulink{text-decoration-color:var(--accent)}
-
-/* the live link keeps its presence without a filled block behind it */
-.visit{background:transparent;color:var(--ink);
-  border:1.5px solid color-mix(in srgb,var(--ink) 70%,transparent);
-  transition:background .16s ease,border-color .16s ease,color .16s ease}
-.visit:hover,.visit:focus-visible{background:var(--ink);color:var(--bg);
-  border-color:var(--ink);outline:none}
 
 /* =====================================================================
    WHITE
