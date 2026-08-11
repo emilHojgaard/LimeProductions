@@ -29,6 +29,11 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1
 a{color:inherit}
 .page{display:none}
 .page.on{display:block;flex:1 0 auto}
+/* Home and Contact are short and meant to be looked at as one composition,
+   not a page you start reading at the top — centered in whatever room
+   the viewport leaves between nav and footer. Projects and Skills stay
+   block: they're meant to be scrolled, not centered in a viewport. */
+#page-home.on,#page-contact.on{display:flex;flex-direction:column;justify-content:center}
 
 nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px)}
 nav .wrap{display:flex;align-items:center;height:66px;gap:6px}
