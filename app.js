@@ -142,6 +142,21 @@ window.addEventListener("resize",()=>{placeNavMarker();placeFilterMarkers();plac
 window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
 show(location.hash.slice(1)||"home");
 
+// narrow screens collapse the three links behind a burger; wide screens
+// never see this button, so nothing here runs for them
+const navEl2=document.querySelector("nav"), burger=document.getElementById("burger");
+function closeMenu(){ navEl2.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false"); }
+burger.addEventListener("click",()=>{
+  const open=navEl2.classList.toggle("menu-open");
+  burger.setAttribute("aria-expanded",open?"true":"false");
+});
+document.getElementById("navlinks").querySelectorAll("a.pl").forEach(a=>a.addEventListener("click",closeMenu));
+document.addEventListener("click",e=>{
+  if(navEl2.classList.contains("menu-open")&&!navEl2.contains(e.target)) closeMenu();
+});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeMenu(); });
+window.addEventListener("resize",()=>{ if(window.innerWidth>760) closeMenu(); },{passive:true});
+
 const overlay=document.getElementById("overlay");
 let lastFocus=null;
 
@@ -293,6 +308,7 @@ const navEl=document.querySelector("nav");
 let lastY=window.scrollY;
 window.addEventListener("scroll",()=>{
   const y=window.scrollY;
+  if(navEl.classList.contains("menu-open"))return;   // never slide the open dropdown off-screen
   if(y>lastY+8&&y>90){navEl.classList.add("nav-hidden");}
   else if(y<=4){navEl.classList.remove("nav-hidden");}   // only at the very top,
                                                          // so it never drops onto the reading

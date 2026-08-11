@@ -36,10 +36,30 @@ nav .name{font-family:var(--serif);font-style:italic;font-size:24px;font-weight:
 nav a.pl{text-decoration:none;font-size:14.5px;color:var(--muted);padding:8px 14px;white-space:nowrap}
 nav a.pl:hover,nav a.pl:focus-visible{color:var(--ink);outline:none}
 nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:7px}
+/* transparent to layout on desktop — its children sit directly in nav
+   .wrap's flex row, same as before there was a wrapper at all */
+.navlinks{display:contents}
+.burger{display:none}
+
 @media(max-width:760px){
-  nav .wrap{gap:0;overflow-x:auto}
-  nav .name{font-size:15px;white-space:nowrap;padding-right:10px}
-  nav a.pl{font-size:12.5px;padding:6px 7px}
+  nav .wrap{height:66px;flex-wrap:wrap;row-gap:0}
+  nav.menu-open .wrap{height:auto}
+  nav .name{font-size:17px}
+  .burger{display:flex;flex-direction:column;justify-content:center;gap:5px;
+    width:34px;height:34px;padding:0;background:none;border:none;cursor:pointer}
+  .burger span{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;
+    transition:transform .2s ease,opacity .2s ease}
+  nav.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  nav.menu-open .burger span:nth-child(2){opacity:0}
+  nav.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* the crawling ring is a horizontal-row idea; a stacked dropdown gets
+     a plain left bar on whichever link is current instead */
+  .navlinks{display:none;flex-direction:column;width:100%;gap:2px;padding:8px 0 18px}
+  nav.menu-open .navlinks{display:flex}
+  .navlinks .navind{display:none}
+  nav a.pl{padding:13px 6px 13px 14px;border-left:3px solid transparent;font-size:16px}
+  nav a.pl.active{border-left-color:var(--accent);text-decoration:none}
 }
 
 .hero{background:var(--bg)}
@@ -177,7 +197,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:underline;text-
 .edulink{font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent);text-decoration-thickness:1.5px}
 /* the BA row carries two downloads — the diploma and, under it, the
    Sorbonne admission letter — stacked in the same right-hand column */
-.edulinks{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.edulinks{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
 
 /* the page is just a kicker and four items now — the old 140px of
    bottom air was sized for a much taller page and pushed the footer
@@ -734,6 +754,7 @@ nav a.pl.active{color:var(--ink);font-weight:600;text-decoration:none}
   transition-duration:.62s,.62s,.42s,.42s,.22s;
   transition-timing-function:cubic-bezier(.62,0,.3,1),cubic-bezier(.18,0,.12,1),ease,ease,ease}
 @media (prefers-reduced-motion: reduce){.navind{transition-duration:0s}}
+@media (prefers-reduced-motion: reduce){.burger span{transition:none}}
 
 /* the name is set in the water itself */
 nav .name{
@@ -779,6 +800,18 @@ nav .name{
   background-repeat:no-repeat;background-attachment:fixed;
   opacity:.45;transition:opacity .34s ease}
 .filters span[data-f="all"].on::after{opacity:0}
+
+/* narrow screens: "All"/"Everything" is home, so it sits alone on its
+   own centered row, with the rest of the row centered as a group below
+   it — a plain horizontal wrap wouldn't keep that grouping predictable
+   once labels are wide enough to break the row unevenly */
+@media(max-width:700px){
+  #proj-filters,#skill-filters{display:grid;justify-content:center;row-gap:8px}
+  #proj-filters{grid-template-columns:repeat(3,max-content);column-gap:6px}
+  #skill-filters{grid-template-columns:repeat(2,max-content);column-gap:6px}
+  #proj-filters span[data-f="all"],#skill-filters span[data-f="all"]{
+    grid-column:1/-1;justify-self:center}
+}
 
 /* the bookmarks pick up the ring's curve on their outer edge, and stay
    square where they meet the modal so the join holds */

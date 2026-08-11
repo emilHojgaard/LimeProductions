@@ -5,16 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emil Højgaard Nielsen — Software Designer</title>
 <meta name="description" content="Portfolio of Emil Højgaard Nielsen — MSc in Software Design, IT University of Copenhagen. Web apps, RAG-based AI systems, cybersecurity.">
-<link rel="stylesheet" href="styles.css?v=1786390724458">
+<link rel="stylesheet" href="styles.css?v=1786451842428">
 </head>
 <body>
 <nav>
   <div class="wrap">
     <a class="name" data-nav="home" href="#home">Emil Højgaard Nielsen</a>
-    <a class="pl" data-nav="projects" href="#projects">Projects</a>
-    <a class="pl" data-nav="skills" href="#skills">Skills &amp; Certificates</a>
-    <a class="pl" data-nav="contact" href="#contact">Contact</a>
-    <span class="navind" aria-hidden="true"></span>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks" id="navlinks">
+      <a class="pl" data-nav="projects" href="#projects">Projects</a>
+      <a class="pl" data-nav="skills" href="#skills">Skills &amp; Certificates</a>
+      <a class="pl" data-nav="contact" href="#contact">Contact</a>
+      <span class="navind" aria-hidden="true"></span>
+    </div>
   </div>
 </nav>
 
@@ -199,6 +204,6 @@
 </div>
 
 
-<script src="app.js?v=1786380702592"></script>
+<script src="app.js?v=1786451788917"></script>
 </body>
 </html>
