@@ -2,25 +2,24 @@
 const projects = {
   haccman:{title:"Haccman",
     desc:"A jailbreaking game where players try to break a RAG-based hospital-assistant chatbot, built as my master's thesis in Human-Computer Interaction, graded 12. Version 2 rebuilds it on the same retrieval core with a new identity.",
-    type:"University · Own",
     stack:"React · JavaScript · CSS · Supabase (PostgreSQL) · Edge Functions",
     versions:[
-      {id:"v1",label:"Version 1",note:"Live",status:"Live",
-       desc:"The thesis as it runs today: pick one of five bots, each guarding something it should not give up, and try to talk it into handing the secret over. Built on a custom retrieval pipeline - chunking and embeddings with metadata, combined with semantic and full-text search - and playable in the browser at hacc-man.com.",
+      {id:"v1",label:"Version 1",note:"Live",status:"Live",title:"Haccman",type:"University",
+       desc:"My master's thesis in Human-Computer Interaction, graded 12, exploring how people jailbreak an AI assistant as a form of creative problem solving: pick one of five bots, each guarding something it should not give up, and try to talk it into handing the secret over. Built on a custom RAG pipeline - chunking and embeddings with metadata, combined semantic and full-text search - and playable in the browser at hacc-man.com.",
        links:[["hacc-man.com","https://hacc-man.com"],["GitHub","https://github.com/emilHojgaard/Haccman-EA"]],
        shots:[["assets/shots/haccman-home.jpg?v=1786375642802","The arcade landing screen"],
-          ["assets/shots/haccman-choose.jpg?v=1786375642656","Five opponents, each guarding something it should not give up"],
-          ["assets/shots/haccman-play.jpg?v=1786375642865","Inside a challenge, facing the hospital bot"],
-          ["assets/shots/haccman-data.jpg?v=1786375642729","The data page: every session logged, readable and exportable — the research half of the thesis"]]},
-      {id:"v2",label:"Version 2",note:"",status:"Not live",
-       desc:"The successor, on the same retrieval core with a new identity: bots now carry several missions at different difficulties, chosen from a panel rather than a single fixed challenge.",
+          ["assets/shots/haccman-choose.jpg?v=1786375642656","Choose page"],
+          ["assets/shots/haccman-play.jpg?v=1786375642865","Ingame, facing the RAG-based hospital bot"],
+          ["assets/shots/haccman-data.jpg?v=1786375642729","The data page: every session logged, readable and exportable for research purposes."]]},
+      {id:"v2",label:"Version 2",note:"",status:"Not live",title:"Hacky",type:"Own",
+       desc:"The successor to Hacc-man, still in progress. On an identical Supabase backend, the layout has changed, and bots now carry several missions at different difficulties. I've also run 360 automated test games, with LLMs prompted to use different strategies, to get a better sense of how difficult each bot actually is.",
        links:[["GitHub","https://github.com/emilHojgaard/haccman-2.0"]],
        ratio:"16/9",
-       shots:[["assets/shots/hacky-home.jpg?v=1786376366521","The new attract screen, listing every bot and its difficulty"],
+       shots:[["assets/shots/hacky-home.jpg?v=1786376366521","The new landing page"],
           ["assets/shots/hacky-choose.jpg?v=1786376366614","The same opponents rebuilt: each now carries several missions"],
-          ["assets/shots/hacky-play.jpg?v=1786376366680","A challenge in progress — the brief, the bot, and how it works, all in view"],
+          ["assets/shots/hacky-play.jpg?v=1786376366680","New ingame layout"],
           ["assets/shots/hacky-admin.jpg?v=1786376366744","Admin: every session by player, with each turn tagged by the strategy it used"],
-          ["assets/shots/hacky-tests.jpg?v=1786376366809","Automated runs scored by strategy — 360 attempts, ranked by what actually worked"]]}
+          ["assets/shots/hacky-tests.jpg?v=1786376366809","Automated test runs with LLM opponents - 360 attempts, ranked by what actually worked"]]}
     ],
     links:[]},
   pozo:{title:"Escarleth Romo Pozo",
@@ -29,25 +28,25 @@ const projects = {
     stack:"React · CSS",
     versions:[
       {id:"v2",label:"Version 2",note:"Live",status:"Live",
-       desc:"The site as it stands today: a full rebuild with a new visual identity, acid green on black, with the works index reduced to three cut-out figures. Full design and build, across two shipped iterations.",
+       desc:"Currently the live version: a new visual identity for the website, acid green on black, with the works index reduced to three cut-out figures.",
        links:[["escarlethromopozo.com","https://escarlethromopozo.com"],["GitHub","https://github.com/emilHojgaard/PozoProductions2.0"]],
        proto:{start:"home",frames:{home:{src:"assets/shots/pozo-home.jpg?v=1786375643867",cap:"The landing page",hs:[{x:3.13,y:34.65,w:30,h:2.5,t:"about",l:"Bio"},{x:78.52,y:44.25,w:16.48,h:7.38,t:"works",l:"Works"},{x:79.45,y:53.25,w:15.55,h:7.38,t:"about",l:"About"},{x:74.32,y:63,w:20.68,h:6,t:"contact",l:"Contact"}]},
-      works:{src:"assets/shots/pozo-works.jpg?v=1786375644020",cap:"The works index — open any piece",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"},{x:2.5,y:29.5,w:30,h:32,t:"work",l:"La mala"},{x:35,y:29.5,w:30,h:32,t:"work",l:"Yielding"},{x:67.5,y:29.5,w:30,h:32,t:"work",l:"Tender points"}]},
+      works:{src:"assets/shots/pozo-works.jpg?v=1786375644020",cap:"The works page",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"},{x:2.5,y:29.5,w:30,h:32,t:"work",l:"La mala"},{x:35,y:29.5,w:30,h:32,t:"work",l:"Yielding"},{x:67.5,y:29.5,w:30,h:32,t:"work",l:"Tender points"}]},
       work:{src:"assets/shots/pozo-work.jpg?v=1786375643946",cap:"A single work in detail",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
       about:{src:"assets/shots/pozo-about.jpg?v=1786375643720",cap:"About the artist",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:86.61,y:3.88,w:5.58,h:2.13,t:"contact",l:"Contact"}]},
       contact:{src:"assets/shots/pozo-contact.jpg?v=1786375643792",cap:"The contact page",hs:[{x:3.13,y:3,w:22.57,h:4,t:"home",l:"Escarleth romo pozo"},{x:72.08,y:3.88,w:4.26,h:2.13,t:"works",l:"Works"},{x:79.47,y:3.88,w:4.02,h:2.13,t:"about",l:"About"}]}}}},
       {id:"v1",label:"Version 1",note:"",status:"Not live",
-       desc:"The first version, built under the title Shattered Pieces: full-bleed performance photography with a red display face laid over it, and the navigation tucked into the top-left corner.",
+       desc:"The original design, built under the title Shattered Pieces: full-bleed performance photography with a red display face laid over it, and the navigation tucked into the top-left corner. Since redesigned into the current live version.",
        links:[["GitHub","https://github.com/emilHojgaard/pozo-productions"]],
        proto:{start:"home",frames:{home:{src:"assets/shots/pozoA-home.jpg?v=1786375644237",cap:"The landing page",hs:[{x:4.46,y:18.63,w:4.71,h:2.63,t:"works",l:"Works"},{x:4.46,y:22.13,w:4.46,h:2.63,t:"about",l:"About"},{x:4.46,y:25.62,w:6.31,h:2.63,t:"contact",l:"Contact"}]},
-        works:{src:"assets/shots/pozoA-works.jpg?v=1786375644389",cap:"The works index — open any piece",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:82.87,y:4.44,w:3.47,h:2,t:"about",l:"About"},{x:88.84,y:4.44,w:4.91,h:2,t:"contact",l:"Contact"},{x:1.88,y:23.25,w:30.42,h:36.5,t:"work",l:"La mala"},{x:34.79,y:23.25,w:30.42,h:36.5,t:"work",l:"Yielding"},{x:67.71,y:23.25,w:30.42,h:36.5,t:"work",l:"Tender points"}]},
+        works:{src:"assets/shots/pozoA-works.jpg?v=1786375644389",cap:"The works page",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:82.87,y:4.44,w:3.47,h:2,t:"about",l:"About"},{x:88.84,y:4.44,w:4.91,h:2,t:"contact",l:"Contact"},{x:1.88,y:23.25,w:30.42,h:36.5,t:"work",l:"La mala"},{x:34.79,y:23.25,w:30.42,h:36.5,t:"work",l:"Yielding"},{x:67.71,y:23.25,w:30.42,h:36.5,t:"work",l:"Tender points"}]},
         work:{src:"assets/shots/pozoA-work.jpg?v=1786375644317",cap:"A single work in detail",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:76.71,y:4.44,w:3.66,h:2,t:"works",l:"Works"},{x:82.87,y:4.44,w:3.47,h:2,t:"about",l:"About"},{x:88.84,y:4.44,w:4.91,h:2,t:"contact",l:"Contact"}]},
         about:{src:"assets/shots/pozoA-about.jpg?v=1786375644092",cap:"About the artist",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:76.71,y:4.44,w:3.66,h:2,t:"works",l:"Works"},{x:88.84,y:4.44,w:4.91,h:2,t:"contact",l:"Contact"}]},
         contact:{src:"assets/shots/pozoA-contact.jpg?v=1786375644169",cap:"The contact page",hs:[{x:1.88,y:1.75,w:37.34,h:7.88,t:"home",l:"Shattered pieces / escarleth"},{x:76.71,y:4.44,w:3.66,h:2,t:"works",l:"Works"},{x:82.87,y:4.44,w:3.47,h:2,t:"about",l:"About"}]}}}}
     ],
     links:[]},
   safespace:{title:"Safe Space",
-    desc:"A moderated chat platform for students facing mental health challenges, built moderation-first with a React frontend on a Back4App backend.",
+    desc:"A moderated chat platform for students facing mental health challenges, built with a React frontend on a Back4App backend.",
     type:"University",
     stack:"React · JavaScript · CSS · Back4App",
     status:"Not live",
@@ -223,7 +222,6 @@ function showProtoFrame(id){
 function openProject(id){
   const p=projects[id]; if(!p) return;
   lastFocus=document.activeElement;
-  document.getElementById("m-title").textContent=p.title;
 
   const tabs=document.getElementById("m-vtabs");
   if(p.versions&&p.versions.length>1){
@@ -247,12 +245,15 @@ function openProject(id){
 // a project may ship several versions; each carries its own text, links and prototype
 function showVersion(p,i){
   const v=(i===null)?p:p.versions[i];
+  document.getElementById("m-title").textContent=v.title||p.title;
   document.getElementById("m-desc").textContent=v.desc||p.desc;
 
-  // Type and Stack are the project's own; Status is the only thing
-  // that can differ by version — live or not, nothing else
+  // Stack is the project's own; Type and Status can each differ by
+  // version — Haccman is University, its own Hacky rebuild is Own,
+  // and only one of the two is ever actually live
+  const type=v.type||p.type;
   const status=v.status||p.status||"Not live";
-  document.getElementById("m-kv").innerHTML=[["Type",p.type],["Status",status],["Stack",p.stack]]
+  document.getElementById("m-kv").innerHTML=[["Type",type],["Status",status],["Stack",p.stack]]
     .map(([k,val])=>'<div class="row"><span class="k">'+k+'</span><span>'+val+"</span></div>").join("");
 
   // the live site (never a GitHub link) sits by the title; everything
