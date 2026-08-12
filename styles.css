@@ -483,16 +483,14 @@ footer{background:none}
 /* nothing in the modal may scroll sideways */
 .modal{overflow-x:hidden}
 .proto,.demo{max-width:100%}
-/* on narrow screens the flank has no room — tabs return above the modal */
+/* on narrow screens the flank has no room for the tabs, and below that the
+   modal fills nearly the full viewport height too — so there is no clear
+   space above the card for floating tabs, and the close button's fixed
+   viewport position lands on top of the modal's own top edge. Both come
+   back into the flow here, as a plain header bar sitting above the card
+   instead of floating outside it, at the same width the tabs would
+   otherwise have moved above the modal. */
 @media(max-width:1100px){
-  .modal-top .vtabs{position:absolute;top:-44px;left:0;transform:none;flex-direction:row}
-}
-/* on a phone the modal already fills nearly the full height, so there is no
-   room above it for the tabs, and the close button's fixed viewport position
-   lands on top of the modal's own top edge — both come back into the flow
-   here, as a plain header bar sitting above the card instead of floating
-   outside it */
-@media(max-width:640px){
   .modal-top{position:static;display:flex;align-items:center;justify-content:space-between;
     gap:10px;padding-bottom:10px}
   .modal-top .vtabs{position:static;transform:none;flex-direction:row}
@@ -521,6 +519,12 @@ footer{background:none}
 .overlay .close{background:transparent;border:1.5px solid color-mix(in srgb,var(--ink) 55%,transparent);
   border-radius:12px;box-shadow:none;width:42px;height:42px;color:var(--ink);font-size:15px;
   transition:background .18s ease,border-color .18s ease}
+/* opening a project moves focus here by script, straight from a pointer
+   click — Chromium then paints the browser's own default focus ring (a
+   thick blue capsule) instead of treating it as focus-visible, so the
+   outline is dropped unconditionally and the same hover/focus treatment
+   below is what shows for keyboard users too */
+.overlay .close{outline:none}
 .overlay .close:hover,.overlay .close:focus-visible{background:color-mix(in srgb,var(--bg) 65%,transparent);
   border-color:var(--ink);outline:none}
 
