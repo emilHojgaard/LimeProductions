@@ -487,6 +487,18 @@ footer{background:none}
 @media(max-width:1100px){
   .modal-top .vtabs{position:absolute;top:-44px;left:0;transform:none;flex-direction:row}
 }
+/* on a phone the modal already fills nearly the full height, so there is no
+   room above it for the tabs, and the close button's fixed viewport position
+   lands on top of the modal's own top edge — both come back into the flow
+   here, as a plain header bar sitting above the card instead of floating
+   outside it */
+@media(max-width:640px){
+  .modal-top{position:static;display:flex;align-items:center;justify-content:space-between;
+    gap:10px;padding-bottom:10px}
+  .modal-top .vtabs{position:static;transform:none;flex-direction:row}
+  .modal-top .close{position:static;flex:none}
+  .vtab{min-width:0;height:42px;padding:0 10px}
+}
 
 /* ===== MODAL PALETTE — white paper with the photograph's yellow =====
    The silk runs orange (#fd9a34); the modal takes the neighbouring
